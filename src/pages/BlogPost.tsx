@@ -111,55 +111,28 @@ export default function BlogPost() {
       <section className="section">
         <div className="max-w-[800px] mx-auto">
           <div className="prose prose-lg reveal">
-            {/* Mock content - in production, this would come from CMS or markdown */}
-            <p className="text-data text-[var(--muted)] leading-relaxed mb-6">
-              {post.excerpt} This is a comprehensive exploration of the topic, diving deep into the key concepts and practical applications that matter most to our readers.
+            {/* Introduction */}
+            <p className="text-data text-[var(--muted)] leading-relaxed mb-8 text-lg">
+              {post.excerpt}
             </p>
 
-            <h2 className="text-h2 mt-12 mb-4">Key Insights</h2>
-            <p className="text-data text-[var(--muted)] leading-relaxed mb-6">
-              Through our extensive research and client work, we've identified several critical factors that drive success in this area. These insights are backed by real-world data and proven methodologies.
-            </p>
-
-            <div className="bento-card bento-card--dark my-8">
-              <h3 className="text-h3 text-[var(--base)] mb-3">Key Takeaway</h3>
-              <p className="text-data text-[var(--muted)]">
-                The most successful implementations combine strategic planning with iterative execution. Start with a clear vision, but remain flexible enough to adapt based on feedback and results.
-              </p>
-            </div>
-
-            <h2 className="text-h2 mt-12 mb-4">Implementation Strategy</h2>
-            <p className="text-data text-[var(--muted)] leading-relaxed mb-6">
-              When approaching this challenge, we recommend a phased approach that balances quick wins with long-term sustainability. This ensures momentum while building toward your ultimate goals.
-            </p>
-
-            <ul className="space-y-3 mb-6">
-              <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                <span className="text-[var(--safety)] mt-1">◆</span>
-                <span>Start with comprehensive research and stakeholder alignment</span>
-              </li>
-              <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                <span className="text-[var(--safety)] mt-1">◆</span>
-                <span>Define clear success metrics and KPIs before implementation</span>
-              </li>
-              <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                <span className="text-[var(--safety)] mt-1">◆</span>
-                <span>Iterate based on data and user feedback</span>
-              </li>
-              <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                <span className="text-[var(--safety)] mt-1">◆</span>
-                <span>Document learnings for future reference</span>
-              </li>
-            </ul>
-
-            <h2 className="text-h2 mt-12 mb-4">Looking Ahead</h2>
-            <p className="text-data text-[var(--muted)] leading-relaxed mb-6">
-              As the landscape continues to evolve, staying ahead requires both strategic foresight and tactical agility. The organizations that thrive will be those that embrace change while maintaining their core values and vision.
-            </p>
-
-            <p className="text-data text-[var(--muted)] leading-relaxed">
-              We're excited to see how these principles continue to shape the industry, and we're committed to sharing our learnings as we navigate this journey together.
-            </p>
+            {/* Content Sections */}
+            {post.sections && post.sections.length > 0 ? (
+              post.sections.map((section, index) => (
+                <div key={index} className="mb-8">
+                  <h2 className="text-h2 mt-12 mb-4">{section.heading}</h2>
+                  <p className="text-data text-[var(--muted)] leading-relaxed">
+                    {section.body}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <div className="mb-8">
+                <p className="text-data text-[var(--muted)] leading-relaxed">
+                  Content coming soon. Check back later for the full article.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Tags */}

@@ -13,6 +13,17 @@ export interface Project {
   client: string;
   tags: string[];
   thumbnail?: string;
+  challenge?: string;
+  solution?: string;
+  approach?: string[];
+  timeline?: string;
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+    company: string;
+  };
+  metrics?: Array<{ label: string; value: string }>;
 }
 
 export interface SubService {
@@ -41,6 +52,9 @@ export interface TeamMember {
   slug: string;
   role: string;
   bio: string;
+  fullBio?: string;
+  expertise?: string[];
+  experience?: string;
   email?: string;
   avatar?: string;
   social?: {
@@ -61,6 +75,10 @@ export interface BlogPost {
   author: string;
   tags: string[];
   content?: string;
+  sections?: Array<{
+    heading: string;
+    body: string;
+  }>;
 }
 
 export interface Job {

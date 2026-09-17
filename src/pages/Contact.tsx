@@ -157,23 +157,22 @@ export default function Contact() {
               <div className="space-y-3">
                 <div className="text-data text-[var(--muted)]">
                   <span className="text-[var(--safety)]">Email</span><br />
-                  hello@studionova.co
+                  <span className="italic opacity-60">[Email address to be added]</span>
                 </div>
                 <div className="text-data text-[var(--muted)]">
                   <span className="text-[var(--safety)]">Phone</span><br />
-                  +1 (415) 555-0132
+                  <span className="italic opacity-60">[Phone number to be added]</span>
                 </div>
                 <div className="text-data text-[var(--muted)]">
                   <span className="text-[var(--safety)]">Location</span><br />
-                  San Francisco, CA
+                  <span className="italic opacity-60">[Office address to be added]</span>
                 </div>
               </div>
             </div>
             <div className="bento-card">
               <h3 className="text-h3 mb-3">Response Time</h3>
               <div className="text-data text-[var(--muted)]">
-                We typically respond within <span className="text-[var(--safety)] font-bold">24 hours</span>. 
-                For urgent inquiries, call us directly.
+                We typically respond within <span className="text-[var(--safety)] font-bold">24 hours</span>.
               </div>
             </div>
             <div className="bento-card bento-card--safety">

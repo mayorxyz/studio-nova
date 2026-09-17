@@ -7,6 +7,9 @@ export const team: TeamMember[] = [
     slug: 'jane-doe',
     role: 'Creative Director',
     bio: '15 years leading creative teams at top agencies. Passionate about design that drives business results.',
+    fullBio: 'Jane brings over 15 years of experience in creative direction, having led teams at Pentagram,IDEO, and before co-founding Studio Nova. Her work has been recognized by AIGA, Communication Arts, and the Type Directors Club. She believes that great design isn\'t just beautiful—it solves real business problems and creates measurable impact. Jane holds an MFA from Rhode Island School of Design and regularly speaks at design conferences including AIGA Design Conference and HOW Design.',
+    expertise: ['Creative Direction', 'Brand Strategy', 'Visual Identity', 'Design Leadership', 'Art Direction'],
+    experience: '15 years',
     email: 'jane@studionova.co',
     social: {
       twitter: '@janedoe',
@@ -20,6 +23,9 @@ export const team: TeamMember[] = [
     slug: 'john-smith',
     role: 'Lead Developer',
     bio: 'Full-stack engineer with a passion for performance and clean code. React and TypeScript specialist.',
+    fullBio: 'John is a full-stack engineer who believes that great design deserves great implementation. With 10 years of experience building web applications, he specializes in React, TypeScript, and modern frontend architecture. Before Studio Nova, John worked at Vercel and contributed to several open-source projects including Next.js and Tailwind CSS. He\'s passionate about web performance, accessibility, and creating seamless user experiences that bridge the gap between design and development. John holds a BS in Computer Science from Stanford University.',
+    expertise: ['React', 'TypeScript', 'Next.js', 'Web Performance', 'Frontend Architecture', 'Accessibility'],
+    experience: '10 years',
     email: 'john@studionova.co',
     social: {
       twitter: '@johnsmith',
@@ -32,6 +38,9 @@ export const team: TeamMember[] = [
     slug: 'alex-chen',
     role: 'UX Designer',
     bio: 'Research-driven design for complex products. Expert in user testing and accessibility.',
+    fullBio: 'Alex is a UX designer who puts research at the heart of every project. With 8 years of experience designing complex B2B and B2C products, he specializes in user research, information architecture, and accessibility. Alex has led UX efforts for companies including Salesforce, Dropbox, and several Y Combinator startups. He\'s a certified Usability Analyst and advocates for inclusive design practices. Alex holds a Master\'s in Human-Computer Interaction from Carnegie Mellon University and is a frequent contributor to UX publications.',
+    expertise: ['User Research', 'Information Architecture', 'Wireframing', 'Prototyping', 'Usability Testing', 'Accessibility'],
+    experience: '8 years',
     email: 'alex@studionova.co',
     social: {
       linkedin: 'alexchen',
@@ -44,6 +53,9 @@ export const team: TeamMember[] = [
     slug: 'sarah-kim',
     role: 'Brand Strategist',
     bio: 'Building brands that resonate and endure. Strategy meets creativity in every project.',
+    fullBio: 'Sarah is a brand strategist who believes that great brands are built on authentic stories. With 12 years of experience in brand strategy and marketing, she helps companies define their positioning, voice, and visual identity. Sarah has worked with brands ranging from Fortune 500 companies to venture-backed startups, including projects for Nike, Airbnb, and numerous DTC brands. She holds an MBA from Wharton and a BA in Communications from UCLA. Sarah is passionate about helping brands find their unique voice in crowded markets.',
+    expertise: ['Brand Strategy', 'Positioning', 'Messaging', 'Market Research', 'Content Strategy', 'Brand Architecture'],
+    experience: '12 years',
     email: 'sarah@studionova.co',
     social: {
       twitter: '@sarahkim',
@@ -56,6 +68,9 @@ export const team: TeamMember[] = [
     slug: 'mike-johnson',
     role: 'Motion Designer',
     bio: 'Bringing brands to life through animation. 3D motion and visual storytelling expert.',
+    fullBio: 'Mike is a motion designer who transforms static brands into dynamic experiences. With 9 years of experience in motion graphics and animation, he specializes in brand animation, explainer videos, and interactive motion design. Mike has created motion work for brands including Google, Spotify, and Red Bull. He\'s proficient in After Effects, Cinema 4D, and Blender, and constantly explores new techniques in real-time rendering and interactive animation. Mike holds a BFA in Film and Animation from Rochester Institute of Technology.',
+    expertise: ['Motion Graphics', 'Brand Animation', '3D Animation', 'Video Production', 'After Effects', 'Cinema 4D'],
+    experience: '9 years',
     email: 'mike@studionova.co',
     social: {
       twitter: '@mikejohnson',
@@ -68,6 +83,9 @@ export const team: TeamMember[] = [
     slug: 'emma-wilson',
     role: 'Project Manager',
     bio: 'Keeping projects on track and teams aligned. Agile methodology and client communication specialist.',
+    fullBio: 'Emma is a project manager who ensures that great ideas become great outcomes. With 7 years of experience managing creative and technical projects, she specializes in agile methodology, client communication, and cross-functional team coordination. Emma has managed projects for agencies including IDEO, frog design, and several in-house creative teams. She\'s PMP and Scrum Master certified, and passionate about creating processes that empower creative teams to do their best work. Emma holds a BA in Business Administration from University of Michigan.',
+    expertise: ['Project Management', 'Agile Methodology', 'Client Relations', 'Team Coordination', 'Process Optimization', 'Risk Management'],
+    experience: '7 years',
     email: 'emma@studionova.co',
     social: {
       linkedin: 'emmawilson',
