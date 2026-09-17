@@ -1,0 +1,23 @@
+# robots.txt for Studio Nova
+# https://studionova.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://studionova.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

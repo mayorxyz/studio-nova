@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
+import Search from './components/Search';
 import {
   ShowcaseLayout,
   ExplainerLayout,
@@ -40,6 +41,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <ScrollProgress />
+      <Search />
       <Routes>
         {/* UI1: Showcase Layout — Grid-heavy pages */}
         <Route element={<ShowcaseLayout />}>

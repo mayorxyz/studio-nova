@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Studio Nova Blog</title>
+    <link>https://studionova.com/blog</link>
+    <description>Insights on design, business, technology, and the creative process from Studio Nova.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://studionova.com/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Design Trends Shaping 2024</title>
+      <link>https://studionova.com/blog/design-trends-2024</link>
+      <description>From AI-assisted design to brutalist revival — the trends defining this year.</description>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/design-trends-2024</guid>
+      <category>Industry News</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>AI in Design: Tool or Threat?</title>
+      <link>https://studionova.com/blog/ai-in-design</link>
+      <description>Exploring how AI is changing the creative landscape — and what it means for designers.</description>
+      <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/ai-in-design</guid>
+      <category>Industry News</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>The Psychology of Color in Branding</title>
+      <link>https://studionova.com/blog/color-psychology</link>
+      <description>How color choices influence perception and drive consumer behavior.</description>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/color-psychology</guid>
+      <category>Design Tips</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>5 Branding Mistakes Startups Make</title>
+      <link>https://studionova.com/blog/branding-mistakes</link>
+      <description>Avoid these common pitfalls when building your brand from scratch.</description>
+      <pubDate>Mon, 08 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/branding-mistakes</guid>
+      <category>Design Tips</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Webflow vs WordPress in 2024</title>
+      <link>https://studionova.com/blog/webflow-vs-wordpress</link>
+      <description>A practical comparison for teams deciding on their CMS platform.</description>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/webflow-vs-wordpress</guid>
+      <category>Tutorials</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>UX Case Study: FinFlow Redesign</title>
+      <link>https://studionova.com/blog/ux-case-study</link>
+      <description>How we increased user engagement by 2.5x through strategic UX improvements.</description>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/ux-case-study</guid>
+      <category>Case Studies</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Color Theory Basics for Designers</title>
+      <link>https://studionova.com/blog/color-theory-basics</link>
+      <description>Master the fundamentals of color theory to create more effective designs.</description>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/color-theory-basics</guid>
+      <category>Tutorials</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Client Onboarding: Our Process</title>
+      <link>https://studionova.com/blog/client-onboarding</link>
+      <description>How we set up every project for success from day one.</description>
+      <pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/client-onboarding</guid>
+      <category>Business</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Typography Tips for Better Readability</title>
+      <link>https://studionova.com/blog/typography-tips</link>
+      <description>Simple typography improvements that make a big difference in user experience.</description>
+      <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/typography-tips</guid>
+      <category>Design Tips</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Mobile-First Design in 2023</title>
+      <link>https://studionova.com/blog/mobile-first-design</link>
+      <description>Why mobile-first design matters more than ever and how to implement it effectively.</description>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/mobile-first-design</guid>
+      <category>Tutorials</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+
+    <item>
+      <title>Building Design Systems from Scratch</title>
+      <link>https://studionova.com/blog/design-systems</link>
+      <description>A step-by-step guide to creating scalable, maintainable design systems.</description>
+      <pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate>
+      <guid>https://studionova.com/blog/design-systems</guid>
+      <category>Tutorials</category>
+      <author>hello@studionova.com (Studio Nova)</author>
+    </item>
+  </channel>
+</rss>
