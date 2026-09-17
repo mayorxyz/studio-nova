@@ -1,18 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { projects } from '../data';
 
 const categories = ['All', 'Branding', 'Web Design', 'UI/UX', 'Motion'];
-
-const projects = [
-  { id: 1, title: 'Neon Coffee Co.', category: 'Branding', year: '2024', desc: 'Complete brand identity and e-commerce platform for specialty coffee.', result: '+340% Sales' },
-  { id: 2, title: 'FinFlow App', category: 'UI/UX', year: '2024', desc: 'Fintech mobile app redesign with focus on accessibility.', result: '2.5x Engagement' },
-  { id: 3, title: 'EcoThread', category: 'Web Design', year: '2024', desc: 'Sustainable fashion marketplace with Awwwards recognition.', result: 'Awwwards SOTD' },
-  { id: 4, title: 'SoundWave', category: 'Motion', year: '2023', desc: 'Music streaming brand animation and social content.', result: '50M+ Impressions' },
-  { id: 5, title: 'Vertex SaaS', category: 'Web Design', year: '2023', desc: 'Enterprise SaaS platform with complex data visualization.', result: '+180% Signups' },
-  { id: 6, title: 'Bloom Health', category: 'UI/UX', year: '2023', desc: 'Health and wellness app with gamification elements.', result: '4.8★ Rating' },
-  { id: 7, title: 'Atlas Ventures', category: 'Branding', year: '2023', desc: 'VC firm rebrand targeting next-gen founders.', result: 'Brand Refresh' },
-  { id: 8, title: 'Pulse Fitness', category: 'Motion', year: '2022', desc: 'Fitness brand launch campaign with 3D motion.', result: '12M Views' },
-];
 
 export default function Work() {
   const [filter, setFilter] = useState('All');
@@ -80,7 +70,7 @@ export default function Work() {
                 <span className="text-micro text-[var(--muted)]">{project.year}</span>
               </div>
               <h3 className="text-h3 mb-2">{project.title}</h3>
-              <p className="text-data text-[var(--muted)] mb-4">{project.desc}</p>
+              <p className="text-data text-[var(--muted)] mb-4">{project.description}</p>
               <div className="flex justify-between items-center border-t border-[var(--ink)] pt-3">
                 <span className="text-data font-semibold text-[var(--safety)]">{project.result}</span>
                 <span className="text-micro">View Case Study →</span>

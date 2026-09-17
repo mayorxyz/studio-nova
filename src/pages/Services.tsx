@@ -1,36 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-const services = [
-  {
-    num: '01',
-    title: 'Web Design & Development',
-    desc: 'Custom websites and web applications built with modern technologies. From marketing sites to complex platforms.',
-    features: ['Custom Design', 'Responsive Development', 'CMS Integration', 'Performance Optimization', 'SEO Foundation'],
-    tools: ['React', 'Next.js', 'Webflow', 'WordPress'],
-  },
-  {
-    num: '02',
-    title: 'Brand Identity',
-    desc: 'Strategic brand systems that communicate your values and create lasting impressions in your market.',
-    features: ['Brand Strategy', 'Logo Design', 'Visual Identity', 'Brand Guidelines', 'Naming & Messaging'],
-    tools: ['Figma', 'Illustrator', 'After Effects'],
-  },
-  {
-    num: '03',
-    title: 'UI/UX Design',
-    desc: 'User-centered design that converts. Research-driven interfaces for web and mobile applications.',
-    features: ['User Research', 'Information Architecture', 'Wireframing', 'Prototyping', 'Usability Testing'],
-    tools: ['Figma', 'Framer', 'Maze', 'Hotjar'],
-  },
-  {
-    num: '04',
-    title: 'Motion Graphics',
-    desc: 'Dynamic visual content that tells your story. Animation, video production, and interactive experiences.',
-    features: ['Brand Animation', 'Explainer Videos', 'Social Content', '3D Motion', 'Interactive'],
-    tools: ['After Effects', 'Cinema 4D', 'Blender', 'Premiere'],
-  },
-];
+import { services } from '../data';
 
 const process = [
   { step: '01', title: 'Discovery', desc: 'Deep dive into your business, audience, and goals.' },
@@ -80,11 +50,11 @@ export default function Services() {
             <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
               <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 items-start">
                 <div>
-                  <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.num}</span>
+                  <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.number}</span>
                   <h3 className="text-h3 mt-2">{service.title}</h3>
                 </div>
                 <div>
-                  <p className="text-data text-[var(--muted)] mb-4">{service.desc}</p>
+                  <p className="text-data text-[var(--muted)] mb-4">{service.description}</p>
                   <ul className="space-y-1">
                     {service.features.map((f) => (
                       <li key={f} className="text-data flex items-center gap-2">

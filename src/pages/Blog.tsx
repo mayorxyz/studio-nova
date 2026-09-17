@@ -1,18 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { blogPosts } from '../data';
 
 const categories = ['All', 'Design Tips', 'Business', 'Tutorials', 'Industry News', 'Case Studies'];
-
-const posts = [
-  { id: 1, title: 'Design Trends Shaping 2024', category: 'Industry News', date: '2024-01-15', readTime: '5 min', excerpt: 'From AI-assisted design to brutalist revival — the trends defining this year.' },
-  { id: 2, title: '5 Branding Mistakes Startups Make', category: 'Design Tips', date: '2024-01-08', readTime: '4 min', excerpt: 'Avoid these common pitfalls when building your brand from scratch.' },
-  { id: 3, title: 'UX Case Study: FinFlow Redesign', category: 'Case Studies', date: '2023-12-20', readTime: '8 min', excerpt: 'How we increased user engagement by 2.5x through strategic UX improvements.' },
-  { id: 4, title: 'Webflow vs WordPress in 2024', category: 'Tutorials', date: '2023-12-12', readTime: '6 min', excerpt: 'A practical comparison for teams deciding on their CMS platform.' },
-  { id: 5, title: 'The Psychology of Color in Branding', category: 'Design Tips', date: '2023-11-28', readTime: '7 min', excerpt: 'How color choices influence perception and drive consumer behavior.' },
-  { id: 6, title: 'AI in Design: Tool or Threat?', category: 'Industry News', date: '2023-11-15', readTime: '5 min', excerpt: 'Exploring how AI is changing the creative landscape — and what it means for designers.' },
-  { id: 7, title: 'Building a Design System from Scratch', category: 'Tutorials', date: '2023-10-30', readTime: '10 min', excerpt: 'A step-by-step guide to creating scalable, maintainable design systems.' },
-  { id: 8, title: 'Client Onboarding: Our Process', category: 'Business', date: '2023-10-15', readTime: '4 min', excerpt: 'How we set up every project for success from day one.' },
-];
 
 export default function Blog() {
   const [filter, setFilter] = useState('All');
@@ -30,7 +20,7 @@ export default function Blog() {
     return () => observer.disconnect();
   }, [filter]);
 
-  const filtered = filter === 'All' ? posts : posts.filter(p => p.category === filter);
+  const filtered = filter === 'All' ? blogPosts : blogPosts.filter(p => p.category === filter);
 
   return (
     <div>

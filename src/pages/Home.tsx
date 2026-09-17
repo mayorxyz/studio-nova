@@ -1,12 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-
-const projects = [
-  { title: 'Neon Coffee', category: 'Branding', year: '2024', color: '--safety' },
-  { title: 'FinFlow App', category: 'UI/UX', year: '2024', color: '--ink' },
-  { title: 'EcoThread', category: 'Web Design', year: '2023', color: '--term-green' },
-  { title: 'SoundWave', category: 'Motion', year: '2023', color: '--term-amber' },
-];
+import { projects } from '../data';
 
 const stats = [
   { value: '150+', label: 'Projects Delivered' },
