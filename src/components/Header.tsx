@@ -157,6 +157,7 @@ const headerStyles = `
     align-items: center;
     gap: 0.35rem;
     padding: 0;
+    text-decoration: none;
     transition: color 0.15s ease;
   }
   .header__nav-btn:hover,
@@ -394,15 +395,17 @@ export default function Header() {
                   onMouseEnter={() => handleMouseEnter(key)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button
+                  <Link
+                    to={item.path || '/'}
                     className={`header__nav-btn ${isActive ? 'active' : ''}`}
                     aria-haspopup="true"
                     aria-expanded={isOpen}
                     onFocus={() => handleMouseEnter(key)}
+                    onClick={closeDropdown}
                   >
                     {item.label}
                     <span className="chevron">▾</span>
-                  </button>
+                  </Link>
 
                   <div className={`header__dropdown ${isOpen ? 'is-open' : ''}`}>
                     {/* Header Link */}
