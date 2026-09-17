@@ -99,21 +99,53 @@ export default function PodcastEpisode() {
             <div className="reveal">
               <h2 className="text-h2 mb-4">About This Episode</h2>
               <p className="text-data text-[var(--muted)] leading-relaxed mb-6">{episode.description}</p>
-              <h3 className="text-h3 mb-3">What You'll Learn</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Key insights and strategies from industry experts</span>
-                </li>
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Real-world examples and case studies</span>
-                </li>
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Actionable takeaways you can implement today</span>
-                </li>
-              </ul>
+              
+              {/* Show Notes */}
+              {episode.showNotes && (
+                <div className="mb-8">
+                  <h3 className="text-h3 mb-3">Show Notes</h3>
+                  <div className="text-data text-[var(--muted)] leading-relaxed whitespace-pre-line">
+                    {episode.showNotes}
+                  </div>
+                </div>
+              )}
+
+              {/* Key Takeaways */}
+              {episode.keyTakeaways && episode.keyTakeaways.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-h3 mb-3">Key Takeaways</h3>
+                  <ul className="space-y-2">
+                    {episode.keyTakeaways.map((takeaway, i) => (
+                      <li key={i} className="text-data text-[var(--muted)] flex items-start gap-2">
+                        <span className="text-[var(--safety)] mt-1">◆</span>
+                        <span>{takeaway}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Resources */}
+              {episode.resources && episode.resources.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-h3 mb-3">Resources Mentioned</h3>
+                  <ul className="space-y-2">
+                    {episode.resources.map((resource, i) => (
+                      <li key={i} className="text-data flex items-start gap-2">
+                        <span className="text-[var(--safety)] mt-1">→</span>
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-[var(--safety)] hover:underline"
+                        >
+                          {resource.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="reveal" style={{ transitionDelay: '0.1s' }}>
               <div className="bento-card">
@@ -143,6 +175,21 @@ export default function PodcastEpisode() {
                   )}
                 </div>
               </div>
+
+              {/* Timestamps */}
+              {episode.timestamps && episode.timestamps.length > 0 && (
+                <div className="bento-card mt-4">
+                  <h3 className="text-h3 mb-4">Timestamps</h3>
+                  <div className="space-y-2">
+                    {episode.timestamps.map((timestamp, i) => (
+                      <div key={i} className="flex gap-3 text-data">
+                        <span className="text-[var(--safety)] font-mono flex-shrink-0">{timestamp.time}</span>
+                        <span className="text-[var(--muted)]">{timestamp.topic}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

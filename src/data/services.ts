@@ -9,6 +9,47 @@ export const services: Service[] = [
     description: 'Custom websites and web applications built with modern technologies. From marketing sites to complex platforms.',
     features: ['Custom Design', 'Responsive Development', 'CMS Integration', 'Performance Optimization', 'SEO Foundation'],
     tools: ['React', 'Next.js', 'Webflow', 'WordPress'],
+    methodology: [
+      'Discovery & Research: We start by understanding your business goals, target audience, and competitive landscape through stakeholder interviews and market analysis.',
+      'Strategy & Architecture: We define the information architecture, user flows, and technical requirements that will guide the design and development process.',
+      'Design & Prototyping: We create wireframes and high-fidelity mockups, iterating based on your feedback until we achieve the perfect balance of aesthetics and functionality.',
+      'Development & Testing: We build your site using modern, performant technologies, conducting rigorous testing across devices and browsers to ensure flawless execution.',
+      'Launch & Optimization: We deploy your site with comprehensive SEO setup, analytics integration, and provide training so your team can manage content confidently.',
+    ],
+    deliverables: [
+      'Custom-designed website (5-15 pages typical)',
+      'Responsive design for all devices',
+      'CMS integration for easy content management',
+      'SEO optimization and meta tags',
+      'Analytics and tracking setup',
+      'Performance optimization (90+ PageSpeed score)',
+      'Training documentation and video walkthroughs',
+      '30-day post-launch support',
+    ],
+    timeline: '6-12 weeks depending on complexity',
+    pricing: {
+      starter: '$5,000 - $15,000',
+      growth: '$15,000 - $50,000',
+      enterprise: '$50,000+',
+    },
+    faq: [
+      {
+        question: 'What CMS do you recommend?',
+        answer: 'We recommend Webflow for marketing sites due to its visual editing capabilities and performance. For complex content needs, we use custom React/Next.js solutions with headless CMS options like Sanity or Contentful.',
+      },
+      {
+        question: 'Will my site be mobile-friendly?',
+        answer: 'Absolutely. We design mobile-first and ensure your site looks and performs beautifully on all devices, from phones to large desktop screens.',
+      },
+      {
+        question: 'Can I update the content myself?',
+        answer: 'Yes! We build with user-friendly CMS interfaces and provide comprehensive training so your team can confidently manage content without technical knowledge.',
+      },
+      {
+        question: 'Do you provide ongoing maintenance?',
+        answer: 'We offer optional maintenance packages that include security updates, performance monitoring, content updates, and technical support.',
+      },
+    ],
     subServices: [
       {
         id: 'ecommerce',
@@ -52,6 +93,48 @@ export const services: Service[] = [
     description: 'Strategic brand systems that communicate your values and create lasting impressions in your market.',
     features: ['Brand Strategy', 'Logo Design', 'Visual Identity', 'Brand Guidelines', 'Naming & Messaging'],
     tools: ['Figma', 'Illustrator', 'After Effects'],
+    methodology: [
+      'Brand Discovery: We conduct stakeholder interviews, competitive analysis, and audience research to understand your unique position in the market.',
+      'Strategic Foundation: We define your brand positioning, value proposition, personality, and messaging framework that will guide all creative decisions.',
+      'Visual Exploration: We develop multiple creative directions exploring different visual languages, typography systems, and color palettes that embody your brand strategy.',
+      'Refinement & System Building: We refine the chosen direction into a comprehensive brand system including logo variations, color palette, typography, and design elements.',
+      'Documentation & Guidelines: We create detailed brand guidelines that ensure consistency across all touchpoints, from digital to print to environmental design.',
+    ],
+    deliverables: [
+      'Brand strategy document with positioning and messaging',
+      'Logo design with multiple variations and applications',
+      'Complete color palette with primary, secondary, and accent colors',
+      'Typography system with primary and secondary typefaces',
+      'Brand pattern and texture library',
+      'Comprehensive brand guidelines (50+ pages)',
+      'Business card, letterhead, and envelope design',
+      'Social media templates and profile assets',
+      'Brand asset library in all formats (AI, EPS, PNG, SVG)',
+    ],
+    timeline: '8-14 weeks for complete brand identity',
+    pricing: {
+      starter: '$8,000 - $20,000',
+      growth: '$20,000 - $60,000',
+      enterprise: '$60,000+',
+    },
+    faq: [
+      {
+        question: 'How many logo concepts will you present?',
+        answer: 'We typically present 3 distinct creative directions in the initial round, each exploring a different approach to your brand personality. We then refine your chosen direction through 2-3 revision rounds.',
+      },
+      {
+        question: 'What if I already have a logo?',
+        answer: 'We can work with your existing logo and build a comprehensive brand system around it, or we can evaluate whether a refresh would better serve your evolving business needs.',
+      },
+      {
+        question: 'Will I own the final brand assets?',
+        answer: 'Absolutely. Upon final payment, you receive full ownership and rights to all brand assets, including source files. The brand is yours to use and evolve as needed.',
+      },
+      {
+        question: 'Can you help with brand naming?',
+        answer: 'Yes, we offer brand naming as part of our strategy phase. We conduct trademark searches, linguistic analysis, and creative brainstorming to develop memorable, available names.',
+      },
+    ],
     subServices: [
       {
         id: 'logo-design',
@@ -87,6 +170,49 @@ export const services: Service[] = [
     description: 'User-centered design that converts. Research-driven interfaces for web and mobile applications.',
     features: ['User Research', 'Information Architecture', 'Wireframing', 'Prototyping', 'Usability Testing'],
     tools: ['Figma', 'Framer', 'Maze', 'Hotjar'],
+    methodology: [
+      'User Research & Discovery: We conduct user interviews, surveys, and analytics reviews to understand your users\' needs, pain points, and behaviors. We create detailed user personas and journey maps.',
+      'Information Architecture: We organize content and features into logical structures that support user goals. We create sitemaps, user flows, and navigation systems that make complex products intuitive.',
+      'Wireframing & Interaction Design: We develop low-fidelity wireframes that define layout, hierarchy, and functionality. We map out all interactions and states to ensure a seamless user experience.',
+      'Visual Design & Prototyping: We apply your brand identity to create high-fidelity mockups that are both beautiful and functional. We build interactive prototypes that simulate the real product experience.',
+      'Usability Testing & Iteration: We conduct moderated and unmoderated usability tests with real users, gathering quantitative and qualitative feedback. We iterate based on findings to optimize the experience.',
+    ],
+    deliverables: [
+      'User research report with personas and journey maps',
+      'Information architecture and sitemap',
+      'User flow diagrams for all key tasks',
+      'Low-fidelity wireframes for all screens',
+      'High-fidelity UI designs in Figma',
+      'Interactive prototype for user testing',
+      'Usability testing report with findings and recommendations',
+      'Design system with reusable components',
+      'Developer handoff documentation with specs and assets',
+      'Accessibility audit (WCAG 2.1 AA compliance)',
+    ],
+    timeline: '10-16 weeks depending on product complexity',
+    pricing: {
+      starter: '$10,000 - $25,000',
+      growth: '$25,000 - $75,000',
+      enterprise: '$75,000+',
+    },
+    faq: [
+      {
+        question: 'Do you conduct user research?',
+        answer: 'Yes, user research is foundational to our process. We conduct user interviews, surveys, and usability testing to ensure our designs are grounded in real user needs and behaviors.',
+      },
+      {
+        question: 'Will you work with our development team?',
+        answer: 'Absolutely. We provide comprehensive developer handoff documentation including design specs, asset exports, interaction details, and component libraries. We\'re available for ongoing consultation during development.',
+      },
+      {
+        question: 'Can you design for both web and mobile?',
+        answer: 'Yes, we design responsive experiences that work seamlessly across all platforms. We follow platform-specific guidelines (iOS Human Interface Guidelines, Material Design) while maintaining brand consistency.',
+      },
+      {
+        question: 'How do you measure design success?',
+        answer: 'We establish clear success metrics during discovery (conversion rates, task completion time, user satisfaction scores, etc.) and conduct usability testing to validate that our designs meet these goals.',
+      },
+    ],
     subServices: [
       {
         id: 'user-research',
@@ -122,6 +248,48 @@ export const services: Service[] = [
     description: 'Dynamic visual content that tells your story. Animation, video production, and interactive experiences.',
     features: ['Brand Animation', 'Explainer Videos', 'Social Content', '3D Motion', 'Interactive'],
     tools: ['After Effects', 'Cinema 4D', 'Blender', 'Premiere'],
+    methodology: [
+      'Creative Brief & Concept Development: We work with you to understand your goals, target audience, and key messages. We develop creative concepts and storyboards that bring your vision to life.',
+      'Style Frames & Visual Direction: We create style frames that establish the visual language, color palette, typography, and overall aesthetic of your motion piece. This ensures alignment before full production begins.',
+      'Animation & Production: Our animators bring the approved concepts to life using industry-standard tools. We create smooth, engaging animations that capture attention and communicate your message effectively.',
+      'Sound Design & Music: We source or create custom sound effects and music that complement the visual narrative. Audio is crucial for creating emotional impact and maintaining viewer engagement.',
+      'Review & Delivery: We present the animation for your feedback, make revisions as needed, and deliver final files in all required formats and specifications for your intended platforms.',
+    ],
+    deliverables: [
+      'Creative brief and concept documentation',
+      'Storyboard with key frames and narrative flow',
+      'Style frames establishing visual direction',
+      'Full animation in requested duration (typically 30-90 seconds)',
+      'Multiple format exports (MP4, MOV, GIF, WebM)',
+      'Platform-specific versions (social media, web, broadcast)',
+      'Custom sound design and music licensing',
+      'Source files for future modifications',
+      'Usage guidelines and best practices',
+    ],
+    timeline: '4-8 weeks depending on complexity and length',
+    pricing: {
+      starter: '$3,000 - $10,000',
+      growth: '$10,000 - $30,000',
+      enterprise: '$30,000+',
+    },
+    faq: [
+      {
+        question: 'What\'s the typical length for motion graphics?',
+        answer: 'It depends on the use case. Social media content is typically 15-30 seconds, explainer videos are 60-90 seconds, and brand films can be 2-3 minutes. We\'ll recommend the optimal length based on your goals and platform.',
+      },
+      {
+        question: 'Can you create 3D animations?',
+        answer: 'Yes, we create both 2D and 3D animations. Our 3D work includes product visualizations, abstract motion, character animation, and environmental scenes. We use Cinema 4D and Blender for 3D production.',
+      },
+      {
+        question: 'Do you provide voiceover and music?',
+        answer: 'Yes, we can provide professional voiceover talent and source or compose custom music. We also work with your existing audio assets if you prefer. All music is properly licensed for your intended use.',
+      },
+      {
+        question: 'What formats will I receive?',
+        answer: 'We deliver in all formats you need: MP4 for general use, MOV for broadcast quality, GIF for social media, WebM for web optimization, and platform-specific versions optimized for Instagram, LinkedIn, Twitter, etc.',
+      },
+    ],
     subServices: [
       {
         id: 'animation',

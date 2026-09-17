@@ -59,35 +59,49 @@ export default function ResourceDetail() {
               <h2 className="text-h2 mb-4">About This Resource</h2>
               <p className="text-data text-[var(--muted)] leading-relaxed mb-6">{resource.description}</p>
 
-              <h3 className="text-h3 mb-3">What's Included</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Comprehensive coverage of {resource.category} best practices</span>
-                </li>
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Ready-to-use templates and examples</span>
-                </li>
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Step-by-step instructions and guidance</span>
-                </li>
-                <li className="text-data text-[var(--muted)] flex items-start gap-2">
-                  <span className="text-[var(--safety)] mt-1">◆</span>
-                  <span>Regular updates and improvements</span>
-                </li>
-              </ul>
+              {/* Resource Content */}
+              {resource.content && resource.content.length > 0 ? (
+                <div className="mb-8">
+                  {resource.content.map((section, index) => (
+                    <div key={index} className="mb-8">
+                      <h3 className="text-h3 mb-3">{section.heading}</h3>
+                      <p className="text-data text-[var(--muted)] leading-relaxed">{section.body}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <h3 className="text-h3 mb-3">What's Included</h3>
+                  <ul className="space-y-2 mb-6">
+                    <li className="text-data text-[var(--muted)] flex items-start gap-2">
+                      <span className="text-[var(--safety)] mt-1">◆</span>
+                      <span>Comprehensive coverage of {resource.category} best practices</span>
+                    </li>
+                    <li className="text-data text-[var(--muted)] flex items-start gap-2">
+                      <span className="text-[var(--safety)] mt-1">◆</span>
+                      <span>Ready-to-use templates and examples</span>
+                    </li>
+                    <li className="text-data text-[var(--muted)] flex items-start gap-2">
+                      <span className="text-[var(--safety)] mt-1">◆</span>
+                      <span>Step-by-step instructions and guidance</span>
+                    </li>
+                    <li className="text-data text-[var(--muted)] flex items-start gap-2">
+                      <span className="text-[var(--safety)] mt-1">◆</span>
+                      <span>Regular updates and improvements</span>
+                    </li>
+                  </ul>
 
-              <h3 className="text-h3 mb-3">Who Is This For?</h3>
-              <p className="text-data text-[var(--muted)] leading-relaxed">
-                This resource is designed for designers, developers, and business owners who want to improve their
-                {resource.category === 'guide' && ' knowledge and skills'}
-                {resource.category === 'template' && ' workflow efficiency'}
-                {resource.category === 'whitepaper' && ' strategic understanding'}
-                {resource.category === 'tool' && ' productivity and results'}
-                . Whether you're just starting out or looking to refine your approach, this resource provides valuable insights and practical guidance.
-              </p>
+                  <h3 className="text-h3 mb-3">Who Is This For?</h3>
+                  <p className="text-data text-[var(--muted)] leading-relaxed">
+                    This resource is designed for designers, developers, and business owners who want to improve their
+                    {resource.category === 'guide' && ' knowledge and skills'}
+                    {resource.category === 'template' && ' workflow efficiency'}
+                    {resource.category === 'whitepaper' && ' strategic understanding'}
+                    {resource.category === 'tool' && ' productivity and results'}
+                    . Whether you're just starting out or looking to refine your approach, this resource provides valuable insights and practical guidance.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="reveal" style={{ transitionDelay: '0.1s' }}>

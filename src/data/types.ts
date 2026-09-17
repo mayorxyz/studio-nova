@@ -44,6 +44,18 @@ export interface Service {
   features: string[];
   tools: string[];
   subServices: SubService[];
+  methodology?: string[];
+  deliverables?: string[];
+  timeline?: string;
+  pricing?: {
+    starter: string;
+    growth: string;
+    enterprise: string;
+  };
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 export interface TeamMember {
@@ -105,6 +117,16 @@ export interface Episode {
   guests?: string[];
   type: 'podcast' | 'video';
   url?: string;
+  showNotes?: string;
+  keyTakeaways?: string[];
+  resources?: Array<{
+    title: string;
+    url: string;
+  }>;
+  timestamps?: Array<{
+    time: string;
+    topic: string;
+  }>;
 }
 
 export interface Resource {
@@ -119,6 +141,10 @@ export interface Resource {
   pages?: number;
   tags: string[];
   featured?: boolean;
+  content?: Array<{
+    heading: string;
+    body: string;
+  }>;
 }
 
 export interface Event {
