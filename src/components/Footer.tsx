@@ -1,64 +1,228 @@
 import { Link } from 'react-router-dom';
 
+// ─── Scoped Styles ───────────────────────────────────────────────────────────
+const footerStyles = `
+  /* ── Footer 12-Column Grid ── */
+  .footer__top {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+
+  .footer__col--brand { grid-column: span 5; }
+  .footer__col--company { grid-column: span 2; }
+  .footer__col--services { grid-column: span 2; }
+  .footer__col--insights { grid-column: span 2; }
+  .footer__col--connect { grid-column: span 3; }
+
+  .footer__brand-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--base);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .footer__brand-title span { color: var(--safety); }
+
+  .footer__brand-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-data);
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  .footer__bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer__bottom-center {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .footer__bottom-center a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .footer__bottom-center a:hover { color: var(--safety); }
+
+  .footer__back-to-top {
+    background: transparent;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .footer__back-to-top:hover {
+    border-color: var(--safety);
+    color: var(--safety);
+  }
+
+  @media (max-width: 768px) {
+    .footer__top {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer__col--brand { grid-column: span 2; }
+    .footer__col--company,
+    .footer__col--services,
+    .footer__col--insights,
+    .footer__col--connect { grid-column: span 1; }
+  }
+
+  @media (max-width: 480px) {
+    .footer__top {
+      grid-template-columns: 1fr;
+    }
+    .footer__col--brand,
+    .footer__col--company,
+    .footer__col--services,
+    .footer__col--insights,
+    .footer__col--connect { grid-column: span 1; }
+    .footer__bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer__bottom-center {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+`;
+
+// ─── Link Data ───────────────────────────────────────────────────────────────
+const companyLinks = [
+  { label: 'About Us', path: '/about' },
+  { label: 'Team', path: '/about/team' },
+  { label: 'Careers', path: '/careers' },
+  { label: 'Partners', path: '/partners' },
+  { label: 'Awards', path: '/work/awards' },
+];
+
+const servicesLinks = [
+  { label: 'Web Design', path: '/services/web-design' },
+  { label: 'Brand Identity', path: '/services/brand-identity' },
+  { label: 'UI/UX Design', path: '/services/ui-ux-design' },
+  { label: 'Motion Graphics', path: '/services/motion-graphics' },
+  { label: 'Process', path: '/services/process' },
+  { label: 'Pricing', path: '/services/pricing' },
+];
+
+const insightsLinks = [
+  { label: 'Blog', path: '/blog' },
+  { label: 'Resources', path: '/resources' },
+  { label: 'Events', path: '/events' },
+  { label: 'Podcast', path: '/podcast' },
+];
+
+const connectLinks = [
+  { label: 'Contact', path: '/contact' },
+  { label: 'Quote Request', path: '/quote-request' },
+  { label: 'Newsletter', path: '/blog/newsletter/subscribe' },
+];
+
+// ─── Component ───────────────────────────────────────────────────────────────
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="footer">
-      <div className="footer__grid">
-        <div className="footer__col">
-          <h4>Navigation</h4>
-          <Link to="/">Home</Link>
-          <Link to="/work">Work</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/sitemap">Sitemap</Link>
+    <>
+      <style>{footerStyles}</style>
+      <footer className="footer">
+        {/* Top Grid */}
+        <div className="footer__top">
+          {/* Brand Block */}
+          <div className="footer__col footer__col--brand">
+            <h3 className="footer__brand-title">
+              STUDIO <span>NOVA</span>
+            </h3>
+            <p className="footer__brand-tagline">
+              We design digital experiences that move people.
+            </p>
+          </div>
+
+          {/* Company Links */}
+          <div className="footer__col footer__col--company">
+            <h4>Company</h4>
+            {companyLinks.map((link) => (
+              <Link key={link.path} to={link.path}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Services Links */}
+          <div className="footer__col footer__col--services">
+            <h4>Services</h4>
+            {servicesLinks.map((link) => (
+              <Link key={link.path} to={link.path}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Insights Links */}
+          <div className="footer__col footer__col--insights">
+            <h4>Insights</h4>
+            {insightsLinks.map((link) => (
+              <Link key={link.path} to={link.path}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Connect Links */}
+          <div className="footer__col footer__col--connect">
+            <h4>Connect</h4>
+            {connectLinks.map((link) => (
+              <Link key={link.path} to={link.path}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="footer__col">
-          <h4>Services</h4>
-          <Link to="/services/web-design">Web Design</Link>
-          <Link to="/services/brand-identity">Brand Identity</Link>
-          <Link to="/services/ui-ux-design">UI/UX Design</Link>
-          <Link to="/services/motion-graphics">Motion Graphics</Link>
+
+        {/* Bottom Utility Bar */}
+        <div className="footer__bottom">
+          <span className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)]">
+            © 2024 Studio Nova. All rights reserved.
+          </span>
+
+          <div className="footer__bottom-center">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
+            <Link to="/cookie-policy">Cookie Policy</Link>
+          </div>
+
+          <button className="footer__back-to-top" onClick={scrollToTop}>
+            Back to Top ↑
+          </button>
         </div>
-        <div className="footer__col">
-          <h4>Resources</h4>
-          <Link to="/blog">Blog</Link>
-          <Link to="/careers">Careers</Link>
-          <Link to="/contact">Get a Quote</Link>
-          <Link to="/portal">Client Portal</Link>
-        </div>
-        <div className="footer__col">
-          <h4>Connect</h4>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-        <div className="footer__col">
-          <h4>Legal</h4>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-of-service">Terms of Service</Link>
-          <Link to="/cookie-policy">Cookie Policy</Link>
-        </div>
-      </div>
-      <div className="max-w-[1400px] mx-auto mt-12 pt-6 border-t border-[#333] flex flex-col sm:flex-row justify-between items-center gap-4">
-        <span className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)]">
-          © 2024 Studio Nova. All rights reserved.
-        </span>
-        <div className="flex gap-4">
-          <Link to="/privacy-policy" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
-            Privacy
-          </Link>
-          <Link to="/terms-of-service" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
-            Terms
-          </Link>
-          <Link to="/cookie-policy" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
-            Cookies
-          </Link>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
