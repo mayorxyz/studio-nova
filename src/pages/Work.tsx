@@ -94,16 +94,23 @@ export default function Work() {
           </div>
           <div className="grid-4">
             {[
-              { name: 'Branding', count: 24, color: 'bg-[var(--safety)]' },
-              { name: 'Web Design', count: 38, color: 'bg-[var(--ink)]' },
-              { name: 'UI/UX', count: 31, color: 'bg-[var(--term-bg)]' },
-              { name: 'Motion', count: 18, color: 'bg-[var(--safety)]' },
+              { name: 'Branding', slug: 'branding', count: 24, color: 'bg-[var(--safety)]' },
+              { name: 'Web Design', slug: 'web-design', count: 38, color: 'bg-[var(--ink)]' },
+              { name: 'UI/UX', slug: 'ui-ux', count: 31, color: 'bg-[var(--term-bg)]' },
+              { name: 'Motion', slug: 'motion', count: 18, color: 'bg-[var(--safety)]' },
             ].map((cat, i) => (
-              <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className={`w-full h-2 ${cat.color} mb-4`} />
-                <h3 className="text-h3">{cat.name}</h3>
-                <p className="text-data text-[var(--muted)]">{cat.count} projects</p>
-              </div>
+              <Link
+                key={i}
+                to={`/work/category/${cat.slug}`}
+                className="block reveal"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="bento-card hover-lift h-full">
+                  <div className={`w-full h-2 ${cat.color} mb-4`} />
+                  <h3 className="text-h3">{cat.name}</h3>
+                  <p className="text-data text-[var(--muted)]">{cat.count} projects</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -25,6 +25,9 @@ import TeamGrid from './pages/TeamGrid';
 import TeamProfile from './pages/TeamProfile';
 import Process from './pages/Process';
 import Pricing from './pages/Pricing';
+import BlogPost from './pages/BlogPost';
+import BlogCategory from './pages/BlogCategory';
+import WorkCategory from './pages/WorkCategory';
 
 export default function App() {
   return (
@@ -36,7 +39,9 @@ export default function App() {
         <Route element={<ShowcaseLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/work/category/:slug" element={<WorkCategory />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/category/:slug" element={<BlogCategory />} />
           <Route path="/showcase" element={<ComponentShowcase />} />
           <Route path="/about/team" element={<TeamGrid />} />
         </Route>
@@ -50,6 +55,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote-request" element={<QuoteRequest />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Route>
 
         {/* UI3: Storyteller Layout — Case studies & team profiles */}

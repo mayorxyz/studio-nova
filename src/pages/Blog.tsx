@@ -54,38 +54,49 @@ export default function Blog() {
       {/* Filter */}
       <section className="section">
         <div className="flex flex-wrap gap-2 mb-8 reveal">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`tag cursor-pointer transition-all ${
-                filter === cat ? 'tag--filled' : 'tag--ghost'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const slug = cat === 'All' ? null : cat.toLowerCase().replace(/\s+/g, '-');
+            return (
+              <Link
+                key={cat}
+                to={slug ? `/blog/category/${slug}` : '/blog'}
+                className={`tag cursor-pointer transition-all ${
+                  filter === cat ? 'tag--filled' : 'tag--ghost'
+                }`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Posts */}
         <div className="space-y-4">
           {filtered.map((post, i) => (
-            <div key={post.id} className="bento-card reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr_1fr] gap-4 items-center">
-                <div>
-                  <span className="tag tag--safety">{post.category}</span>
-                  <div className="text-micro text-[var(--muted)] mt-2">{post.date}</div>
-                </div>
-                <div>
-                  <h3 className="text-h3 mb-1">{post.title}</h3>
-                  <p className="text-data text-[var(--muted)]">{post.excerpt}</p>
-                </div>
-                <div className="text-right">
-                  <span className="text-micro text-[var(--muted)]">{post.readTime} read</span>
-                  <div className="text-[var(--safety)] text-sm mt-1">Read →</div>
+            <Link
+              key={post.id}
+              to={`/blog/${post.slug}`}
+              className="block reveal"
+              style={{ transitionDelay: `${i * 0.05}s` }}
+            >
+              <div className="bento-card hover-lift">
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr_1fr] gap-4 items-center">
+                  <div>
+                    <span className="tag tag--safety">{post.category}</span>
+                    <div className="text-micro text-[var(--muted)] mt-2">{post.date}</div>
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-1">{post.title}</h3>
+                    <p className="text-data text-[var(--muted)]">{post.excerpt}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-micro text-[var(--muted)]">{post.readTime} read</span>
+                    <div className="text-[var(--safety)] text-sm mt-1">Read →</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
