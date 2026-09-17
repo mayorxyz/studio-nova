@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { episodes } from '../data';
 import { SectionEyebrow, Tag } from '../components/atomic';
+import AudioPlayer from '../components/AudioPlayer';
 
 export default function PodcastEpisode() {
   const { slug } = useParams<{ slug: string }>();
@@ -58,37 +59,41 @@ export default function PodcastEpisode() {
       {/* Player */}
       <section className="section pt-0">
         <div className="max-w-[1000px] mx-auto">
-          <div className="bento-card bento-card--dark reveal">
-            <div className="flex items-center gap-4 mb-6">
-              <button className="w-16 h-16 bg-[var(--safety)] rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                <span className="text-2xl">▶</span>
-              </button>
-              <div className="flex-1">
-                <div className="text-micro text-[var(--muted)] mb-1">Now Playing</div>
-                <div className="text-h3 text-[var(--base)]">{episode.title}</div>
+          {episode.audioUrl ? (
+            <AudioPlayer
+              audioUrl={episode.audioUrl}
+              title={episode.title}
+              duration={episode.duration}
+            />
+          ) : episode.videoUrl ? (
+            <div className="bento-card bento-card--dark reveal">
+              <div className="text-center py-12">
+                <div className="text-6xl mb-4">🎥</div>
+                <h3 className="text-h3 mb-2 text-[var(--base)]">Video Episode</h3>
+                <p className="text-data text-[var(--muted)] mb-4">
+                  Watch this episode on our YouTube channel
+                </p>
+                <a
+                  href={episode.subscribeLinks?.youtube || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn--primary btn--primary--safety"
+                >
+                  Watch on YouTube →
+                </a>
               </div>
             </div>
-            {/* Progress bar */}
-            <div className="mb-4">
-              <div className="w-full h-2 bg-[#333] rounded-full overflow-hidden">
-                <div className="w-1/3 h-full bg-[var(--safety)]" />
-              </div>
-              <div className="flex justify-between text-micro text-[var(--muted)] mt-2">
-                <span>14:32</span>
-                <span>{episode.duration}</span>
+          ) : (
+            <div className="bento-card bento-card--dark reveal">
+              <div className="text-center py-12">
+                <div className="text-6xl mb-4">🎙️</div>
+                <h3 className="text-h3 mb-2 text-[var(--base)]">Coming Soon</h3>
+                <p className="text-data text-[var(--muted)]">
+                  This episode is currently being produced. Check back soon!
+                </p>
               </div>
             </div>
-            {/* Controls */}
-            <div className="flex items-center justify-center gap-6">
-              <button className="text-[var(--base)] hover:text-[var(--safety)] transition-colors">⏮</button>
-              <button className="text-[var(--base)] hover:text-[var(--safety)] transition-colors text-2xl">⏪</button>
-              <button className="w-12 h-12 bg-[var(--safety)] rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                <span className="text-xl">▶</span>
-              </button>
-              <button className="text-[var(--base)] hover:text-[var(--safety)] transition-colors text-2xl">⏩</button>
-              <button className="text-[var(--base)] hover:text-[var(--safety)] transition-colors">⏭</button>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -226,6 +231,59 @@ export default function PodcastEpisode() {
         </section>
       )}
 
+      {/* Subscribe Links */}
+      {episode.subscribeLinks && (
+        <section className="section pt-0">
+          <div className="max-w-[1000px] mx-auto">
+            <div className="bento-card reveal">
+              <h3 className="text-h3 mb-4">Subscribe & Listen</h3>
+              <div className="flex flex-wrap gap-3">
+                {episode.subscribeLinks.apple && (
+                  <a
+                    href={episode.subscribeLinks.apple}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn--ghost"
+                  >
+                    Apple Podcasts
+                  </a>
+                )}
+                {episode.subscribeLinks.spotify && (
+                  <a
+                    href={episode.subscribeLinks.spotify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn--ghost"
+                  >
+                    Spotify
+                  </a>
+                )}
+                {episode.subscribeLinks.youtube && (
+                  <a
+                    href={episode.subscribeLinks.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn--ghost"
+                  >
+                    YouTube
+                  </a>
+                )}
+                {episode.subscribeLinks.rss && (
+                  <a
+                    href={episode.subscribeLinks.rss}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn--ghost"
+                  >
+                    RSS Feed
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="section">
         <div className="max-w-[1400px] mx-auto text-center reveal">
@@ -237,9 +295,16 @@ export default function PodcastEpisode() {
             <Link to="/podcast" className="btn--primary">
               ← Back to Podcast
             </Link>
-            <a href="#" className="btn--ghost">
-              Subscribe on Spotify
-            </a>
+            {episode.subscribeLinks?.spotify && (
+              <a
+                href={episode.subscribeLinks.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn--ghost"
+              >
+                Subscribe on Spotify
+              </a>
+            )}
           </div>
         </div>
       </section>

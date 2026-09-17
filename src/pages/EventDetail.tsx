@@ -133,12 +133,12 @@ export default function EventDetail() {
                     </div>
                   </div>
                 </div>
-                <a
-                  href={event.registrationUrl || '#'}
+                <Link
+                  to={`/events/${event.slug}/register`}
                   className="btn--primary btn--primary--safety w-full justify-center"
                 >
                   Register Now →
-                </a>
+                </Link>
               </div>
             </div>
           </div>

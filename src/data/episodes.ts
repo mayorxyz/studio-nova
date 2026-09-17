@@ -12,6 +12,7 @@ export const episodes: Episode[] = [
     description: 'We explore how design systems are evolving with AI, component libraries, and cross-platform consistency. Featuring insights from leading design system architects.',
     guests: ['Mina Markham', 'Jina Anne'],
     type: 'podcast',
+    audioUrl: '/audio/s01e01-future-of-design-systems.mp3',
     showNotes: `In this inaugural episode, we sit down with two pioneers in the design systems space: Mina Markham, who built the design system for Hillary for America, and Jina Anne, author of "Design Systems" and advocate for systematic design. We discuss how AI is changing the way we think about components, the importance of governance in large organizations, and practical tips for getting started with design systems in your company.
 
 Mina shares her experience building design systems under pressure during the 2016 campaign, while Jina explains the evolution of design systems from simple style guides to complex, living ecosystems. We also explore the tension between consistency and creativity, and how the best design systems empower rather than constrain designers.`,
@@ -36,6 +37,12 @@ Mina shares her experience building design systems under pressure during the 201
       { time: '35:20', topic: 'Getting started advice' },
       { time: '40:00', topic: 'Future predictions and wrap-up' },
     ],
+    subscribeLinks: {
+      apple: 'https://podcasts.apple.com/podcast/studio-nova/id123456789',
+      spotify: 'https://open.spotify.com/show/studionova',
+      youtube: 'https://youtube.com/@studionova',
+      rss: '/feed/podcast.xml',
+    },
   },
   {
     id: 's01e02',
@@ -47,6 +54,7 @@ Mina shares her experience building design systems under pressure during the 201
     description: 'A deep dive into brand strategy and what makes some brands endure while others fade. Lessons from rebranding Fortune 500 companies.',
     guests: ['Marty Neumeier'],
     type: 'podcast',
+    audioUrl: '/audio/s01e02-building-brands-that-last.mp3',
     showNotes: `Marty Neumeier, author of "The Brand Gap" and "Zag," joins us to discuss what separates enduring brands from fleeting trends. With decades of experience working with companies like Apple, IBM, and Lenovo, Marty shares his framework for building brands that resonate deeply with audiences and stand the test of time.
 
 We explore the concept of "onliness" - the idea that great brands are the only ones doing what they do. Marty explains why most companies fail at branding by trying to be everything to everyone, and how the most successful brands make radical differentiation their core strategy. We also discuss the role of emotion in branding, the importance of consistency across touchpoints, and how to measure brand success beyond just awareness.`,
@@ -71,6 +79,12 @@ We explore the concept of "onliness" - the idea that great brands are the only o
       { time: '32:15', topic: 'Measuring brand success' },
       { time: '36:00', topic: 'Final advice for brand builders' },
     ],
+    subscribeLinks: {
+      apple: 'https://podcasts.apple.com/podcast/studio-nova/id123456789',
+      spotify: 'https://open.spotify.com/show/studionova',
+      youtube: 'https://youtube.com/@studionova',
+      rss: '/feed/podcast.xml',
+    },
   },
   {
     id: 's01e03',
@@ -82,6 +96,7 @@ We explore the concept of "onliness" - the idea that great brands are the only o
     description: 'Our motion design team breaks down the process of creating brand animations, from storyboarding to final render. Includes live demo.',
     guests: ['Mike Johnson'],
     type: 'video',
+    videoUrl: '/video/s01e03-motion-design-masterclass.mp4',
     showNotes: `In this video masterclass, our lead motion designer Mike Johnson takes you behind the scenes of our motion design process. From initial concept to final render, Mike demonstrates the tools, techniques, and creative thinking that go into creating compelling brand animations.
 
 This episode includes a live demo where Mike builds a logo animation from scratch in After Effects, showing his workflow for keyframing, easing, and creating smooth, professional motion. We also explore the principles of motion design, how to create storyboards that communicate effectively, and tips for working with clients who may not be familiar with animation.`,
@@ -106,6 +121,9 @@ This episode includes a live demo where Mike builds a logo animation from scratc
       { time: '45:00', topic: 'Adding sound design' },
       { time: '52:00', topic: 'Final render and delivery' },
     ],
+    subscribeLinks: {
+      youtube: 'https://youtube.com/@studionova',
+    },
   },
 
   // Season 2 (2 episodes)
@@ -119,6 +137,7 @@ This episode includes a live demo where Mike builds a logo animation from scratc
     description: 'Practical guide to AI tools that are actually useful for designers. We test Midjourney, DALL-E, Figma AI, and more to see what works.',
     guests: ['Jane Doe', 'John Smith'],
     type: 'video',
+    videoUrl: '/video/s02e01-ai-tools-for-designers.mp4',
     showNotes: `Creative Director Jane Doe and Lead Developer John Smith team up to test and review the most popular AI tools for designers in 2024. This isn't just theory - we actually use each tool on real projects and share our honest experiences, including what works, what doesn't, and what's overhyped.
 
 We cover image generation tools like Midjourney and DALL-E, design assistants like Figma AI and Galileo, copywriting tools like Jasper and Copy.ai, and development tools like GitHub Copilot. For each tool, we discuss pricing, learning curve, practical applications, and limitations. We also address the ethical considerations of using AI in design work and how to maintain your creative voice in an AI-assisted world.`,
@@ -143,6 +162,9 @@ We cover image generation tools like Midjourney and DALL-E, design assistants li
       { time: '38:00', topic: 'Ethical considerations' },
       { time: '43:30', topic: 'Future predictions and recommendations' },
     ],
+    subscribeLinks: {
+      youtube: 'https://youtube.com/@studionova',
+    },
   },
   {
     id: 's02e02',
@@ -154,6 +176,7 @@ We cover image generation tools like Midjourney and DALL-E, design assistants li
     description: 'How to run a successful design agency. Pricing strategies, client management, and scaling your team without losing quality.',
     guests: ['Sarah Kim', 'Emma Wilson'],
     type: 'podcast',
+    audioUrl: '/audio/s02e02-business-of-design.mp3',
     showNotes: `Brand Strategist Sarah Kim and Project Manager Emma Wilson share their insights on running a successful design agency. This episode is packed with practical advice on pricing, client management, team building, and maintaining quality as you scale.
 
 Sarah discusses different pricing models (hourly, project-based, value-based) and when to use each one. She shares real examples of how they've priced projects and what they've learned about communicating value to clients. Emma dives into project management best practices, including how to set clear expectations, manage scope creep, and keep projects on track. They also discuss the challenges of hiring and retaining talent, building company culture, and maintaining work-life balance in a demanding industry.`,
@@ -178,5 +201,11 @@ Sarah discusses different pricing models (hourly, project-based, value-based) an
       { time: '37:15', topic: 'Maintaining quality and culture' },
       { time: '41:30', topic: 'Final advice and resources' },
     ],
+    subscribeLinks: {
+      apple: 'https://podcasts.apple.com/podcast/studio-nova/id123456789',
+      spotify: 'https://open.spotify.com/show/studionova',
+      youtube: 'https://youtube.com/@studionova',
+      rss: '/feed/podcast.xml',
+    },
   },
 ];

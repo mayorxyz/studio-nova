@@ -117,6 +117,8 @@ export interface Episode {
   guests?: string[];
   type: 'podcast' | 'video';
   url?: string;
+  audioUrl?: string;
+  videoUrl?: string;
   showNotes?: string;
   keyTakeaways?: string[];
   resources?: Array<{
@@ -127,6 +129,12 @@ export interface Episode {
     time: string;
     topic: string;
   }>;
+  subscribeLinks?: {
+    apple?: string;
+    spotify?: string;
+    youtube?: string;
+    rss?: string;
+  };
 }
 
 export interface Resource {
