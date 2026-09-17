@@ -1,0 +1,48 @@
+import { Project } from './types';
+
+export const projects: Project[] = [
+  {
+    id: 'neon-coffee',
+    title: 'Neon Coffee Co.',
+    slug: 'neon-coffee',
+    category: 'Branding',
+    year: '2024',
+    description: 'Complete brand identity and e-commerce platform for a specialty coffee roaster. Increased online sales by 340% in 6 months.',
+    result: '+340% Sales',
+    client: 'Neon Coffee Co.',
+    tags: ['Branding', 'E-commerce', 'Strategy'],
+  },
+  {
+    id: 'fintech-app',
+    title: 'FinFlow App',
+    slug: 'fintech-app',
+    category: 'UI/UX',
+    year: '2024',
+    description: 'Fintech mobile app redesign with focus on accessibility. 2.5x increase in user engagement through strategic UX improvements.',
+    result: '2.5x Engagement',
+    client: 'FinFlow Technologies',
+    tags: ['UI/UX', 'Mobile', 'Accessibility'],
+  },
+  {
+    id: 'sustainable-fashion',
+    title: 'EcoThread',
+    slug: 'sustainable-fashion',
+    category: 'Web Design',
+    year: '2024',
+    description: 'Sustainable fashion marketplace with Awwwards Site of the Day recognition. Built with Webflow and custom interactions.',
+    result: 'Awwwards SOTD',
+    client: 'EcoThread Fashion',
+    tags: ['Web Design', 'Sustainability', 'Webflow'],
+  },
+  {
+    id: 'music-streaming',
+    title: 'SoundWave',
+    slug: 'music-streaming',
+    category: 'Motion',
+    year: '2023',
+    description: 'Music streaming brand animation and social content. 50M+ impressions across social channels through dynamic motion design.',
+    result: '50M+ Impressions',
+    client: 'SoundWave Music',
+    tags: ['Motion', 'Animation', 'Social'],
+  },
+];

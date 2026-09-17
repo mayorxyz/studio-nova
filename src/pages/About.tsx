@@ -1,14 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-const team = [
-  { name: 'Jane Doe', role: 'Creative Director', bio: '15 years leading creative teams at top agencies.', color: 'bg-[var(--safety)]' },
-  { name: 'John Smith', role: 'Lead Developer', bio: 'Full-stack engineer with a passion for performance.', color: 'bg-[var(--ink)]' },
-  { name: 'Alex Chen', role: 'UX Designer', bio: 'Research-driven design for complex products.', color: 'bg-[var(--term-bg)]' },
-  { name: 'Sarah Kim', role: 'Brand Strategist', bio: 'Building brands that resonate and endure.', color: 'bg-[var(--safety)]' },
-  { name: 'Mike Johnson', role: 'Motion Designer', bio: 'Bringing brands to life through animation.', color: 'bg-[var(--ink)]' },
-  { name: 'Emma Wilson', role: 'Project Manager', bio: 'Keeping projects on track and teams aligned.', color: 'bg-[var(--term-bg)]' },
-];
+import { team } from '../data';
 
 const values = [
   { title: 'Precision', desc: 'Every pixel, every line of code — crafted with intention.' },
@@ -115,7 +107,7 @@ export default function About() {
           <div className="grid-3">
             {team.map((member, i) => (
               <div key={i} className="bento-card bento-card--dark reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className={`w-full h-32 ${member.color} mb-4 flex items-center justify-center`}>
+                <div className={`w-full h-32 bg-[var(--safety)] mb-4 flex items-center justify-center`}>
                   <span className="text-4xl font-display font-bold text-white opacity-50">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>

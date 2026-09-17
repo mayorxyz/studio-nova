@@ -1,8 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
+import {
+  ShowcaseLayout,
+  ExplainerLayout,
+  StorytellerLayout,
+  MinimalLayout,
+  DashboardLayout,
+} from './components/layouts';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import Services from './pages/Services';
@@ -18,23 +23,39 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <ScrollProgress />
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 pt-[64px]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/portal" element={<Portal />} />
-            <Route path="/showcase" element={<ComponentShowcase />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        {/* UI1: Showcase Layout — Grid-heavy pages */}
+        <Route element={<ShowcaseLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/showcase" element={<ComponentShowcase />} />
+        </Route>
+
+        {/* UI2: Explainer Layout — Content-heavy pages */}
+        <Route element={<ExplainerLayout />}>
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+
+        {/* UI3: Storyteller Layout — Case studies (placeholder routes) */}
+        <Route element={<StorytellerLayout />}>
+          {/* Future: /work/neon-coffee, /work/fintech-app, etc. */}
+        </Route>
+
+        {/* UI4: Minimal Layout — Utility pages */}
+        <Route element={<MinimalLayout />}>
+          <Route path="*" element={<NotFound />} />
+          {/* Future: /thank-you, /login, etc. */}
+        </Route>
+
+        {/* UI5: Dashboard Layout — Portal pages */}
+        <Route element={<DashboardLayout />}>
+          <Route path="/portal" element={<Portal />} />
+          {/* Future: /portal/projects, /portal/invoices, /portal/messages */}
+        </Route>
+      </Routes>
     </Router>
   );
 }
