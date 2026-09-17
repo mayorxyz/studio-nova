@@ -1,6 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { blogPosts, projects, services, team, jobs } from '../data';
+import { 
+  SearchIcon, 
+  XIcon, 
+  ArrowRightIcon, 
+  QuestionIcon, 
+  SlashIcon,
+  HashIcon,
+  BriefcaseIcon,
+  PlusIcon,
+  UserIcon,
+  DollarIcon,
+  MinusIcon
+} from './icons';
 
 interface SearchResult {
   type: 'blog' | 'project' | 'service' | 'team' | 'job';
@@ -164,12 +177,12 @@ export default function Search() {
 
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'blog': return '#';
-      case 'project': return '>';
-      case 'service': return '+';
-      case 'team': return '@';
-      case 'job': return '$';
-      default: return '-';
+      case 'blog': return <HashIcon size={24} />;
+      case 'project': return <BriefcaseIcon size={24} />;
+      case 'service': return <PlusIcon size={24} />;
+      case 'team': return <UserIcon size={24} />;
+      case 'job': return <DollarIcon size={24} />;
+      default: return <MinusIcon size={24} />;
     }
   };
 
@@ -194,7 +207,7 @@ export default function Search() {
         {/* Search Input */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">⌕</span>
+            <SearchIcon size={24} className="text-gray-400" />
             <input
               ref={inputRef}
               type="text"
@@ -209,10 +222,10 @@ export default function Search() {
                 setIsOpen(false);
                 setQuery('');
               }}
-              className="text-gray-400 hover:text-gray-600 text-2xl"
+              className="text-gray-400 hover:text-gray-600"
               aria-label="Close search"
             >
-              ✕
+              <XIcon size={24} />
             </button>
           </div>
           <div className="mt-3 text-sm text-gray-500">
@@ -275,7 +288,7 @@ export default function Search() {
                     <span className={`text-sm ${
                       selectedIndex === index ? 'text-white/60' : 'text-gray-400'
                     }`}>
-                      →
+                      <ArrowRightIcon size={16} />
                     </span>
                   </div>
                 </Link>
@@ -283,13 +296,17 @@ export default function Search() {
             </div>
           ) : query.length >= 2 ? (
             <div className="text-center py-12 text-gray-500">
-              <div className="text-4xl mb-3 font-display font-bold text-[var(--safety)]">?</div>
+              <div className="mb-3 flex justify-center">
+                <QuestionIcon size={48} className="text-[var(--safety)]" />
+              </div>
               <p>No results found for "{query}"</p>
               <p className="text-sm mt-2">Try different keywords or browse our pages</p>
             </div>
           ) : (
             <div className="text-center py-12 text-gray-500">
-              <div className="text-4xl mb-3 font-display font-bold text-[var(--safety)]">/</div>
+              <div className="mb-3 flex justify-center">
+                <SlashIcon size={48} className="text-[var(--safety)]" />
+              </div>
               <p>Start typing to search across all content</p>
               <p className="text-sm mt-2">Search blog posts, projects, services, team members, and more</p>
             </div>
@@ -300,15 +317,16 @@ export default function Search() {
         <div className="p-4 border-t border-gray-200 bg-gray-50 text-xs text-gray-500 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">↑↓</kbd>
+              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">↑</kbd>
+              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">↓</kbd>
               Navigate
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">↵</kbd>
+              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">Enter</kbd>
               Select
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">esc</kbd>
+              <kbd className="px-2 py-1 bg-white border border-gray-300 rounded">Esc</kbd>
               Close
             </span>
           </div>

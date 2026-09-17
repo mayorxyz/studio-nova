@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './atomic';
+import { CookieIcon } from './icons';
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,8 +40,8 @@ export default function CookieConsent() {
           <>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
               <div className="flex-1">
-                <h3 className="text-h3 text-[var(--base)] mb-2">
-                  🍪 We use cookies
+                <h3 className="text-h3 text-[var(--base)] mb-2 flex items-center gap-2">
+                  <CookieIcon size={24} /> We use cookies
                 </h3>
                 <p className="text-data text-[var(--muted)]">
                   We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. 
@@ -63,8 +64,8 @@ export default function CookieConsent() {
         ) : (
           <>
             <div className="mb-6">
-              <h3 className="text-h3 text-[var(--base)] mb-4">
-                🍪 Cookie Preferences
+              <h3 className="text-h3 text-[var(--base)] mb-4 flex items-center gap-2">
+                <CookieIcon size={24} /> Cookie Preferences
               </h3>
               <p className="text-data text-[var(--muted)] mb-6">
                 Choose which cookies you'd like to accept. You can change your preferences at any time.

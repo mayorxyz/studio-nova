@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/atomic';
+import { EyeIcon, EyeOffIcon, GoogleIcon, GitHubIcon } from '../components/icons';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -199,7 +200,7 @@ export default function Register() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] hover:text-[var(--safety)]"
                 >
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                  {showPassword ? <EyeOffIcon size={20} /> : <EyeIcon size={20} />}
                 </button>
               </div>
               {/* Password Strength Meter */}
@@ -245,7 +246,7 @@ export default function Register() {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] hover:text-[var(--safety)]"
                 >
-                  {showConfirmPassword ? '👁️' : '👁️‍🗨️'}
+                  {showConfirmPassword ? <EyeOffIcon size={20} /> : <EyeIcon size={20} />}
                 </button>
               </div>
               {formData.confirmPassword && formData.password !== formData.confirmPassword && (

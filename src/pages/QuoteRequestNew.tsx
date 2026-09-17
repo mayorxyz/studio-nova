@@ -1,5 +1,17 @@
 import { useState } from 'react';
 import { SectionEyebrow, Tag, Button } from '../components/atomic';
+import { 
+  CodeIcon, 
+  PaletteIcon, 
+  SparklesIcon, 
+  LightbulbIcon, 
+  ToolIcon, 
+  LightningIcon, 
+  ClockIcon, 
+  PaperclipIcon, 
+  LockIcon,
+  GearIcon
+} from '../components/icons';
 
 export default function QuoteRequestNew() {
   const [formData, setFormData] = useState({
@@ -16,11 +28,11 @@ export default function QuoteRequestNew() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const serviceOptions = [
-    { id: 'web-dev', label: 'Web Development', icon: '💻' },
-    { id: 'ui-ux', label: 'UI/UX Design', icon: '🎨' },
-    { id: 'branding', label: 'Branding', icon: '✨' },
-    { id: 'consulting', label: 'Technical Consulting', icon: '💡' },
-    { id: 'maintenance', label: 'Ongoing Maintenance', icon: '🔧' },
+    { id: 'web-dev', label: 'Web Development', icon: <CodeIcon size={32} /> },
+    { id: 'ui-ux', label: 'UI/UX Design', icon: <PaletteIcon size={32} /> },
+    { id: 'branding', label: 'Branding', icon: <SparklesIcon size={32} /> },
+    { id: 'consulting', label: 'Technical Consulting', icon: <LightbulbIcon size={32} /> },
+    { id: 'maintenance', label: 'Ongoing Maintenance', icon: <ToolIcon size={32} /> },
   ];
 
   const budgetRanges = [
@@ -69,8 +81,8 @@ export default function QuoteRequestNew() {
             Get a Custom <span className="text-[var(--safety)]">Quote</span> for Your Project
           </h1>
           <div className="flex flex-wrap gap-4 justify-center mb-8 reveal" style={{ transitionDelay: '0.1s' }}>
-            <Tag variant="safety">⚡ Average Response Time: &lt; 4 Hours</Tag>
-            <Tag variant="ghost">⏱️ Takes ~2 mins to complete</Tag>
+            <Tag variant="safety"><LightningIcon size={14} className="inline mr-1" /> Average Response Time: &lt; 4 Hours</Tag>
+            <Tag variant="ghost"><ClockIcon size={14} className="inline mr-1" /> Takes ~2 mins to complete</Tag>
           </div>
         </div>
       </section>
@@ -227,7 +239,9 @@ export default function QuoteRequestNew() {
                     id="file-upload"
                   />
                   <label htmlFor="file-upload" className="cursor-pointer">
-                    <div className="text-4xl mb-3">📎</div>
+                    <div className="mb-3 flex justify-center">
+                      <PaperclipIcon size={48} className="text-[var(--muted)]" />
+                    </div>
                     <p className="text-data mb-2">Drag & drop files here or click to browse</p>
                     <p className="text-micro text-[var(--muted)]">
                       Supports: PDF, DOC, PNG, JPG, FIG (max 25MB per file)
@@ -269,15 +283,14 @@ export default function QuoteRequestNew() {
                   disabled={isSubmitting}
                   className="w-full justify-center text-lg py-4"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <span className="animate-spin mr-2">⚙️</span>
-                      Submitting...
-                    </>
-                  ) : (
-                    'Submit Quote Request →'
-                  )}
-                </Button>
+                {isSubmitting ? (
+                  <>
+                    <GearIcon size={16} className="animate-spin mr-2 inline" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit Quote Request →'
+                )}                </Button>
                 <p className="text-micro text-[var(--muted)] text-center mt-4">
                   We'll respond within 4 hours during business days
                 </p>
@@ -322,7 +335,9 @@ export default function QuoteRequestNew() {
               {/* Security Badge */}
               <div className="bento-card reveal" style={{ transitionDelay: '0.2s' }}>
                 <div className="text-center">
-                  <div className="text-4xl mb-3">🔒</div>
+                  <div className="mb-3 flex justify-center">
+                    <LockIcon size={48} className="text-[var(--safety)]" />
+                  </div>
                   <h3 className="text-h3 mb-2">100% Confidential</h3>
                   <p className="text-data text-[var(--muted)] mb-4">
                     We sign NDAs upon request. Your project details are secure with us.
