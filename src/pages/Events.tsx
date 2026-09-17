@@ -58,10 +58,7 @@ export default function Events() {
                 <div className="bento-card bento-card--dark hover-lift h-full">
                   <div className="flex justify-between items-start mb-3">
                     <Tag variant="safety">
-                      {event.category === 'webinar' && '🎥'}
-                      {event.category === 'workshop' && '🛠️'}
-                      {event.category === 'speaking' && '🎤'}
-                      {' '}{event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+                      {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </Tag>
                     <span className="text-micro text-[var(--muted)]">
                       {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -117,10 +114,7 @@ export default function Events() {
                 <div className="bento-card hover-lift h-full">
                   <div className="flex justify-between items-start mb-3">
                     <Tag variant="safety">
-                      {event.category === 'webinar' && '🎥'}
-                      {event.category === 'workshop' && '🛠️'}
-                      {event.category === 'speaking' && '🎤'}
-                      {' '}{event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+                      {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </Tag>
                     <span className="text-micro text-[var(--muted)]">
                       {new Date(event.date).toLocaleDateString('en-US', {

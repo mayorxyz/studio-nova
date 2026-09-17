@@ -45,10 +45,7 @@ export default function EventDetail() {
           <h1 className="text-h1 mt-4 reveal">{event.title}</h1>
           <div className="flex flex-wrap gap-2 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
             <Tag variant="safety">
-              {event.category === 'webinar' && '🎥'}
-              {event.category === 'workshop' && '🛠️'}
-              {event.category === 'speaking' && '🎤'}
-              {' '}{event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+              {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
             </Tag>
             <Tag variant="ghost">{event.type === 'online' ? '🌐 Online' : event.type === 'in-person' ? '📍 In-Person' : '🔄 Hybrid'}</Tag>
             <Tag variant="ghost">{event.duration}</Tag>

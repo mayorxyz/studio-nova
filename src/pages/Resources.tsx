@@ -111,11 +111,7 @@ export default function Resources() {
                 <div className="bento-card hover-lift h-full">
                   <div className="flex justify-between items-start mb-3">
                     <Tag variant="safety">
-                      {resource.category === 'guide' && '📖'}
-                      {resource.category === 'template' && '📋'}
-                      {resource.category === 'whitepaper' && '📄'}
-                      {resource.category === 'tool' && '🔧'}
-                      {' '}{resource.category.charAt(0).toUpperCase() + resource.category.slice(1)}
+                      {resource.category.charAt(0).toUpperCase() + resource.category.slice(1)}
                     </Tag>
                     {resource.fileSize && (
                       <span className="text-micro text-[var(--muted)]">{resource.fileSize}</span>

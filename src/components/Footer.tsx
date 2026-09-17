@@ -219,7 +219,7 @@ export default function Footer() {
           </div>
 
           <button className="footer__back-to-top" onClick={scrollToTop}>
-            Back to Top ↑
+            Back to Top
           </button>
         </div>
       </footer>
