@@ -6,6 +6,7 @@ export interface Project {
   title: string;
   slug: string;
   category: 'Branding' | 'Web Design' | 'UI/UX' | 'Motion';
+  industry: 'Startups' | 'E-commerce' | 'SaaS' | 'Non-Profit';
   year: string;
   description: string;
   result: string;

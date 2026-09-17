@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { team } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const values = [
   { title: 'Precision', desc: 'Every pixel, every line of code — crafted with intention.' },
@@ -10,6 +11,8 @@ const values = [
 ];
 
 export default function About() {
+  useSEO(seoConfigs.about);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -53,10 +56,13 @@ export default function About() {
                 We believe design isn't decoration — it's a strategic tool. Every project we take on 
                 starts with understanding the business problem, then crafting a solution that drives results.
               </p>
-              <p className="text-data text-[var(--muted)]">
+              <p className="text-data text-[var(--muted)] mb-6">
                 Our team combines strategic thinking with technical excellence to deliver work 
                 that looks exceptional and performs even better.
               </p>
+              <Link to="/about/mission" className="btn--ghost">
+                Learn More →
+              </Link>
             </div>
             <div className="reveal" style={{ transitionDelay: '0.2s' }}>
               <div className="terminal">
@@ -86,7 +92,7 @@ export default function About() {
           <div className="section__label">Core Values</div>
           <h2 className="text-h2">What drives us</h2>
         </div>
-        <div className="grid-4">
+        <div className="grid-4 mb-8">
           {values.map((v, i) => (
             <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
               <span className="text-[var(--safety)] font-display font-bold text-2xl">0{i + 1}</span>
@@ -95,28 +101,42 @@ export default function About() {
             </div>
           ))}
         </div>
+        <div className="text-center reveal">
+          <Link to="/about/values" className="btn--ghost">
+            Explore Our Values →
+          </Link>
+        </div>
       </section>
 
-      {/* Team */}
+      {/* Team Teaser */}
       <section className="section--dark">
         <div className="max-w-[1400px] mx-auto">
-          <div className="section__header reveal">
-            <div className="section__label text-[var(--muted)]">The Team</div>
-            <h2 className="text-h1">Meet the <span className="text-[var(--safety)]">humans.</span></h2>
-          </div>
-          <div className="grid-3">
-            {team.map((member, i) => (
-              <div key={i} className="bento-card bento-card--dark reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className={`w-full h-32 bg-[var(--safety)] mb-4 flex items-center justify-center`}>
-                  <span className="text-4xl font-display font-bold text-white opacity-50">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h3 className="text-h3 text-[var(--base)]">{member.name}</h3>
-                <span className="tag tag--safety mt-2 mb-3">{member.role}</span>
-                <p className="text-data text-[var(--muted)]">{member.bio}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="reveal">
+              <div className="section__label text-[var(--muted)]">The Team</div>
+              <h2 className="text-h1">Meet the <span className="text-[var(--safety)]">humans.</span></h2>
+              <p className="text-data text-[var(--muted)] mt-4 mb-6">
+                A diverse team of {team.length} designers, developers, and strategists united by a passion for creating exceptional digital experiences.
+              </p>
+              <Link to="/about/team" className="btn--primary">
+                Meet the Team →
+              </Link>
+            </div>
+            <div className="reveal" style={{ transitionDelay: '0.1s' }}>
+              <div className="grid grid-cols-2 gap-4">
+                {team.slice(0, 4).map((member, i) => (
+                  <div key={i} className="bento-card bento-card--dark">
+                    <div className="w-full h-20 bg-[var(--safety)] mb-2 flex items-center justify-center">
+                      <span className="text-2xl font-display font-bold text-white opacity-50">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <h3 className="text-data text-[var(--base)] font-semibold">{member.name}</h3>
+                    <span className="text-micro text-[var(--safety)]">{member.role}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -162,7 +182,7 @@ export default function About() {
           <p className="text-data text-[var(--muted)] mb-6 max-w-lg mx-auto">
             We're always looking for talented people who share our passion for great design.
           </p>
-          <Link to="/contact" className="btn--primary">
+          <Link to="/careers" className="btn--primary">
             View Open Positions →
           </Link>
         </div>

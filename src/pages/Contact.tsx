@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 export default function Contact() {
+  useSEO(seoConfigs.contact);
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', service: '', budget: '', message: ''
   });

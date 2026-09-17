@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const process = [
   { step: '01', title: 'Discovery', desc: 'Deep dive into your business, audience, and goals.' },
@@ -12,6 +13,8 @@ const process = [
 ];
 
 export default function Services() {
+  useSEO(seoConfigs.services);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -47,89 +50,100 @@ export default function Services() {
       <section className="section">
         <div className="space-y-4">
           {services.map((service, i) => (
-            <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 items-start">
-                <div>
-                  <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.number}</span>
-                  <h3 className="text-h3 mt-2">{service.title}</h3>
-                </div>
-                <div>
-                  <p className="text-data text-[var(--muted)] mb-4">{service.description}</p>
-                  <ul className="space-y-1">
-                    {service.features.map((f) => (
-                      <li key={f} className="text-data flex items-center gap-2">
-                        <span className="text-[var(--safety)]">◆</span> {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <span className="text-micro text-[var(--muted)]">Tools</span>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {service.tools.map((t) => (
-                      <span key={t} className="tag tag--filled text-[0.6rem]">{t}</span>
-                    ))}
+            <Link
+              key={service.id}
+              to={`/services/${service.slug}`}
+              className="block"
+            >
+              <div className="bento-card reveal hover-lift cursor-pointer" style={{ transitionDelay: `${i * 0.1}s` }}>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 items-start">
+                  <div>
+                    <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.number}</span>
+                    <h3 className="text-h3 mt-2">{service.title}</h3>
+                  </div>
+                  <div>
+                    <p className="text-data text-[var(--muted)] mb-4">{service.description}</p>
+                    <ul className="space-y-1">
+                      {service.features.map((f) => (
+                        <li key={f} className="text-data flex items-center gap-2">
+                          <span className="text-[var(--safety)]">◆</span> {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <span className="text-micro text-[var(--muted)]">Tools</span>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {service.tools.map((t) => (
+                        <span key={t} className="tag tag--filled text-[0.6rem]">{t}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Process */}
+      {/* Process Teaser */}
       <section className="section--surface relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern pointer-events-none" />
         <div className="max-w-[1400px] mx-auto relative z-10">
-          <div className="section__header reveal">
-            <div className="section__label">Our Process</div>
-            <h2 className="text-h1">How we <span className="text-[var(--safety)]">work.</span></h2>
-          </div>
-          <div className="grid-3">
-            {process.map((step, i) => (
-              <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <span className="text-[var(--safety)] font-display font-bold text-3xl">{step.step}</span>
-                <h3 className="text-h3 mt-2 mb-1">{step.title}</h3>
-                <p className="text-data text-[var(--muted)]">{step.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="reveal">
+              <div className="section__label">Our Process</div>
+              <h2 className="text-h1">How we <span className="text-[var(--safety)]">work.</span></h2>
+              <p className="text-data text-[var(--muted)] mt-4 mb-6">
+                Our six-step process ensures every project is delivered on time, on budget, and exceeds expectations.
+              </p>
+              <Link to="/services/process" className="btn--primary">
+                View Full Process →
+              </Link>
+            </div>
+            <div className="reveal" style={{ transitionDelay: '0.1s' }}>
+              <div className="grid grid-cols-2 gap-4">
+                {process.slice(0, 4).map((step, i) => (
+                  <div key={i} className="bento-card">
+                    <span className="text-[var(--safety)] font-display font-bold text-2xl">{step.step}</span>
+                    <h3 className="text-h3 mt-1">{step.title}</h3>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Pricing Teaser */}
       <section className="section">
-        <div className="section__header reveal">
-          <div className="section__label">Pricing</div>
-          <h2 className="text-h1">Transparent <span className="text-[var(--safety)]">pricing.</span></h2>
-        </div>
-        <div className="grid-3">
-          {[
-            { name: 'Starter', price: '$5K–$15K', desc: 'Perfect for startups and small projects', features: ['Brand Identity', 'Landing Page', '2 Revisions', '2 Week Delivery'] },
-            { name: 'Growth', price: '$15K–$50K', desc: 'For growing businesses needing full solutions', features: ['Full Brand System', 'Multi-page Website', 'UI/UX Design', 'Motion Assets', '4 Revisions'], featured: true },
-            { name: 'Enterprise', price: '$50K+', desc: 'Complex projects requiring dedicated teams', features: ['Everything in Growth', 'Custom Development', 'Ongoing Support', 'Dedicated Team', 'Priority Access'] },
-          ].map((plan, i) => (
-            <div
-              key={i}
-              className={`bento-card reveal ${plan.featured ? 'bento-card--dark shadow-safety' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              {plan.featured && <span className="tag tag--safety mb-4">Most Popular</span>}
-              <h3 className="text-h3">{plan.name}</h3>
-              <div className="text-h2 text-[var(--safety)] my-3">{plan.price}</div>
-              <p className="text-data text-[var(--muted)] mb-4">{plan.desc}</p>
-              <ul className="space-y-2 mb-6">
-                {plan.features.map((f) => (
-                  <li key={f} className="text-data flex items-center gap-2">
-                    <span className="text-[var(--safety)]">✓</span> {f}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/contact" className={`btn--primary w-full justify-center ${plan.featured ? 'btn--primary--safety' : ''}`}>
-                Get Started
-              </Link>
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="reveal">
+              <div className="section__label">Pricing</div>
+              <h2 className="text-h1">Transparent <span className="text-[var(--safety)]">pricing.</span></h2>
+              <p className="text-data text-[var(--muted)] mt-4 mb-6">
+                Clear, upfront pricing with no hidden fees. Choose the package that fits your needs.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/services/pricing" className="btn--primary">
+                  View Pricing →
+                </Link>
+                <Link to="/quote-request" className="btn--ghost">
+                  Get a Quote
+                </Link>
+              </div>
             </div>
-          ))}
+            <div className="reveal" style={{ transitionDelay: '0.1s' }}>
+              <div className="bento-card bento-card--dark">
+                <div className="text-micro text-[var(--muted)] mb-2">Starting at</div>
+                <div className="text-h1 text-[var(--safety)]">$5K</div>
+                <p className="text-data text-[var(--muted)] mt-2">
+                  Flexible packages for startups, growing businesses, and enterprise clients.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,7 +154,7 @@ export default function Services() {
           <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
             Every project is unique. Let's discuss your specific needs and create a tailored solution.
           </p>
-          <Link to="/contact" className="btn--primary btn--primary--safety">
+          <Link to="/quote-request" className="btn--primary btn--primary--safety">
             Request a Quote →
           </Link>
         </div>

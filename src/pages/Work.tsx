@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const categories = ['All', 'Branding', 'Web Design', 'UI/UX', 'Motion'];
 
 export default function Work() {
+  useSEO(seoConfigs.work);
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {
@@ -44,38 +46,47 @@ export default function Work() {
       {/* Filter */}
       <section className="section pt-0">
         <div className="flex flex-wrap gap-2 mb-8 reveal">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`tag cursor-pointer transition-all ${
-                filter === cat ? 'tag--filled' : 'tag--ghost'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const slug = cat === 'All' ? null : cat.toLowerCase().replace(/\s+/g, '-');
+            return (
+              <Link
+                key={cat}
+                to={slug ? `/work/category/${slug}` : '/work'}
+                className={`tag cursor-pointer transition-all ${
+                  filter === cat ? 'tag--filled' : 'tag--ghost'
+                }`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Projects Grid */}
         <div className="grid-2">
           {filtered.map((project, i) => (
-            <div
+            <Link
               key={project.id}
-              className="bento-card reveal"
-              style={{ transitionDelay: `${i * 0.05}s` }}
+              to={`/work/${project.slug}`}
+              className="block"
             >
-              <div className="flex justify-between items-start mb-3">
-                <span className="tag tag--safety">{project.category}</span>
-                <span className="text-micro text-[var(--muted)]">{project.year}</span>
+              <div
+                className="bento-card reveal hover-lift cursor-pointer"
+                style={{ transitionDelay: `${i * 0.05}s` }}
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="tag tag--safety">{project.category}</span>
+                  <span className="text-micro text-[var(--muted)]">{project.year}</span>
+                </div>
+                <h3 className="text-h3 mb-2">{project.title}</h3>
+                <p className="text-data text-[var(--muted)] mb-4">{project.description}</p>
+                <div className="flex justify-between items-center border-t border-[var(--ink)] pt-3">
+                  <span className="text-data font-semibold text-[var(--safety)]">{project.result}</span>
+                  <span className="text-micro">View Case Study →</span>
+                </div>
               </div>
-              <h3 className="text-h3 mb-2">{project.title}</h3>
-              <p className="text-data text-[var(--muted)] mb-4">{project.description}</p>
-              <div className="flex justify-between items-center border-t border-[var(--ink)] pt-3">
-                <span className="text-data font-semibold text-[var(--safety)]">{project.result}</span>
-                <span className="text-micro">View Case Study →</span>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -89,16 +100,54 @@ export default function Work() {
           </div>
           <div className="grid-4">
             {[
-              { name: 'Branding', count: 24, color: 'bg-[var(--safety)]' },
-              { name: 'Web Design', count: 38, color: 'bg-[var(--ink)]' },
-              { name: 'UI/UX', count: 31, color: 'bg-[var(--term-bg)]' },
-              { name: 'Motion', count: 18, color: 'bg-[var(--safety)]' },
+              { name: 'Branding', slug: 'branding', count: 24, color: 'bg-[var(--safety)]' },
+              { name: 'Web Design', slug: 'web-design', count: 38, color: 'bg-[var(--ink)]' },
+              { name: 'UI/UX', slug: 'ui-ux', count: 31, color: 'bg-[var(--term-bg)]' },
+              { name: 'Motion', slug: 'motion', count: 18, color: 'bg-[var(--safety)]' },
             ].map((cat, i) => (
-              <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className={`w-full h-2 ${cat.color} mb-4`} />
-                <h3 className="text-h3">{cat.name}</h3>
-                <p className="text-data text-[var(--muted)]">{cat.count} projects</p>
-              </div>
+              <Link
+                key={i}
+                to={`/work/category/${cat.slug}`}
+                className="block reveal"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="bento-card hover-lift h-full">
+                  <div className={`w-full h-2 ${cat.color} mb-4`} />
+                  <h3 className="text-h3">{cat.name}</h3>
+                  <p className="text-data text-[var(--muted)]">{cat.count} projects</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="section">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="section__header reveal">
+            <div className="section__label">Browse by Industry</div>
+            <h2 className="text-h2">Find work by <span className="text-[var(--safety)]">sector</span></h2>
+          </div>
+          <div className="grid-4">
+            {[
+              { name: 'Startups', slug: 'startups', count: 1, color: 'bg-[var(--safety)]' },
+              { name: 'E-commerce', slug: 'e-commerce', count: 2, color: 'bg-[var(--ink)]' },
+              { name: 'SaaS', slug: 'saas', count: 1, color: 'bg-[var(--term-bg)]' },
+              { name: 'Non-Profit', slug: 'non-profit', count: 0, color: 'bg-[var(--muted)]' },
+            ].map((industry, i) => (
+              <Link
+                key={i}
+                to={`/work/industry/${industry.slug}`}
+                className="block reveal"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="bento-card hover-lift h-full">
+                  <div className={`w-full h-2 ${industry.color} mb-4`} />
+                  <h3 className="text-h3">{industry.name}</h3>
+                  <p className="text-data text-[var(--muted)]">{industry.count} {industry.count === 1 ? 'project' : 'projects'}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
