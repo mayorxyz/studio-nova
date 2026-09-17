@@ -100,7 +100,6 @@ export default function App() {
           <Route path="/about/mission" element={<Mission />} />
           <Route path="/about/values" element={<Values />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/quote-request" element={<QuoteRequest />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/sitemap" element={<Sitemap />} />

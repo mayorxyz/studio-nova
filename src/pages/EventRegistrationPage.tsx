@@ -98,7 +98,7 @@ const faqs = [
   },
 ];
 
-export default function EventRegistration() {
+export default function EventRegistrationPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: '',

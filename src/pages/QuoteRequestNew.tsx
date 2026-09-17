@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SectionEyebrow, Tag, Button } from '../components/atomic';
 
-export default function QuoteRequest() {
+export default function QuoteRequestNew() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',

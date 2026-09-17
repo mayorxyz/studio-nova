@@ -140,7 +140,8 @@ const insightsLinks = [
 const connectLinks = [
   { label: 'Contact', path: '/contact' },
   { label: 'Quote Request', path: '/quote-request' },
-  { label: 'Newsletter', path: '/blog/newsletter/subscribe' },
+  { label: 'Newsletter', path: '/newsletter' },
+  { label: 'Register', path: '/register' },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────

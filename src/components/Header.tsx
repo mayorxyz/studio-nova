@@ -131,7 +131,9 @@ const navItems: NavItem[] = [
           items: [
             { label: 'Resources', path: '/resources' },
             { label: 'Events', path: '/events' },
+            { label: 'Event Registration', path: '/event-registration' },
             { label: 'Podcast', path: '/podcast' },
+            { label: 'Newsletter', path: '/newsletter' },
           ],
         },
       ],
