@@ -27,13 +27,7 @@ export interface DashboardLayoutProps {
  * Chrome: No global Header/Footer (dashboard has its own)
  */
 export function DashboardLayout({
-  sidebarItems = [
-    { icon: '◈', label: 'Dashboard', active: true },
-    { icon: '◇', label: 'Projects' },
-    { icon: '△', label: 'Invoices' },
-    { icon: '○', label: 'Messages' },
-    { icon: '□', label: 'Settings' },
-  ],
+  sidebarItems,
   defaultCollapsed = false,
   terminalEntries = [
     { type: 'prompt', text: 'session --status' },
@@ -43,12 +37,33 @@ export function DashboardLayout({
   className = '',
 }: DashboardLayoutProps) {
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
+  
+  // Default sidebar items with navigation
+  const defaultSidebarItems: SidebarItem[] = [
+    { icon: '◈', label: 'Dashboard', active: false, onClick: () => window.location.href = '/portal' },
+    { icon: '◇', label: 'Projects', active: false, onClick: () => window.location.href = '/portal/projects' },
+    { icon: '△', label: 'Invoices', active: false, onClick: () => window.location.href = '/portal/invoices' },
+    { icon: '○', label: 'Messages', active: false, onClick: () => window.location.href = '/portal/messages' },
+    { icon: '□', label: 'Settings', active: false, onClick: () => window.location.href = '/portal/settings' },
+  ];
+
+  // Determine active item based on current path
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/portal';
+  const itemsWithActiveState = defaultSidebarItems.map(item => ({
+    ...item,
+    active: 
+      (item.label === 'Dashboard' && currentPath === '/portal') ||
+      (item.label === 'Projects' && currentPath === '/portal/projects') ||
+      (item.label === 'Invoices' && currentPath === '/portal/invoices') ||
+      (item.label === 'Messages' && currentPath === '/portal/messages') ||
+      (item.label === 'Settings' && currentPath === '/portal/settings')
+  }));
 
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       {/* Atomic Sidebar with terminal footer */}
       <Sidebar
-        items={sidebarItems}
+        items={itemsWithActiveState}
         collapsed={collapsed}
         onToggle={() => setCollapsed(!collapsed)}
         header={

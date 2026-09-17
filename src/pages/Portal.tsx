@@ -153,17 +153,17 @@ export default function Portal() {
         <BentoCard variant="dark">
           <h2 className="text-h3 mb-4 text-[var(--base)]">Quick Actions</h2>
           <div className="space-y-2">
-            <Link to="/contact" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
-              → Upload Files
+            <Link to="/portal/projects" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
+              → View All Projects
             </Link>
-            <Link to="/contact" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
-              → Send Feedback
-            </Link>
-            <Link to="/contact" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
+            <Link to="/portal/invoices" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
               → View Invoices
             </Link>
-            <Link to="/contact" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
-              → Schedule Call
+            <Link to="/portal/messages" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
+              → Check Messages
+            </Link>
+            <Link to="/portal/settings" className="block px-4 py-3 border border-[#333] text-[var(--base)] hover:border-[var(--safety)] hover:text-[var(--safety)] transition-colors text-sm">
+              → Account Settings
             </Link>
           </div>
         </BentoCard>
