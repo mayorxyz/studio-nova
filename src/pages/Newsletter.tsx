@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionEyebrow, Tag, Button } from '../components/atomic';
+import { CheckIcon, CalendarIcon, ClockIcon, LockIcon, GearIcon } from '../components/icons';
 
 const pastIssues = [
   {
@@ -63,7 +64,9 @@ export default function Newsletter() {
           {isSubscribed ? (
             // Success State
             <div className="reveal">
-              <div className="text-6xl mb-6">✓</div>
+              <div className="mb-6 flex justify-center">
+                <CheckIcon size={64} className="text-[var(--safety)]" />
+              </div>
               <h1 className="text-h1 mb-4">
                 You're <span className="text-[var(--safety)]">subscribed!</span>
               </h1>
@@ -76,7 +79,9 @@ export default function Newsletter() {
                   <span className="terminal__dot terminal__dot--yellow" />
                   <span className="terminal__dot terminal__dot--green" />
                 </div>
-                <div className="terminal__line text-[var(--term-green)]">✓ Subscription confirmed</div>
+                <div className="terminal__line text-[var(--term-green)] flex items-center gap-2">
+                  <CheckIcon size={14} /> Subscription confirmed
+                </div>
                 <div className="terminal__line text-[var(--term-amber)]">→ Next issue: Tuesday 10 AM PST</div>
                 <div className="terminal__line">→ Unsubscribe anytime</div>
               </div>
@@ -93,9 +98,9 @@ export default function Newsletter() {
 
               {/* Metadata Badges */}
               <div className="flex flex-wrap gap-3 justify-center mb-12 reveal" style={{ transitionDelay: '0.2s' }}>
-                <Tag variant="ghost">📅 Delivered every Tuesday</Tag>
-                <Tag variant="ghost">⏱️ 5-minute read</Tag>
-                <Tag variant="ghost">🔒 No spam, unsubscribe anytime</Tag>
+                <Tag variant="ghost"><CalendarIcon size={14} className="inline mr-1" /> Delivered every Tuesday</Tag>
+                <Tag variant="ghost"><ClockIcon size={14} className="inline mr-1" /> 5-minute read</Tag>
+                <Tag variant="ghost"><LockIcon size={14} className="inline mr-1" /> No spam, unsubscribe anytime</Tag>
               </div>
 
               {/* Subscription Form */}
@@ -127,7 +132,7 @@ export default function Newsletter() {
                 >
                   {isSubmitting ? (
                     <>
-                      <span className="animate-spin mr-2">⚙️</span>
+                      <GearIcon size={16} className="animate-spin mr-2 inline" />
                       Subscribing...
                     </>
                   ) : (

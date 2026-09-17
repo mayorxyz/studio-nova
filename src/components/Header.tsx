@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDownIcon, ExternalLinkIcon, XIcon, MenuIcon } from './icons';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 interface DropdownLink {
@@ -406,7 +407,7 @@ export default function Header() {
                     onClick={closeDropdown}
                   >
                     {item.label}
-                    <span className="chevron">▾</span>
+                    <ChevronDownIcon className="chevron" size={12} />
                   </Link>
 
                   <div className={`header__dropdown ${isOpen ? 'is-open' : ''}`}>
@@ -467,7 +468,7 @@ export default function Header() {
 
           {/* Portal Button */}
           <Link to="/portal" className="btn--ghost !py-2 !px-4 !text-[0.7rem]">
-            Portal ↗
+            Portal <ExternalLinkIcon size={12} className="inline ml-1" />
           </Link>
         </nav>
 
@@ -484,7 +485,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          {menuOpen ? '✕' : '☰'}
+          {menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
         </button>
 
         {/* Mobile Menu Overlay */}
@@ -510,10 +511,9 @@ export default function Header() {
                         className="transition-transform duration-200"
                         style={{
                           transform: isAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          fontSize: '0.75rem',
                         }}
                       >
-                        ▾
+                        <ChevronDownIcon size={12} />
                       </span>
                     </button>
 
@@ -574,10 +574,10 @@ export default function Header() {
             {/* Mobile Portal Link */}
             <Link
               to="/portal"
-              className="text-[var(--safety)] text-lg font-display py-4 mt-4 border-b border-[#333]"
+              className="text-[var(--safety)] text-lg font-display py-4 mt-4 border-b border-[#333] flex items-center gap-2"
               onClick={closeDropdown}
             >
-              Client Portal ↗
+              Client Portal <ExternalLinkIcon size={16} />
             </Link>
           </div>
         )}
