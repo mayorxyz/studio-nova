@@ -16,10 +16,10 @@ export default function Footer() {
         </div>
         <div className="footer__col">
           <h4>Services</h4>
-          <Link to="/services">Web Design</Link>
-          <Link to="/services">Brand Identity</Link>
-          <Link to="/services">UI/UX Design</Link>
-          <Link to="/services">Motion Graphics</Link>
+          <Link to="/services/web-design">Web Design</Link>
+          <Link to="/services/brand-identity">Brand Identity</Link>
+          <Link to="/services/ui-ux-design">UI/UX Design</Link>
+          <Link to="/services/motion-graphics">Motion Graphics</Link>
         </div>
         <div className="footer__col">
           <h4>Resources</h4>
@@ -30,11 +30,11 @@ export default function Footer() {
         </div>
         <div className="footer__col">
           <h4>Connect</h4>
-          <a href="#">Twitter / X</a>
-          <a href="#">Instagram</a>
-          <a href="#">Dribbble</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div className="footer__col">
           <h4>Legal</h4>
