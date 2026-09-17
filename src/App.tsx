@@ -21,6 +21,10 @@ import CaseStudy from './pages/CaseStudy';
 import ServiceDetail from './pages/ServiceDetail';
 import QuoteRequest from './pages/QuoteRequest';
 import ThankYou from './pages/ThankYou';
+import TeamGrid from './pages/TeamGrid';
+import TeamProfile from './pages/TeamProfile';
+import Process from './pages/Process';
+import Pricing from './pages/Pricing';
 
 export default function App() {
   return (
@@ -34,20 +38,24 @@ export default function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/showcase" element={<ComponentShowcase />} />
+          <Route path="/about/team" element={<TeamGrid />} />
         </Route>
 
         {/* UI2: Explainer Layout — Content-heavy pages */}
         <Route element={<ExplainerLayout />}>
           <Route path="/services" element={<Services />} />
+          <Route path="/services/process" element={<Process />} />
+          <Route path="/services/pricing" element={<Pricing />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote-request" element={<QuoteRequest />} />
         </Route>
 
-        {/* UI3: Storyteller Layout — Case studies */}
+        {/* UI3: Storyteller Layout — Case studies & team profiles */}
         <Route element={<StorytellerLayout />}>
           <Route path="/work/:slug" element={<CaseStudy />} />
+          <Route path="/about/team/:slug" element={<TeamProfile />} />
         </Route>
 
         {/* UI4: Minimal Layout — Utility pages */}
