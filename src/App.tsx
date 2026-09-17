@@ -22,6 +22,7 @@ import Portal from './pages/Portal';
 import PortalProjects from './pages/PortalProjects';
 import PortalInvoices from './pages/PortalInvoices';
 import PortalMessages from './pages/PortalMessages';
+import PortalSettings from './pages/PortalSettings';
 import NotFound from './pages/NotFound';
 import ComponentShowcase from './pages/ComponentShowcase';
 import CaseStudy from './pages/CaseStudy';
@@ -140,6 +141,7 @@ export default function App() {
           <Route path="/portal/projects" element={<PortalProjects />} />
           <Route path="/portal/invoices" element={<PortalInvoices />} />
           <Route path="/portal/messages" element={<PortalMessages />} />
+          <Route path="/portal/settings" element={<PortalSettings />} />
         </Route>
       </Routes>
     </Router>
