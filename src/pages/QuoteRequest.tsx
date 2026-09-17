@@ -90,8 +90,8 @@ export default function QuoteRequest() {
     // In production, this would send data to your backend
     console.log('Form submitted:', formData);
 
-    // Navigate to thank you page
-    navigate('/thank-you');
+    // Navigate to thank you quote page
+    navigate('/thank-you-quote');
   };
 
   const handleChange = (field: keyof FormData, value: string) => {

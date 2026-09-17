@@ -12,6 +12,7 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/sitemap">Sitemap</Link>
         </div>
         <div className="footer__col">
           <h4>Services</h4>
@@ -23,7 +24,7 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Resources</h4>
           <Link to="/blog">Blog</Link>
-          <Link to="/about">Careers</Link>
+          <Link to="/careers">Careers</Link>
           <Link to="/contact">Get a Quote</Link>
           <Link to="/portal">Client Portal</Link>
         </div>
@@ -35,14 +36,28 @@ export default function Footer() {
           <a href="#">LinkedIn</a>
           <a href="#">GitHub</a>
         </div>
+        <div className="footer__col">
+          <h4>Legal</h4>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-of-service">Terms of Service</Link>
+          <Link to="/cookie-policy">Cookie Policy</Link>
+        </div>
       </div>
       <div className="max-w-[1400px] mx-auto mt-12 pt-6 border-t border-[#333] flex flex-col sm:flex-row justify-between items-center gap-4">
         <span className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)]">
           © 2024 Studio Nova. All rights reserved.
         </span>
-        <span className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)]">
-          Built with precision ◆ Industrial design system
-        </span>
+        <div className="flex gap-4">
+          <Link to="/privacy-policy" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
+            Privacy
+          </Link>
+          <Link to="/terms-of-service" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
+            Terms
+          </Link>
+          <Link to="/cookie-policy" className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)] hover:text-[var(--safety)] transition-colors">
+            Cookies
+          </Link>
+        </div>
       </div>
     </footer>
   );
