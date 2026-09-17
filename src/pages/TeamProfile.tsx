@@ -41,11 +41,19 @@ export default function TeamProfile() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
             {/* Avatar */}
             <div className="reveal">
-              <div className="w-full h-96 bg-[var(--safety)] flex items-center justify-center">
-                <span className="text-9xl font-display font-bold text-white opacity-50">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
-              </div>
+              {member.avatar ? (
+                <img 
+                  src={member.avatar} 
+                  alt={member.name}
+                  className="w-full h-96 object-cover"
+                />
+              ) : (
+                <div className="w-full h-96 bg-[var(--safety)] flex items-center justify-center">
+                  <span className="text-9xl font-display font-bold text-white opacity-50">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Info */}

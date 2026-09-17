@@ -52,7 +52,11 @@ export default function Partners() {
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="bento-card bento-card--dark hover-lift h-full">
-                  <div className="text-6xl mb-4">{partner.logo}</div>
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-12 mb-4 object-contain"
+                  />
                   <Tag variant="safety" className="mb-3">
                     {partner.partnershipType}
                   </Tag>
@@ -85,7 +89,11 @@ export default function Partners() {
               >
                 <div className="bento-card hover-lift h-full">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="text-5xl">{partner.logo}</div>
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      className="h-10 object-contain"
+                    />
                     <div className="flex-1">
                       <Tag variant="safety" className="mb-2">
                         {partner.category.charAt(0).toUpperCase() + partner.category.slice(1)}

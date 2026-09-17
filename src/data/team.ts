@@ -10,6 +10,7 @@ export const team: TeamMember[] = [
     fullBio: 'Jane brings over 15 years of experience in creative direction, having led teams at Pentagram,IDEO, and before co-founding Studio Nova. Her work has been recognized by AIGA, Communication Arts, and the Type Directors Club. She believes that great design isn\'t just beautiful—it solves real business problems and creates measurable impact. Jane holds an MFA from Rhode Island School of Design and regularly speaks at design conferences including AIGA Design Conference and HOW Design.',
     expertise: ['Creative Direction', 'Brand Strategy', 'Visual Identity', 'Design Leadership', 'Art Direction'],
     experience: '15 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/10809a42-072c-40d8-abe0-1e3359ef14f3/_result.png',
     email: 'jane@studionova.co',
     social: {
       twitter: '@janedoe',
@@ -26,6 +27,7 @@ export const team: TeamMember[] = [
     fullBio: 'John is a full-stack engineer who believes that great design deserves great implementation. With 10 years of experience building web applications, he specializes in React, TypeScript, and modern frontend architecture. Before Studio Nova, John worked at Vercel and contributed to several open-source projects including Next.js and Tailwind CSS. He\'s passionate about web performance, accessibility, and creating seamless user experiences that bridge the gap between design and development. John holds a BS in Computer Science from Stanford University.',
     expertise: ['React', 'TypeScript', 'Next.js', 'Web Performance', 'Frontend Architecture', 'Accessibility'],
     experience: '10 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/ea61e782-2267-4795-b632-17abadfb1c85/_result.png',
     email: 'john@studionova.co',
     social: {
       twitter: '@johnsmith',
@@ -41,6 +43,7 @@ export const team: TeamMember[] = [
     fullBio: 'Alex is a UX designer who puts research at the heart of every project. With 8 years of experience designing complex B2B and B2C products, he specializes in user research, information architecture, and accessibility. Alex has led UX efforts for companies including Salesforce, Dropbox, and several Y Combinator startups. He\'s a certified Usability Analyst and advocates for inclusive design practices. Alex holds a Master\'s in Human-Computer Interaction from Carnegie Mellon University and is a frequent contributor to UX publications.',
     expertise: ['User Research', 'Information Architecture', 'Wireframing', 'Prototyping', 'Usability Testing', 'Accessibility'],
     experience: '8 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/acdaa9ce-81e3-43d1-bea7-988f145f4946/_result.png',
     email: 'alex@studionova.co',
     social: {
       linkedin: 'alexchen',
@@ -56,6 +59,7 @@ export const team: TeamMember[] = [
     fullBio: 'Sarah is a brand strategist who believes that great brands are built on authentic stories. With 12 years of experience in brand strategy and marketing, she helps companies define their positioning, voice, and visual identity. Sarah has worked with brands ranging from Fortune 500 companies to venture-backed startups, including projects for Nike, Airbnb, and numerous DTC brands. She holds an MBA from Wharton and a BA in Communications from UCLA. Sarah is passionate about helping brands find their unique voice in crowded markets.',
     expertise: ['Brand Strategy', 'Positioning', 'Messaging', 'Market Research', 'Content Strategy', 'Brand Architecture'],
     experience: '12 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/70d617ad-d29f-4d33-a32e-a153a1342974/_result.png',
     email: 'sarah@studionova.co',
     social: {
       twitter: '@sarahkim',
@@ -71,6 +75,7 @@ export const team: TeamMember[] = [
     fullBio: 'Mike is a motion designer who transforms static brands into dynamic experiences. With 9 years of experience in motion graphics and animation, he specializes in brand animation, explainer videos, and interactive motion design. Mike has created motion work for brands including Google, Spotify, and Red Bull. He\'s proficient in After Effects, Cinema 4D, and Blender, and constantly explores new techniques in real-time rendering and interactive animation. Mike holds a BFA in Film and Animation from Rochester Institute of Technology.',
     expertise: ['Motion Graphics', 'Brand Animation', '3D Animation', 'Video Production', 'After Effects', 'Cinema 4D'],
     experience: '9 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/bfc60fed-41dc-438e-8fa8-ad72eabe1943/_result.png',
     email: 'mike@studionova.co',
     social: {
       twitter: '@mikejohnson',
@@ -86,6 +91,7 @@ export const team: TeamMember[] = [
     fullBio: 'Emma is a project manager who ensures that great ideas become great outcomes. With 7 years of experience managing creative and technical projects, she specializes in agile methodology, client communication, and cross-functional team coordination. Emma has managed projects for agencies including IDEO, frog design, and several in-house creative teams. She\'s PMP and Scrum Master certified, and passionate about creating processes that empower creative teams to do their best work. Emma holds a BA in Business Administration from University of Michigan.',
     expertise: ['Project Management', 'Agile Methodology', 'Client Relations', 'Team Coordination', 'Process Optimization', 'Risk Management'],
     experience: '7 years',
+    avatar: 'https://image.qwenlm.ai/generated-images/a1b8d21e-5ea5-40eb-b951-d59692fdaa3e/_result.png',
     email: 'emma@studionova.co',
     social: {
       linkedin: 'emmawilson',

@@ -12,6 +12,7 @@ export const projects: Project[] = [
     result: '+340% Sales',
     client: 'Neon Coffee Co.',
     tags: ['Branding', 'E-commerce', 'Strategy'],
+    thumbnail: 'https://image.qwenlm.ai/generated-images/54b89a26-81ee-4e73-b8aa-d6e523389f1d/_result.png',
     challenge: 'Neon Coffee Co. was a specialty coffee roaster struggling to stand out in a saturated market. Their existing brand felt generic and failed to communicate their commitment to single-origin, ethically-sourced beans. The e-commerce platform was built on an outdated WordPress theme with poor mobile experience, resulting in a 68% cart abandonment rate. They needed a complete brand overhaul and a modern e-commerce solution that would reflect their premium positioning and convert browsers into buyers.',
     solution: 'We developed a comprehensive rebrand that captured the energy and craftsmanship of specialty coffee. The visual identity featured bold neon accents against deep blacks, creating a striking contrast that stood out on shelves and screens. We built a custom Shopify theme with advanced product filtering, subscription management, and a streamlined checkout flow. The new brand system included packaging design, social media templates, and a complete style guide to ensure consistency across all touchpoints.',
     approach: [
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     result: '2.5x Engagement',
     client: 'FinFlow Technologies',
     tags: ['UI/UX', 'Mobile', 'Accessibility'],
+    thumbnail: 'https://image.qwenlm.ai/generated-images/5db6d12c-5ae5-46a5-9c48-f9180419bf2f/_result.png',
     challenge: 'FinFlow, a B2B fintech platform, was experiencing declining user engagement despite having a strong product. User research revealed that the complex dashboard overwhelmed new users, critical features were buried in nested menus, and the mobile experience was nearly unusable. Support tickets had increased 40% in six months, with most complaints about navigation and feature discovery. The product team needed a UX overhaul that would reduce friction without sacrificing power-user functionality.',
     solution: 'We redesigned the entire user experience with a progressive disclosure approach. New users see a simplified dashboard with guided onboarding, while power users can unlock advanced features through customizable workspaces. We implemented a WCAG 2.1 AA compliant design system with improved contrast ratios, keyboard navigation, and screen reader support. The mobile app was rebuilt from scratch using React Native with offline-first architecture.',
     approach: [
@@ -82,6 +84,7 @@ export const projects: Project[] = [
     result: 'Awwwards SOTD',
     client: 'EcoThread Fashion',
     tags: ['Web Design', 'Sustainability', 'Webflow'],
+    thumbnail: 'https://image.qwenlm.ai/generated-images/52176d00-0978-41a4-9a47-a9e35631689e/_result.png',
     challenge: 'EcoThread, a sustainable fashion marketplace, needed a website that would communicate their commitment to ethical production while driving sales. Their previous site was slow, difficult to update, and failed to tell the story behind each product. They needed a platform that could showcase individual designer collections, highlight sustainability certifications, and provide a seamless shopping experience that matched their premium positioning.',
     solution: 'We built a custom Webflow site with advanced CMS capabilities that allowed the team to easily manage designer profiles, product collections, and sustainability stories. The design featured editorial-style layouts with large imagery, smooth scroll animations, and interactive product pages that told the story of each garment\'s journey from raw material to finished product. We implemented a custom filtering system and integrated with their existing inventory management.',
     approach: [
@@ -117,6 +120,7 @@ export const projects: Project[] = [
     result: '50M+ Impressions',
     client: 'SoundWave Music',
     tags: ['Motion', 'Animation', 'Social'],
+    thumbnail: 'https://image.qwenlm.ai/generated-images/b7f42b08-cd23-49cb-a329-4efe16ca8df8/_result.png',
     challenge: 'SoundWave, a new music streaming startup, needed to build brand awareness in a market dominated by giants like Spotify and Apple Music. They had a limited marketing budget but needed to create content that would cut through the noise and resonate with Gen Z and millennial music lovers. The challenge was to create a visual identity and motion system that felt fresh, energetic, and distinctly different from the competition.',
     solution: 'We developed a dynamic brand animation system built around sound wave visualizations that responded to different music genres. The system included animated logos, social media templates, app store previews, and a library of motion graphics that could be easily customized for different campaigns. We created a content strategy focused on short-form video for TikTok and Instagram Reels, with each piece designed to be shareable and on-brand.',
     approach: [

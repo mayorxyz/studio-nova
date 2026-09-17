@@ -67,6 +67,19 @@ export default function CaseStudy() {
         </div>
       </section>
 
+      {/* Project Image */}
+      {project.thumbnail && (
+        <section className="section pt-0">
+          <div className="max-w-[1400px] mx-auto px-8 reveal">
+            <img 
+              src={project.thumbnail} 
+              alt={project.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </section>
+      )}
+
       {/* Metrics Ribbon */}
       <section className="section pt-0">
         <div className="max-w-[1400px] mx-auto px-8 reveal">

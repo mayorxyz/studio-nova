@@ -43,7 +43,11 @@ export default function PartnerDetail() {
             {partner.category.charAt(0).toUpperCase() + partner.category.slice(1)}
           </SectionEyebrow>
           <div className="flex items-center gap-6 mt-4 reveal">
-            <div className="text-8xl">{partner.logo}</div>
+            <img 
+              src={partner.logo} 
+              alt={partner.name}
+              className="h-20 object-contain"
+            />
             <div>
               <h1 className="text-h1">{partner.name}</h1>
               <Tag variant="safety" className="mt-2">
