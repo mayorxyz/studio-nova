@@ -41,11 +41,19 @@ export default function TeamProfile() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
             {/* Avatar */}
             <div className="reveal">
-              <div className="w-full h-96 bg-[var(--safety)] flex items-center justify-center">
-                <span className="text-9xl font-display font-bold text-white opacity-50">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
-              </div>
+              {member.avatar ? (
+                <img 
+                  src={member.avatar} 
+                  alt={member.name}
+                  className="w-full h-96 object-cover"
+                />
+              ) : (
+                <div className="w-full h-96 bg-[var(--safety)] flex items-center justify-center">
+                  <span className="text-9xl font-display font-bold text-white opacity-50">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Info */}
@@ -101,13 +109,16 @@ export default function TeamProfile() {
             <div className="reveal">
               <SectionEyebrow>About</SectionEyebrow>
               <h2 className="text-h2 mt-2">Background</h2>
+              {member.experience && (
+                <div className="mt-4">
+                  <div className="text-micro text-[var(--muted)] mb-1">Experience</div>
+                  <div className="text-data text-[var(--safety)] font-semibold">{member.experience}</div>
+                </div>
+              )}
             </div>
             <div className="reveal" style={{ transitionDelay: '0.1s' }}>
-              <p className="text-data text-[var(--muted)] leading-relaxed mb-4">
-                {member.bio} With years of experience in the industry, {member.name.split(' ')[0]} brings a unique perspective to every project.
-              </p>
               <p className="text-data text-[var(--muted)] leading-relaxed">
-                At Studio Nova, {member.name.split(' ')[0]} plays a crucial role in delivering exceptional results for our clients. Their expertise and dedication ensure that every project exceeds expectations.
+                {member.fullBio || member.bio}
               </p>
             </div>
           </div>
@@ -122,31 +133,24 @@ export default function TeamProfile() {
             <h2 className="text-h2 mt-2">What they <span className="text-[var(--safety)]">bring.</span></h2>
           </div>
           
-          <div className="grid-3">
+          {member.expertise && member.expertise.length > 0 ? (
+            <div className="grid-3">
+              {member.expertise.slice(0, 6).map((skill, index) => (
+                <div key={index} className="bento-card reveal" style={{ transitionDelay: `${index * 0.1}s` }}>
+                  <div className="text-[var(--safety)] text-4xl font-display font-bold mb-2">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <h3 className="text-h3">{skill}</h3>
+                </div>
+              ))}
+            </div>
+          ) : (
             <div className="bento-card reveal">
-              <div className="text-[var(--safety)] text-4xl font-display font-bold mb-2">01</div>
-              <h3 className="text-h3 mb-2">Strategic Thinking</h3>
               <p className="text-data text-[var(--muted)]">
-                Approaches every challenge with a strategic mindset, ensuring solutions align with business goals.
+                Expertise details coming soon.
               </p>
             </div>
-            
-            <div className="bento-card reveal" style={{ transitionDelay: '0.1s' }}>
-              <div className="text-[var(--safety)] text-4xl font-display font-bold mb-2">02</div>
-              <h3 className="text-h3 mb-2">Technical Excellence</h3>
-              <p className="text-data text-[var(--muted)]">
-                Combines deep technical knowledge with creative problem-solving to deliver outstanding results.
-              </p>
-            </div>
-            
-            <div className="bento-card reveal" style={{ transitionDelay: '0.2s' }}>
-              <div className="text-[var(--safety)] text-4xl font-display font-bold mb-2">03</div>
-              <h3 className="text-h3 mb-2">Client Focus</h3>
-              <p className="text-data text-[var(--muted)]">
-                Prioritizes client success through clear communication, transparency, and exceptional delivery.
-              </p>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 

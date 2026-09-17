@@ -184,6 +184,89 @@ export default function ServiceDetail() {
           </div>
         </section>
 
+        {/* Methodology */}
+        {parentService.methodology && parentService.methodology.length > 0 && (
+          <section className="section">
+            <div className="max-w-[1400px] mx-auto">
+              <div className="section__header reveal">
+                <SectionEyebrow>Our Process</SectionEyebrow>
+                <h2 className="text-h2 mt-2">How we <span className="text-[var(--safety)]">work.</span></h2>
+              </div>
+              <div className="space-y-4">
+                {parentService.methodology.map((step, i) => (
+                  <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+                    <div className="flex gap-6">
+                      <div className="text-[var(--safety)] font-display font-bold text-4xl flex-shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-data text-[var(--muted)] leading-relaxed">{step}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Deliverables */}
+        {parentService.deliverables && parentService.deliverables.length > 0 && (
+          <section className="section--surface">
+            <div className="max-w-[1400px] mx-auto">
+              <div className="section__header reveal">
+                <SectionEyebrow>What You Get</SectionEyebrow>
+                <h2 className="text-h2 mt-2">Project <span className="text-[var(--safety)]">deliverables.</span></h2>
+              </div>
+              <div className="grid-2">
+                {parentService.deliverables.map((deliverable, i) => (
+                  <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+                    <div className="flex items-start gap-3">
+                      <span className="text-[var(--safety)] text-xl mt-1">✓</span>
+                      <p className="text-data">{deliverable}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Timeline & Pricing */}
+        {(parentService.timeline || parentService.pricing) && (
+          <section className="section">
+            <div className="max-w-[1400px] mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {parentService.timeline && (
+                  <div className="bento-card reveal">
+                    <div className="text-micro text-[var(--muted)] mb-2">Typical Timeline</div>
+                    <div className="text-h2 text-[var(--safety)]">{parentService.timeline}</div>
+                  </div>
+                )}
+                {parentService.pricing && (
+                  <div className="bento-card reveal" style={{ transitionDelay: '0.1s' }}>
+                    <div className="text-micro text-[var(--muted)] mb-3">Investment Range</div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-data">Starter</span>
+                        <span className="text-data font-semibold">{parentService.pricing.starter}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-data">Growth</span>
+                        <span className="text-data font-semibold">{parentService.pricing.growth}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-data">Enterprise</span>
+                        <span className="text-data font-semibold">{parentService.pricing.enterprise}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Sub-Services */}
         <section className="section">
           <div className="max-w-[1400px] mx-auto">
@@ -209,6 +292,26 @@ export default function ServiceDetail() {
             </div>
           </div>
         </section>
+
+        {/* FAQ */}
+        {parentService.faq && parentService.faq.length > 0 && (
+          <section className="section--surface">
+            <div className="max-w-[1400px] mx-auto">
+              <div className="section__header reveal">
+                <SectionEyebrow>Common Questions</SectionEyebrow>
+                <h2 className="text-h2 mt-2">Frequently asked <span className="text-[var(--safety)]">questions.</span></h2>
+              </div>
+              <div className="space-y-4">
+                {parentService.faq.map((item, i) => (
+                  <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+                    <h3 className="text-h3 mb-3">{item.question}</h3>
+                    <p className="text-data text-[var(--muted)] leading-relaxed">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* CTA */}
         <section className="section--dark">

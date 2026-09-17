@@ -164,12 +164,12 @@ export default function Search() {
 
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'blog': return '📝';
-      case 'project': return '💼';
-      case 'service': return '⚙️';
-      case 'team': return '👤';
-      case 'job': return '💼';
-      default: return '📄';
+      case 'blog': return '#';
+      case 'project': return '>';
+      case 'service': return '+';
+      case 'team': return '@';
+      case 'job': return '$';
+      default: return '-';
     }
   };
 
@@ -185,17 +185,7 @@ export default function Search() {
   };
 
   if (!isOpen) {
-    return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-50 bg-[var(--safety)] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2"
-        aria-label="Open search"
-      >
-        <span className="text-xl">🔍</span>
-        <span className="font-medium">Search</span>
-        <kbd className="hidden md:inline-block ml-2 px-2 py-1 text-xs bg-white/20 rounded">⌘K</kbd>
-      </button>
-    );
+    return null;
   }
 
   return (
@@ -204,7 +194,7 @@ export default function Search() {
         {/* Search Input */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">🔍</span>
+            <span className="text-2xl">⌕</span>
             <input
               ref={inputRef}
               type="text"
@@ -293,13 +283,13 @@ export default function Search() {
             </div>
           ) : query.length >= 2 ? (
             <div className="text-center py-12 text-gray-500">
-              <div className="text-4xl mb-3">🔍</div>
+              <div className="text-4xl mb-3 font-display font-bold text-[var(--safety)]">?</div>
               <p>No results found for "{query}"</p>
               <p className="text-sm mt-2">Try different keywords or browse our pages</p>
             </div>
           ) : (
             <div className="text-center py-12 text-gray-500">
-              <div className="text-4xl mb-3">💡</div>
+              <div className="text-4xl mb-3 font-display font-bold text-[var(--safety)]">/</div>
               <p>Start typing to search across all content</p>
               <p className="text-sm mt-2">Search blog posts, projects, services, team members, and more</p>
             </div>

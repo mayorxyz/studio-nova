@@ -13,6 +13,17 @@ export interface Project {
   client: string;
   tags: string[];
   thumbnail?: string;
+  challenge?: string;
+  solution?: string;
+  approach?: string[];
+  timeline?: string;
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+    company: string;
+  };
+  metrics?: Array<{ label: string; value: string }>;
 }
 
 export interface SubService {
@@ -33,6 +44,18 @@ export interface Service {
   features: string[];
   tools: string[];
   subServices: SubService[];
+  methodology?: string[];
+  deliverables?: string[];
+  timeline?: string;
+  pricing?: {
+    starter: string;
+    growth: string;
+    enterprise: string;
+  };
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 export interface TeamMember {
@@ -41,6 +64,9 @@ export interface TeamMember {
   slug: string;
   role: string;
   bio: string;
+  fullBio?: string;
+  expertise?: string[];
+  experience?: string;
   email?: string;
   avatar?: string;
   social?: {
@@ -61,6 +87,10 @@ export interface BlogPost {
   author: string;
   tags: string[];
   content?: string;
+  sections?: Array<{
+    heading: string;
+    body: string;
+  }>;
 }
 
 export interface Job {
@@ -87,6 +117,24 @@ export interface Episode {
   guests?: string[];
   type: 'podcast' | 'video';
   url?: string;
+  audioUrl?: string;
+  videoUrl?: string;
+  showNotes?: string;
+  keyTakeaways?: string[];
+  resources?: Array<{
+    title: string;
+    url: string;
+  }>;
+  timestamps?: Array<{
+    time: string;
+    topic: string;
+  }>;
+  subscribeLinks?: {
+    apple?: string;
+    spotify?: string;
+    youtube?: string;
+    rss?: string;
+  };
 }
 
 export interface Resource {
@@ -101,6 +149,10 @@ export interface Resource {
   pages?: number;
   tags: string[];
   featured?: boolean;
+  content?: Array<{
+    heading: string;
+    body: string;
+  }>;
 }
 
 export interface Event {

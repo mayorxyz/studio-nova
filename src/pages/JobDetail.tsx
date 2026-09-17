@@ -138,7 +138,7 @@ export default function JobDetail() {
                   </div>
                 </div>
 
-                <Link to="/quote-request" className="btn--primary btn--primary--safety w-full justify-center">
+                <Link to={`/careers/${job.slug}/apply`} className="btn--primary btn--primary--safety w-full justify-center">
                   Apply Now →
                 </Link>
               </div>

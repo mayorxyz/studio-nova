@@ -75,6 +75,14 @@ export default function Work() {
                 className="bento-card reveal hover-lift cursor-pointer"
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
+                {project.thumbnail && (
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover mb-4 -mt-2 -mx-2"
+                    style={{ width: 'calc(100% + 1rem)' }}
+                  />
+                )}
                 <div className="flex justify-between items-start mb-3">
                   <span className="tag tag--safety">{project.category}</span>
                   <span className="text-micro text-[var(--muted)]">{project.year}</span>

@@ -58,7 +58,7 @@ export default function Podcast() {
                       filter === type ? 'tag--filled' : 'tag--ghost'
                     }`}
                   >
-                    {type === 'all' ? 'All' : type === 'podcast' ? '🎙️ Podcast' : '🎥 Video'}
+                    {type === 'all' ? 'All' : type === 'podcast' ? 'Podcast' : 'Video'}
                   </button>
                 ))}
               </div>
@@ -101,7 +101,7 @@ export default function Podcast() {
                 <div className="bento-card hover-lift h-full">
                   <div className="flex justify-between items-start mb-3">
                     <Tag variant="safety">
-                      {episode.type === 'podcast' ? '🎙️ Podcast' : '🎥 Video'}
+                      {episode.type === 'podcast' ? 'Podcast' : 'Video'}
                     </Tag>
                     <span className="text-micro text-[var(--muted)]">
                       S{episode.season}E{episode.episode}

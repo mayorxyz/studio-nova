@@ -34,21 +34,14 @@ export default function CaseStudy() {
     return <Navigate to="/404" replace />;
   }
 
-  // Mock case study content (in production, this would come from CMS or extended data)
+  // Use project data for case study content
   const caseStudyContent = {
-    challenge: `The client approached us with a significant challenge: they needed to differentiate themselves in a crowded market while maintaining their core brand values. Their existing digital presence was outdated and failed to communicate their unique value proposition to their target audience.`,
-    solution: `We developed a comprehensive strategy that addressed both brand positioning and user experience. Our approach included extensive user research, competitive analysis, and iterative design sprints. The solution combined bold visual design with intuitive navigation and compelling content architecture.`,
-    results: [
-      { label: 'Revenue Growth', value: '+340%' },
-      { label: 'User Engagement', value: '2.5x' },
-      { label: 'Conversion Rate', value: '+180%' },
-      { label: 'Brand Recognition', value: '+95%' },
-    ],
-    testimonial: {
-      quote: "Studio Nova transformed our brand from the ground up. The results speak for themselves — 340% increase in online revenue within 6 months.",
-      author: 'Sarah Chen',
-      role: 'CEO',
-    },
+    challenge: project.challenge || 'Project details coming soon.',
+    solution: project.solution || 'Project details coming soon.',
+    approach: project.approach || [],
+    timeline: project.timeline || 'Timeline not specified',
+    results: project.metrics || [],
+    testimonial: project.testimonial || null,
   };
 
   return (
@@ -73,6 +66,19 @@ export default function CaseStudy() {
           </div>
         </div>
       </section>
+
+      {/* Project Image */}
+      {project.thumbnail && (
+        <section className="section pt-0">
+          <div className="max-w-[1400px] mx-auto px-8 reveal">
+            <img 
+              src={project.thumbnail} 
+              alt={project.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </section>
+      )}
 
       {/* Metrics Ribbon */}
       <section className="section pt-0">
@@ -140,22 +146,24 @@ export default function CaseStudy() {
       </section>
 
       {/* Testimonial */}
-      <section className="section--dark">
-        <div className="max-w-[1400px] mx-auto text-center reveal">
-          <div className="text-[var(--safety)] text-6xl mb-6">"</div>
-          <blockquote className="text-h2 text-[var(--base)] mb-8 max-w-3xl mx-auto">
-            {caseStudyContent.testimonial.quote}
-          </blockquote>
-          <div>
-            <div className="font-display font-semibold text-[var(--base)] text-lg">
-              {caseStudyContent.testimonial.author}
-            </div>
-            <div className="text-micro text-[var(--muted)] mt-1">
-              {caseStudyContent.testimonial.role}, {project.client}
+      {caseStudyContent.testimonial && (
+        <section className="section--dark">
+          <div className="max-w-[1400px] mx-auto text-center reveal">
+            <div className="text-[var(--safety)] text-6xl mb-6">"</div>
+            <blockquote className="text-h2 text-[var(--base)] mb-8 max-w-3xl mx-auto">
+              {caseStudyContent.testimonial.quote}
+            </blockquote>
+            <div>
+              <div className="font-display font-semibold text-[var(--base)] text-lg">
+                {caseStudyContent.testimonial.author}
+              </div>
+              <div className="text-micro text-[var(--muted)] mt-1">
+                {caseStudyContent.testimonial.role}, {caseStudyContent.testimonial.company || project.client}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="section">

@@ -46,12 +46,20 @@ export default function TeamGrid() {
                   className="bento-card bento-card--dark hover-lift cursor-pointer h-full"
                   style={{ transitionDelay: `${i * 0.1}s` }}
                 >
-                  {/* Avatar placeholder */}
-                  <div className="w-full h-48 bg-[var(--safety)] mb-4 flex items-center justify-center">
-                    <span className="text-6xl font-display font-bold text-white opacity-50">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
+                  {/* Avatar */}
+                  {member.avatar ? (
+                    <img 
+                      src={member.avatar} 
+                      alt={member.name}
+                      className="w-full h-48 object-cover mb-4"
+                    />
+                  ) : (
+                    <div className="w-full h-48 bg-[var(--safety)] mb-4 flex items-center justify-center">
+                      <span className="text-6xl font-display font-bold text-white opacity-50">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  )}
                   
                   <h3 className="text-h3 text-[var(--base)]">{member.name}</h3>
                   <Tag variant="safety" className="mt-2 mb-3">{member.role}</Tag>

@@ -44,6 +44,24 @@ import Sitemap from './pages/Sitemap';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
+import Podcast from './pages/Podcast';
+import PodcastEpisode from './pages/PodcastEpisode';
+import Calculator from './pages/Calculator';
+import Awards from './pages/Awards';
+import Resources from './pages/Resources';
+import ResourceDetail from './pages/ResourceDetail';
+import Events from './pages/Events';
+import EventDetail from './pages/EventDetail';
+import EventRegistration from './pages/EventRegistration';
+import EventRegistrationSuccess from './pages/EventRegistrationSuccess';
+import EventRegistrationPage from './pages/EventRegistrationPage';
+import JobApplication from './pages/JobApplication';
+import JobApplicationSuccess from './pages/JobApplicationSuccess';
+import Partners from './pages/Partners';
+import PartnerDetail from './pages/PartnerDetail';
+import QuoteRequestNew from './pages/QuoteRequestNew';
+import Newsletter from './pages/Newsletter';
+import Register from './pages/Register';
 
 export default function App() {
   return (
@@ -59,12 +77,17 @@ export default function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/work/category/:slug" element={<WorkCategory />} />
           <Route path="/work/industry/:slug" element={<WorkIndustry />} />
+          <Route path="/work/awards" element={<Awards />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/category/:slug" element={<BlogCategory />} />
           <Route path="/blog/tag/:slug" element={<BlogTag />} />
           <Route path="/showcase" element={<ComponentShowcase />} />
           <Route path="/about/team" element={<TeamGrid />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/podcast" element={<Podcast />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/partners" element={<Partners />} />
         </Route>
 
         {/* UI2: Explainer Layout — Content-heavy pages */}
@@ -77,13 +100,22 @@ export default function App() {
           <Route path="/about/mission" element={<Mission />} />
           <Route path="/about/values" element={<Values />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/quote-request" element={<QuoteRequest />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/careers/:slug" element={<JobDetail />} />
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/podcast/:slug" element={<PodcastEpisode />} />
+          <Route path="/resources/tools/calculator" element={<Calculator />} />
+          <Route path="/resources/:slug" element={<ResourceDetail />} />
+          <Route path="/events/:slug" element={<EventDetail />} />
+          <Route path="/events/:slug/register" element={<EventRegistration />} />
+          <Route path="/event-registration" element={<EventRegistrationPage />} />
+          <Route path="/quote-request" element={<QuoteRequestNew />} />
+          <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/careers/:slug/apply" element={<JobApplication />} />
+          <Route path="/partners/:slug" element={<PartnerDetail />} />
         </Route>
 
         {/* UI3: Storyteller Layout — Case studies & team profiles */}
@@ -96,6 +128,9 @@ export default function App() {
         <Route element={<MinimalLayout />}>
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/thank-you-quote" element={<ThankYouQuote />} />
+          <Route path="/events/:slug/registered" element={<EventRegistrationSuccess />} />
+          <Route path="/careers/:slug/applied" element={<JobApplicationSuccess />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
