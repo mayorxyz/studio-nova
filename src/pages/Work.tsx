@@ -44,17 +44,21 @@ export default function Work() {
       {/* Filter */}
       <section className="section pt-0">
         <div className="flex flex-wrap gap-2 mb-8 reveal">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`tag cursor-pointer transition-all ${
-                filter === cat ? 'tag--filled' : 'tag--ghost'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const slug = cat === 'All' ? null : cat.toLowerCase().replace(/\s+/g, '-');
+            return (
+              <Link
+                key={cat}
+                to={slug ? `/work/category/${slug}` : '/work'}
+                className={`tag cursor-pointer transition-all ${
+                  filter === cat ? 'tag--filled' : 'tag--ghost'
+                }`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Projects Grid */}
