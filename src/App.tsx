@@ -27,7 +27,11 @@ import Process from './pages/Process';
 import Pricing from './pages/Pricing';
 import BlogPost from './pages/BlogPost';
 import BlogCategory from './pages/BlogCategory';
+import BlogTag from './pages/BlogTag';
 import WorkCategory from './pages/WorkCategory';
+import WorkIndustry from './pages/WorkIndustry';
+import Careers from './pages/Careers';
+import JobDetail from './pages/JobDetail';
 
 export default function App() {
   return (
@@ -40,10 +44,13 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/category/:slug" element={<WorkCategory />} />
+          <Route path="/work/industry/:slug" element={<WorkIndustry />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/category/:slug" element={<BlogCategory />} />
+          <Route path="/blog/tag/:slug" element={<BlogTag />} />
           <Route path="/showcase" element={<ComponentShowcase />} />
           <Route path="/about/team" element={<TeamGrid />} />
+          <Route path="/careers" element={<Careers />} />
         </Route>
 
         {/* UI2: Explainer Layout — Content-heavy pages */}
@@ -56,6 +63,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote-request" element={<QuoteRequest />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/careers/:slug" element={<JobDetail />} />
         </Route>
 
         {/* UI3: Storyteller Layout — Case studies & team profiles */}

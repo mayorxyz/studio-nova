@@ -171,7 +171,7 @@ export default function About() {
           <p className="text-data text-[var(--muted)] mb-6 max-w-lg mx-auto">
             We're always looking for talented people who share our passion for great design.
           </p>
-          <Link to="/contact" className="btn--primary">
+          <Link to="/careers" className="btn--primary">
             View Open Positions →
           </Link>
         </div>

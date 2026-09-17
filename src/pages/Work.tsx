@@ -120,6 +120,37 @@ export default function Work() {
         </div>
       </section>
 
+      {/* Industries */}
+      <section className="section">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="section__header reveal">
+            <div className="section__label">Browse by Industry</div>
+            <h2 className="text-h2">Find work by <span className="text-[var(--safety)]">sector</span></h2>
+          </div>
+          <div className="grid-4">
+            {[
+              { name: 'Startups', slug: 'startups', count: 1, color: 'bg-[var(--safety)]' },
+              { name: 'E-commerce', slug: 'e-commerce', count: 2, color: 'bg-[var(--ink)]' },
+              { name: 'SaaS', slug: 'saas', count: 1, color: 'bg-[var(--term-bg)]' },
+              { name: 'Non-Profit', slug: 'non-profit', count: 0, color: 'bg-[var(--muted)]' },
+            ].map((industry, i) => (
+              <Link
+                key={i}
+                to={`/work/industry/${industry.slug}`}
+                className="block reveal"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="bento-card hover-lift h-full">
+                  <div className={`w-full h-2 ${industry.color} mb-4`} />
+                  <h3 className="text-h3">{industry.name}</h3>
+                  <p className="text-data text-[var(--muted)]">{industry.count} {industry.count === 1 ? 'project' : 'projects'}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section">
         <div className="text-center reveal">

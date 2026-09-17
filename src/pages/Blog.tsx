@@ -101,6 +101,31 @@ export default function Blog() {
         </div>
       </section>
 
+      {/* Tags */}
+      <section className="section--surface">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="section__header reveal">
+            <div className="section__label">Browse by Tag</div>
+            <h2 className="text-h2">Explore <span className="text-[var(--safety)]">topics</span></h2>
+          </div>
+          <div className="flex flex-wrap gap-2 reveal">
+            {Array.from(new Set(blogPosts.flatMap(post => post.tags))).map((tag) => {
+              const tagSlug = tag.toLowerCase().replace(/\s+/g, '-');
+              const count = blogPosts.filter(p => p.tags.includes(tag)).length;
+              return (
+                <Link
+                  key={tag}
+                  to={`/blog/tag/${tagSlug}`}
+                  className="tag tag--ghost cursor-pointer transition-all hover:bg-[var(--safety)] hover:text-[var(--ink)]"
+                >
+                  #{tag} ({count})
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
       <section className="section--dark">
         <div className="max-w-[1400px] mx-auto text-center reveal">
