@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Portal from './pages/Portal';
 import NotFound from './pages/NotFound';
+import ComponentShowcase from './pages/ComponentShowcase';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/portal" element={<Portal />} />
+            <Route path="/showcase" element={<ComponentShowcase />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

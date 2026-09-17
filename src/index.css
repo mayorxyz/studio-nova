@@ -903,3 +903,347 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== SPEC CELL (UI2 Explainer) ===== */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border: var(--border);
+}
+
+.spec-cell {
+  padding: 1.5rem;
+  border-right: var(--border-thin);
+  border-bottom: var(--border-thin);
+}
+
+.spec-cell:last-child {
+  border-right: none;
+}
+
+.spec-cell__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.spec-cell__value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.spec-cell--dark {
+  background: var(--term-bg);
+  color: var(--base);
+}
+
+.spec-cell--safety {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+/* ===== FEAT CARD (UI3 Storyteller) ===== */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.feat-card {
+  border: var(--border);
+  padding: 2rem;
+  background: var(--base);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feat-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow);
+}
+
+.feat-card__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: var(--base);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feat-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feat-card__desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-data);
+  color: var(--muted);
+}
+
+.feat-card--dark {
+  background: var(--term-bg);
+  color: var(--base);
+}
+
+.feat-card--dark .feat-card__icon {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+.feat-card--dark .feat-card__desc {
+  color: var(--muted);
+}
+
+.feat-card--safety {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+.feat-card--safety .feat-card__icon {
+  background: var(--ink);
+  color: var(--safety);
+}
+
+/* ===== METRICS RIBBON (UI3 Storyteller) ===== */
+.ribbon {
+  overflow: hidden;
+  border: var(--border);
+  background: var(--base);
+}
+
+.ribbon__track {
+  display: flex;
+  animation: ticker 30s linear infinite;
+}
+
+.ribbon__cell {
+  flex: 0 0 auto;
+  padding: 1.5rem 3rem;
+  border-right: var(--border-thin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ribbon__cell-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ribbon__cell-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.ribbon--safety {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+.ribbon--dark {
+  background: var(--term-bg);
+  color: var(--base);
+}
+
+/* ===== SIGNAL VIZ (UI3 Storyteller) ===== */
+.signal__inner {
+  padding: 2rem;
+  border: var(--border);
+  background: var(--term-bg);
+  color: var(--base);
+}
+
+.signal__viz {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 120px;
+  padding: 1rem 0;
+}
+
+.signal__bar {
+  flex: 1;
+  background: var(--term-green);
+  min-width: 3px;
+  transition: height 0.3s ease;
+}
+
+.signal__bar--amber {
+  background: var(--term-amber);
+}
+
+.signal__bar--safety {
+  background: var(--safety);
+}
+
+.signal__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* ===== SIDEBAR (UI5 Dashboard) ===== */
+.sidebar {
+  background: var(--term-bg);
+  color: var(--base);
+  border-right: 4px solid var(--safety);
+  width: 260px;
+  min-height: 100%;
+  transition: width 0.3s ease;
+  padding: 1.5rem;
+}
+
+.sidebar--collapsed {
+  width: 64px;
+  padding: 1rem 0.5rem;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar__log {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--base);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-data);
+  transition: background 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar__item:hover {
+  background: #1a1a1a;
+  color: var(--safety);
+}
+
+.sidebar__item--active {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+.sidebar__item--active:hover {
+  background: var(--safety);
+  color: var(--ink);
+}
+
+.sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: var(--base);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+  color: var(--safety);
+}
+
+/* ===== STACK CARD (UI1 Showcase) ===== */
+.stack__card {
+  border: var(--border);
+  padding: 2rem;
+  background: var(--base);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stack__card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow);
+}
+
+.stack__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border-thin);
+}
+
+.stack__card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.stack__card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack__card-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fs-data);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stack__card-list li::before {
+  content: '◆';
+  color: var(--safety);
+  font-size: 0.6rem;
+}
+
+.stack__card--dark {
+  background: var(--term-bg);
+  color: var(--base);
+}
+
+.stack__card--safety {
+  background: var(--safety);
+  color: var(--ink);
+}
