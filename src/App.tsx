@@ -17,6 +17,10 @@ import Contact from './pages/Contact';
 import Portal from './pages/Portal';
 import NotFound from './pages/NotFound';
 import ComponentShowcase from './pages/ComponentShowcase';
+import CaseStudy from './pages/CaseStudy';
+import ServiceDetail from './pages/ServiceDetail';
+import QuoteRequest from './pages/QuoteRequest';
+import ThankYou from './pages/ThankYou';
 
 export default function App() {
   return (
@@ -35,19 +39,22 @@ export default function App() {
         {/* UI2: Explainer Layout — Content-heavy pages */}
         <Route element={<ExplainerLayout />}>
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quote-request" element={<QuoteRequest />} />
         </Route>
 
-        {/* UI3: Storyteller Layout — Case studies (placeholder routes) */}
+        {/* UI3: Storyteller Layout — Case studies */}
         <Route element={<StorytellerLayout />}>
-          {/* Future: /work/neon-coffee, /work/fintech-app, etc. */}
+          <Route path="/work/:slug" element={<CaseStudy />} />
         </Route>
 
         {/* UI4: Minimal Layout — Utility pages */}
         <Route element={<MinimalLayout />}>
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
-          {/* Future: /thank-you, /login, etc. */}
+          {/* Future: /login, etc. */}
         </Route>
 
         {/* UI5: Dashboard Layout — Portal pages */}

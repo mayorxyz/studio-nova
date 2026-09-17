@@ -60,22 +60,27 @@ export default function Work() {
         {/* Projects Grid */}
         <div className="grid-2">
           {filtered.map((project, i) => (
-            <div
+            <Link
               key={project.id}
-              className="bento-card reveal"
-              style={{ transitionDelay: `${i * 0.05}s` }}
+              to={`/work/${project.slug}`}
+              className="block"
             >
-              <div className="flex justify-between items-start mb-3">
-                <span className="tag tag--safety">{project.category}</span>
-                <span className="text-micro text-[var(--muted)]">{project.year}</span>
+              <div
+                className="bento-card reveal hover-lift cursor-pointer"
+                style={{ transitionDelay: `${i * 0.05}s` }}
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="tag tag--safety">{project.category}</span>
+                  <span className="text-micro text-[var(--muted)]">{project.year}</span>
+                </div>
+                <h3 className="text-h3 mb-2">{project.title}</h3>
+                <p className="text-data text-[var(--muted)] mb-4">{project.description}</p>
+                <div className="flex justify-between items-center border-t border-[var(--ink)] pt-3">
+                  <span className="text-data font-semibold text-[var(--safety)]">{project.result}</span>
+                  <span className="text-micro">View Case Study →</span>
+                </div>
               </div>
-              <h3 className="text-h3 mb-2">{project.title}</h3>
-              <p className="text-data text-[var(--muted)] mb-4">{project.description}</p>
-              <div className="flex justify-between items-center border-t border-[var(--ink)] pt-3">
-                <span className="text-data font-semibold text-[var(--safety)]">{project.result}</span>
-                <span className="text-micro">View Case Study →</span>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

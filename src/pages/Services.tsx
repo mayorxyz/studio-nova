@@ -47,32 +47,38 @@ export default function Services() {
       <section className="section">
         <div className="space-y-4">
           {services.map((service, i) => (
-            <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 items-start">
-                <div>
-                  <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.number}</span>
-                  <h3 className="text-h3 mt-2">{service.title}</h3>
-                </div>
-                <div>
-                  <p className="text-data text-[var(--muted)] mb-4">{service.description}</p>
-                  <ul className="space-y-1">
-                    {service.features.map((f) => (
-                      <li key={f} className="text-data flex items-center gap-2">
-                        <span className="text-[var(--safety)]">◆</span> {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <span className="text-micro text-[var(--muted)]">Tools</span>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {service.tools.map((t) => (
-                      <span key={t} className="tag tag--filled text-[0.6rem]">{t}</span>
-                    ))}
+            <Link
+              key={service.id}
+              to={`/services/${service.slug}`}
+              className="block"
+            >
+              <div className="bento-card reveal hover-lift cursor-pointer" style={{ transitionDelay: `${i * 0.1}s` }}>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 items-start">
+                  <div>
+                    <span className="text-[var(--safety)] font-display font-bold text-4xl">{service.number}</span>
+                    <h3 className="text-h3 mt-2">{service.title}</h3>
+                  </div>
+                  <div>
+                    <p className="text-data text-[var(--muted)] mb-4">{service.description}</p>
+                    <ul className="space-y-1">
+                      {service.features.map((f) => (
+                        <li key={f} className="text-data flex items-center gap-2">
+                          <span className="text-[var(--safety)]">◆</span> {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <span className="text-micro text-[var(--muted)]">Tools</span>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {service.tools.map((t) => (
+                        <span key={t} className="tag tag--filled text-[0.6rem]">{t}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -125,7 +131,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className={`btn--primary w-full justify-center ${plan.featured ? 'btn--primary--safety' : ''}`}>
+              <Link to="/quote-request" className={`btn--primary w-full justify-center ${plan.featured ? 'btn--primary--safety' : ''}`}>
                 Get Started
               </Link>
             </div>
@@ -140,7 +146,7 @@ export default function Services() {
           <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
             Every project is unique. Let's discuss your specific needs and create a tailored solution.
           </p>
-          <Link to="/contact" className="btn--primary btn--primary--safety">
+          <Link to="/quote-request" className="btn--primary btn--primary--safety">
             Request a Quote →
           </Link>
         </div>
