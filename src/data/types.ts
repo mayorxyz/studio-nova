@@ -88,3 +88,59 @@ export interface Episode {
   type: 'podcast' | 'video';
   url?: string;
 }
+
+export interface Resource {
+  id: string;
+  title: string;
+  slug: string;
+  category: 'guide' | 'template' | 'whitepaper' | 'tool';
+  type: string;
+  description: string;
+  downloadUrl?: string;
+  fileSize?: string;
+  pages?: number;
+  tags: string[];
+  featured?: boolean;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  slug: string;
+  category: 'webinar' | 'workshop' | 'speaking';
+  date: string;
+  time: string;
+  duration: string;
+  location: string;
+  type: 'online' | 'in-person' | 'hybrid';
+  description: string;
+  registrationUrl?: string;
+  speakers: string[];
+  tags: string[];
+  featured?: boolean;
+}
+
+export interface Award {
+  id: string;
+  title: string;
+  year: number;
+  organization: string;
+  category: string;
+  description: string;
+  url?: string;
+  project?: string;
+  featured?: boolean;
+}
+
+export interface Partner {
+  id: string;
+  name: string;
+  slug: string;
+  logo: string;
+  category: 'technology' | 'integration' | 'platform';
+  description: string;
+  website: string;
+  partnershipType: string;
+  benefits: string[];
+  featured?: boolean;
+}

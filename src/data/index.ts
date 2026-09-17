@@ -8,3 +8,7 @@ export { team } from './team';
 export { blogPosts } from './blogPosts';
 export { jobs } from './jobs';
 export { episodes } from './episodes';
+export { resources } from './resources';
+export { events } from './events';
+export { awards } from './awards';
+export { partners } from './partners';
