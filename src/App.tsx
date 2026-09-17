@@ -54,10 +54,14 @@ import Events from './pages/Events';
 import EventDetail from './pages/EventDetail';
 import EventRegistration from './pages/EventRegistration';
 import EventRegistrationSuccess from './pages/EventRegistrationSuccess';
+import EventRegistrationPage from './pages/EventRegistrationPage';
 import JobApplication from './pages/JobApplication';
 import JobApplicationSuccess from './pages/JobApplicationSuccess';
 import Partners from './pages/Partners';
 import PartnerDetail from './pages/PartnerDetail';
+import QuoteRequestNew from './pages/QuoteRequestNew';
+import Newsletter from './pages/Newsletter';
+import Register from './pages/Register';
 
 export default function App() {
   return (
@@ -108,6 +112,9 @@ export default function App() {
           <Route path="/resources/:slug" element={<ResourceDetail />} />
           <Route path="/events/:slug" element={<EventDetail />} />
           <Route path="/events/:slug/register" element={<EventRegistration />} />
+          <Route path="/event-registration" element={<EventRegistrationPage />} />
+          <Route path="/quote-request" element={<QuoteRequestNew />} />
+          <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/careers/:slug/apply" element={<JobApplication />} />
           <Route path="/partners/:slug" element={<PartnerDetail />} />
         </Route>
@@ -124,6 +131,7 @@ export default function App() {
           <Route path="/thank-you-quote" element={<ThankYouQuote />} />
           <Route path="/events/:slug/registered" element={<EventRegistrationSuccess />} />
           <Route path="/careers/:slug/applied" element={<JobApplicationSuccess />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
