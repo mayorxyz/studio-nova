@@ -2,10 +2,20 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { projects } from '../data';
 import { SectionEyebrow, Tag, MetricsRibbon, Button } from '../components/atomic';
+import { useSEO } from '../hooks/useSEO';
 
 export default function CaseStudy() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find(p => p.slug === slug);
+
+  useSEO({
+    title: project ? `${project.title} — Case Study` : 'Case Study',
+    description: project?.description || '',
+    keywords: project?.tags || [],
+    ogTitle: project?.title,
+    ogDescription: project?.description,
+    ogType: 'article',
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(

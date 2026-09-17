@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const categories = ['All', 'Branding', 'Web Design', 'UI/UX', 'Motion'];
 
 export default function Work() {
+  useSEO(seoConfigs.work);
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {

@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import Work from './pages/Work';
 import Services from './pages/Services';
 import About from './pages/About';
+import Mission from './pages/Mission';
+import Values from './pages/Values';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Portal from './pages/Portal';
@@ -60,6 +62,8 @@ export default function App() {
           <Route path="/services/pricing" element={<Pricing />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/mission" element={<Mission />} />
+          <Route path="/about/values" element={<Values />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote-request" element={<QuoteRequest />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

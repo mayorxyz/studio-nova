@@ -6,6 +6,7 @@ export interface BentoCardProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 export const BentoCard: React.FC<BentoCardProps> = ({
@@ -14,6 +15,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
   children,
   className = '',
   onClick,
+  style,
 }) => {
   const variantClass = {
     default: '',
@@ -27,6 +29,7 @@ export const BentoCard: React.FC<BentoCardProps> = ({
     <div
       className={`bento-card ${variantClass} ${spanClass} ${className}`.trim()}
       onClick={onClick}
+      style={style}
     >
       {children}
     </div>

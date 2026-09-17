@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const stats = [
   { value: '150+', label: 'Projects Delivered' },
@@ -10,6 +11,7 @@ const stats = [
 ];
 
 export default function Home() {
+  useSEO(seoConfigs.home);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

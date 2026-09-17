@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { services } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const process = [
   { step: '01', title: 'Discovery', desc: 'Deep dive into your business, audience, and goals.' },
@@ -12,6 +13,8 @@ const process = [
 ];
 
 export default function Services() {
+  useSEO(seoConfigs.services);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

@@ -2,12 +2,22 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { blogPosts } from '../data';
 import { SectionEyebrow, Tag } from '../components/atomic';
+import { useSEO } from '../hooks/useSEO';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   
   const post = blogPosts.find(p => p.slug === slug);
+
+  useSEO({
+    title: post?.title || 'Blog Post',
+    description: post?.excerpt || '',
+    keywords: post?.tags || [],
+    ogTitle: post?.title,
+    ogDescription: post?.excerpt,
+    ogType: 'article',
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);

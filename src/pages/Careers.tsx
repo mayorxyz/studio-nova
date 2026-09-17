@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { jobs } from '../data';
 import { SectionEyebrow, Tag } from '../components/atomic';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 export default function Careers() {
+  useSEO(seoConfigs.careers);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     

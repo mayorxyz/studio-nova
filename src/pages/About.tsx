@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { team } from '../data';
+import { useSEO, seoConfigs } from '../hooks/useSEO';
 
 const values = [
   { title: 'Precision', desc: 'Every pixel, every line of code — crafted with intention.' },
@@ -10,6 +11,8 @@ const values = [
 ];
 
 export default function About() {
+  useSEO(seoConfigs.about);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -53,10 +56,13 @@ export default function About() {
                 We believe design isn't decoration — it's a strategic tool. Every project we take on 
                 starts with understanding the business problem, then crafting a solution that drives results.
               </p>
-              <p className="text-data text-[var(--muted)]">
+              <p className="text-data text-[var(--muted)] mb-6">
                 Our team combines strategic thinking with technical excellence to deliver work 
                 that looks exceptional and performs even better.
               </p>
+              <Link to="/about/mission" className="btn--ghost">
+                Learn More →
+              </Link>
             </div>
             <div className="reveal" style={{ transitionDelay: '0.2s' }}>
               <div className="terminal">
@@ -86,7 +92,7 @@ export default function About() {
           <div className="section__label">Core Values</div>
           <h2 className="text-h2">What drives us</h2>
         </div>
-        <div className="grid-4">
+        <div className="grid-4 mb-8">
           {values.map((v, i) => (
             <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
               <span className="text-[var(--safety)] font-display font-bold text-2xl">0{i + 1}</span>
@@ -94,6 +100,11 @@ export default function About() {
               <p className="text-data text-[var(--muted)]">{v.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="text-center reveal">
+          <Link to="/about/values" className="btn--ghost">
+            Explore Our Values →
+          </Link>
         </div>
       </section>
 
