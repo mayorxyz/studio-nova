@@ -160,7 +160,7 @@ export default function EventRegistrationPage() {
             backgroundImage: 'radial-gradient(circle at 25% 25%, var(--safety) 0%, transparent 50%), radial-gradient(circle at 75% 75%, var(--term-green) 0%, transparent 50%)',
           }} />
         </div>
-        <div className="max-w-lg mx-auto px-8 relative z-10">
+        <div className="max-w-[var(--container-lg)] mx-auto px-8 relative z-10">
           <Tag variant="safety" className="mb-6">{eventData.badge}</Tag>
           <h1 className="text-h1 mb-6 reveal">{eventData.title}</h1>
           <p className="text-data text-[var(--muted)] mb-8 max-w-2xl reveal" style={{ transitionDelay: '0.1s' }}>
@@ -200,7 +200,7 @@ export default function EventRegistrationPage() {
 
       {/* Event Agenda */}
       <section className="section">
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-[var(--container-lg)] mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Event Schedule</SectionEyebrow>
             <h2 className="text-h2 mt-2">Full Day <span className="text-[var(--safety)]">Agenda</span></h2>
@@ -251,7 +251,7 @@ export default function EventRegistrationPage() {
 
       {/* Featured Speakers */}
       <section className="section--surface">
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-[var(--container-lg)] mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Meet the Experts</SectionEyebrow>
             <h2 className="text-h2 mt-2">Featured <span className="text-[var(--safety)]">Speakers</span></h2>
@@ -281,7 +281,7 @@ export default function EventRegistrationPage() {
 
       {/* Registration Form */}
       <section className="section" ref={formRef}>
-        <div className="max-w-xs mx-auto">
+        <div className="max-w-[var(--container-sm)] mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Secure Your Spot</SectionEyebrow>
             <h2 className="text-h2 mt-2">Register <span className="text-[var(--safety)]">Now</span></h2>
@@ -438,7 +438,7 @@ export default function EventRegistrationPage() {
 
       {/* FAQ & Venue */}
       <section className="section--surface">
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-[var(--container-lg)] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* FAQ */}
             <div>

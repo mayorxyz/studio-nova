@@ -21,6 +21,9 @@
   --shadow: 8px 8px 0px var(--ink);
   --shadow-safety: 8px 8px 0px var(--safety);
   --header-h: 64px;
+  --container-sm: 800px;
+  --container-md: 1000px;
+  --container-lg: 1400px;
   --fs-hero: clamp(4rem, 14vw, 14rem);
   --fs-h1: clamp(2.4rem, 5vw, 5rem);
   --fs-h2: clamp(1.6rem, 3vw, 3rem);
@@ -47,6 +50,9 @@ html.dark {
   --shadow: 8px 8px 0px rgba(255, 255, 255, 0.1);
   --shadow-safety: 8px 8px 0px var(--safety);
   --header-h: 64px;
+  --container-sm: 800px;
+  --container-md: 1000px;
+  --container-lg: 1400px;
   --fs-hero: clamp(4rem, 14vw, 14rem);
   --fs-h1: clamp(2.4rem, 5vw, 5rem);
   --fs-h2: clamp(1.6rem, 3vw, 3rem);

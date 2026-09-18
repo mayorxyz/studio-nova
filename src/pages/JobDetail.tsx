@@ -222,7 +222,7 @@ export default function JobDetail() {
 
       {/* CTA */}
       <section className="section--dark">
-        <div className="max-w-[1000px] mx-auto text-center reveal">
+        <div className="max-w-[var(--container-md)] mx-auto text-center reveal">
           <h2 className="text-h2 mb-4 text-[var(--base)]">Ready to join our team?</h2>
           <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
             Take the next step in your career. Apply now and help us create exceptional digital experiences.

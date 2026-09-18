@@ -64,7 +64,7 @@ export default function BlogPost() {
     <article className="pb-20">
       {/* Hero */}
       <section className="hero" style={{ minHeight: '50vh' }}>
-        <div className="max-w-lg mx-auto w-full">
+        <div className="max-w-[var(--container-lg)] mx-auto w-full">
           <SectionEyebrow>
             <Link to="/blog" className="hover:text-[var(--safety)] transition-colors">
               Blog
@@ -109,7 +109,7 @@ export default function BlogPost() {
 
       {/* Content */}
       <section className="section">
-        <div className="max-w-xs mx-auto">
+        <div className="max-w-[var(--container-sm)] mx-auto">
           <div className="prose prose-lg reveal">
             {/* Introduction */}
             <p className="text-data text-[var(--muted)] leading-relaxed mb-8 text-lg">
@@ -188,7 +188,7 @@ export default function BlogPost() {
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <section className="section--surface">
-          <div className="max-w-lg mx-auto">
+          <div className="max-w-[var(--container-lg)] mx-auto">
             <div className="section__header reveal">
               <SectionEyebrow>Related Articles</SectionEyebrow>
               <h2 className="text-h2 mt-2">More in <span className="text-[var(--safety)]">{post.category}</span></h2>
@@ -215,9 +215,9 @@ export default function BlogPost() {
 
       {/* CTA */}
       <section className="section">
-        <div className="max-w-lg mx-auto text-center reveal">
+        <div className="max-w-[var(--container-lg)] mx-auto text-center reveal">
           <h2 className="text-h2 mb-4">Enjoyed this article?</h2>
-          <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
+          <p className="text-data text-[var(--muted)] mb-8 max-w-[var(--container-lg)] mx-auto">
             Subscribe to our newsletter for weekly insights on design, business, and technology.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
