@@ -39,7 +39,7 @@
       }
     </style>
     <script>
-      // 在 React 加载前立即设置主题，避免闪烁
+      // Initialize theme before React loads to prevent flash
       (function () {
         const isInIframe = window.self !== window.top;
 
@@ -50,7 +50,7 @@
         }
 
         if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
+          // Listen for theme messages from parent window
           window.addEventListener("message", function (event) {
             if (event.data && typeof event.data.theme === "string") {
               const theme = event.data.theme;
@@ -60,8 +60,15 @@
             }
           });
         } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
+          // Check localStorage first, then system preference
+          const stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") {
+            applyThemeToDOM(stored);
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            applyThemeToDOM("dark");
+          } else {
+            applyThemeToDOM("light");
+          }
         }
       })();
     </script>

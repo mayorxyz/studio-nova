@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTheme } from '../hooks/useTheme';
 
 // ─── Scoped Styles ───────────────────────────────────────────────────────────
 const footerStyles = `
@@ -81,6 +82,32 @@ const footerStyles = `
     color: var(--safety);
   }
 
+  .footer__theme-toggle {
+    background: transparent;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer__theme-toggle:hover {
+    border-color: var(--safety);
+    color: var(--safety);
+  }
+
+  .footer__theme-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
   @media (max-width: 768px) {
     .footer__top {
       grid-template-columns: repeat(2, 1fr);
@@ -146,6 +173,8 @@ const connectLinks = [
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function Footer() {
+  const { theme, toggleTheme } = useTheme();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -219,9 +248,23 @@ export default function Footer() {
             <Link to="/cookie-policy">Cookie Policy</Link>
           </div>
 
-          <button className="footer__back-to-top" onClick={scrollToTop}>
-            Back to Top
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button
+              className="footer__theme-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              <span className="footer__theme-toggle-icon">
+                {theme === 'light' ? '◐' : '◑'}
+              </span>
+              <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
+            </button>
+
+            <button className="footer__back-to-top" onClick={scrollToTop}>
+              Back to Top
+            </button>
+          </div>
         </div>
       </footer>
     </>
