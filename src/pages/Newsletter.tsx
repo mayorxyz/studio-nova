@@ -1,242 +1,128 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { SectionEyebrow, Tag, Button } from '../components/atomic';
-import { CheckIcon, CalendarIcon, ClockIcon, LockIcon, GearIcon } from '../components/icons';
-
-const pastIssues = [
-  {
-    number: '47',
-    date: 'Jan 9, 2024',
-    title: 'Design Systems at Scale',
-    excerpt: 'How top companies maintain consistency across 100+ products without sacrificing innovation.',
-    link: '#',
-  },
-  {
-    number: '46',
-    date: 'Jan 2, 2024',
-    title: 'The AI Design Revolution',
-    excerpt: 'Practical applications of AI in design workflows that are actually saving time, not just hype.',
-    link: '#',
-  },
-  {
-    number: '45',
-    date: 'Dec 26, 2023',
-    title: 'Accessibility Beyond Compliance',
-    excerpt: 'Why accessible design isn\'t just about meeting WCAG standards—it\'s about creating better experiences for everyone.',
-    link: '#',
-  },
-];
-
-const testimonials = [
-  {
-    name: 'Alex Rivera',
-    title: 'Senior Engineer at Stripe',
-    quote: 'The only newsletter I actually read every week. Consistently delivers actionable insights.',
-    avatar: 'AR',
-  },
-  {
-    name: 'Priya Sharma',
-    title: 'Design Lead at Figma',
-    quote: 'Studio Nova\'s newsletter is my go-to resource for staying current with design systems and frontend architecture.',
-    avatar: 'PS',
-  },
-];
+import { motion } from 'framer-motion';
+import { Mail, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubscribed(true);
+    if (email) {
+      setSubscribed(true);
+    }
   };
 
   return (
-    <div className="pb-20">
-      {/* Hero Container */}
-      <section className="section py-20">
-        <div className="max-w-[640px] mx-auto text-center">
-          {isSubscribed ? (
-            // Success State
-            <div className="reveal">
-              <div className="mb-6 flex justify-center">
-                <CheckIcon size={64} className="text-[var(--safety)]" />
-              </div>
-              <h1 className="text-h1 mb-4">
-                You're <span className="text-[var(--safety)]">subscribed!</span>
-              </h1>
-              <p className="text-data text-[var(--muted)] mb-8">
-                Check your inbox for a confirmation email. Your first newsletter arrives next Tuesday.
-              </p>
-              <div className="terminal max-w-md mx-auto text-left">
-                <div className="terminal__header">
-                  <span className="terminal__dot terminal__dot--red" />
-                  <span className="terminal__dot terminal__dot--yellow" />
-                  <span className="terminal__dot terminal__dot--green" />
-                </div>
-                <div className="terminal__line text-[var(--term-green)] flex items-center gap-2">
-                  <CheckIcon size={14} /> Subscription confirmed
-                </div>
-                <div className="terminal__line text-[var(--term-amber)]">→ Next issue: Tuesday 10 AM PST</div>
-                <div className="terminal__line">→ Unsubscribe anytime</div>
-              </div>
-            </div>
-          ) : (
-            // Subscription Form
-            <>
-              <h1 className="text-h1 mb-4 reveal">
-                Join <span className="text-[var(--safety)]">10,000+</span> Industry Insiders
-              </h1>
-              <p className="text-data text-[var(--muted)] mb-8 reveal" style={{ transitionDelay: '0.1s' }}>
-                Weekly actionable insights on full-stack web development, system architecture, and UI engineering.
-              </p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-2xl w-full"
+      >
+        <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: 'spring' }}
+            className="w-20 h-20 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <Mail className="w-10 h-10 text-white" />
+          </motion.div>
 
-              {/* Metadata Badges */}
-              <div className="flex flex-wrap gap-3 justify-center mb-12 reveal" style={{ transitionDelay: '0.2s' }}>
-                <Tag variant="ghost"><CalendarIcon size={14} className="inline mr-1" /> Delivered every Tuesday</Tag>
-                <Tag variant="ghost"><ClockIcon size={14} className="inline mr-1" /> 5-minute read</Tag>
-                <Tag variant="ghost"><LockIcon size={14} className="inline mr-1" /> No spam, unsubscribe anytime</Tag>
-              </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Stay Updated
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Subscribe to our newsletter and get the latest updates, tips, and insights delivered directly to your inbox.
+          </p>
 
-              {/* Subscription Form */}
-              <form onSubmit={handleSubmit} className="reveal" style={{ transitionDelay: '0.3s' }}>
-                <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                  <input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First name (optional)"
-                    className="flex-1 px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
-                  />
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address *"
-                    className="flex-1 px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
-                    autoFocus
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  variant="primary"
-                  safety
-                  disabled={isSubmitting}
-                  className="w-full justify-center text-lg py-4"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <GearIcon size={16} className="animate-spin mr-2 inline" />
-                      Subscribing...
-                    </>
-                  ) : (
-                    'Subscribe Free →'
-                  )}
-                </Button>
-              </form>
-
-              <p className="text-micro text-[var(--muted)] mt-4">
-                By subscribing, you agree to our privacy policy. Unsubscribe with one click.
-              </p>
-            </>
-          )}
-        </div>
-      </section>
-
-      {/* Past Issues */}
-      <section className="section--surface">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="section__header reveal">
-            <SectionEyebrow>Archive</SectionEyebrow>
-            <h2 className="text-h2 mt-2">Read Past <span className="text-[var(--safety)]">Issues</span></h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pastIssues.map((issue, i) => (
-              <Link
-                key={issue.number}
-                to={issue.link}
-                className="bento-card hover-lift reveal"
-                style={{ transitionDelay: `${i * 0.1}s` }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <Tag variant="safety">Issue #{issue.number}</Tag>
-                  <span className="text-micro text-[var(--muted)]">{issue.date}</span>
-                </div>
-                <h3 className="text-h3 mb-3">{issue.title}</h3>
-                <p className="text-data text-[var(--muted)] mb-4">{issue.excerpt}</p>
-                <span className="text-micro text-[var(--safety)]">Read Issue →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="section">
-        <div className="max-w-[1000px] mx-auto">
-          {/* Subscriber Count */}
-          <div className="text-center mb-12 reveal">
-            <div className="flex justify-center mb-4">
-              <div className="flex -space-x-3">
-                {['JD', 'JS', 'AC', 'SK', 'MJ'].map((initials, i) => (
-                  <div
-                    key={i}
-                    className="w-12 h-12 bg-[var(--safety)] border-2 border-[var(--base)] rounded-full flex items-center justify-center"
-                  >
-                    <span className="text-white font-bold text-sm">{initials}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="text-data text-[var(--muted)]">
-              Join <strong className="text-[var(--safety)]">10,000+</strong> designers and developers
-            </p>
-          </div>
-
-          {/* Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {testimonials.map((testimonial, i) => (
-              <div key={i} className="bento-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[var(--safety)] rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <div className="text-data font-semibold">{testimonial.name}</div>
-                    <div className="text-micro text-[var(--muted)]">{testimonial.title}</div>
-                  </div>
-                </div>
-                <p className="text-data text-[var(--muted)] italic">"{testimonial.quote}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      {!isSubscribed && (
-        <section className="section--dark">
-          <div className="max-w-[640px] mx-auto text-center">
-            <h2 className="text-h2 mb-4 text-[var(--base)]">Ready to level up your skills?</h2>
-            <p className="text-data text-[var(--muted)] mb-8">
-              Join thousands of professionals who trust Studio Nova for weekly insights.
-            </p>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="btn--primary btn--primary--safety"
+          {subscribed ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="py-8"
             >
-              Subscribe Now →
-            </button>
+              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                You're subscribed!
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Thank you for subscribing. Check your email for a confirmation message.
+              </p>
+              <button
+                onClick={() => {
+                  setSubscribed(false);
+                  setEmail('');
+                }}
+                className="text-gray-900 font-semibold hover:underline"
+              >
+                Subscribe with a different email
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              onSubmit={handleSubmit}
+              className="max-w-md mx-auto"
+            >
+              <div className="flex gap-3 mb-4">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  type="submit"
+                  className="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2"
+                >
+                  Subscribe
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </div>
+              <p className="text-sm text-gray-500">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </motion.form>
+          )}
+
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              What you'll get:
+            </h3>
+            <div className="grid md:grid-cols-3 gap-4 text-left">
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-2xl mb-2">📧</div>
+                <h4 className="font-semibold text-gray-900 mb-1">Weekly Updates</h4>
+                <p className="text-sm text-gray-600">
+                  Latest news and updates from our team
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-2xl mb-2">💡</div>
+                <h4 className="font-semibold text-gray-900 mb-1">Tips & Insights</h4>
+                <p className="text-sm text-gray-600">
+                  Expert advice and industry insights
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-2xl mb-2">🎁</div>
+                <h4 className="font-semibold text-gray-900 mb-1">Exclusive Offers</h4>
+                <p className="text-sm text-gray-600">
+                  Special deals for subscribers only
+                </p>
+              </div>
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,149 +1,44 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ScrollToTop from './components/ScrollToTop';
-import ScrollProgress from './components/ScrollProgress';
-import Search from './components/Search';
-import CookieConsent from './components/CookieConsent';
-import {
-  ShowcaseLayout,
-  ExplainerLayout,
-  StorytellerLayout,
-  MinimalLayout,
-  DashboardLayout,
-} from './components/layouts';
-import Home from './pages/Home';
-import Work from './pages/Work';
-import Services from './pages/Services';
-import About from './pages/About';
-import Mission from './pages/Mission';
-import Values from './pages/Values';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import Portal from './pages/Portal';
-import PortalProjects from './pages/PortalProjects';
-import PortalInvoices from './pages/PortalInvoices';
-import PortalMessages from './pages/PortalMessages';
-import PortalSettings from './pages/PortalSettings';
-import NotFound from './pages/NotFound';
-import ComponentShowcase from './pages/ComponentShowcase';
-import CaseStudy from './pages/CaseStudy';
-import ServiceDetail from './pages/ServiceDetail';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import QuoteRequest from './pages/QuoteRequest';
-import ThankYou from './pages/ThankYou';
-import ThankYouQuote from './pages/ThankYouQuote';
-import TeamGrid from './pages/TeamGrid';
-import TeamProfile from './pages/TeamProfile';
-import Process from './pages/Process';
-import Pricing from './pages/Pricing';
-import BlogPost from './pages/BlogPost';
-import BlogCategory from './pages/BlogCategory';
-import BlogTag from './pages/BlogTag';
-import WorkCategory from './pages/WorkCategory';
-import WorkIndustry from './pages/WorkIndustry';
-import Careers from './pages/Careers';
-import JobDetail from './pages/JobDetail';
-import Sitemap from './pages/Sitemap';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
-import Podcast from './pages/Podcast';
-import PodcastEpisode from './pages/PodcastEpisode';
-import Calculator from './pages/Calculator';
-import Awards from './pages/Awards';
-import Resources from './pages/Resources';
-import ResourceDetail from './pages/ResourceDetail';
-import Events from './pages/Events';
-import EventDetail from './pages/EventDetail';
-import EventRegistration from './pages/EventRegistration';
-import EventRegistrationSuccess from './pages/EventRegistrationSuccess';
-import EventRegistrationPage from './pages/EventRegistrationPage';
-import JobApplication from './pages/JobApplication';
-import JobApplicationSuccess from './pages/JobApplicationSuccess';
-import Partners from './pages/Partners';
-import PartnerDetail from './pages/PartnerDetail';
-import QuoteRequestNew from './pages/QuoteRequestNew';
 import Newsletter from './pages/Newsletter';
-import Register from './pages/Register';
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <ScrollProgress />
-      <Search />
-      <CookieConsent />
+    <BrowserRouter>
       <Routes>
-        {/* UI1: Showcase Layout — Grid-heavy pages */}
-        <Route element={<ShowcaseLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/work/category/:slug" element={<WorkCategory />} />
-          <Route path="/work/industry/:slug" element={<WorkIndustry />} />
-          <Route path="/work/awards" element={<Awards />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/category/:slug" element={<BlogCategory />} />
-          <Route path="/blog/tag/:slug" element={<BlogTag />} />
-          <Route path="/showcase" element={<ComponentShowcase />} />
-          <Route path="/about/team" element={<TeamGrid />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/podcast" element={<Podcast />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/partners" element={<Partners />} />
-        </Route>
-
-        {/* UI2: Explainer Layout — Content-heavy pages */}
-        <Route element={<ExplainerLayout />}>
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/process" element={<Process />} />
-          <Route path="/services/pricing" element={<Pricing />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/about/mission" element={<Mission />} />
-          <Route path="/about/values" element={<Values />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/careers/:slug" element={<JobDetail />} />
-          <Route path="/sitemap" element={<Sitemap />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/podcast/:slug" element={<PodcastEpisode />} />
-          <Route path="/resources/tools/calculator" element={<Calculator />} />
-          <Route path="/resources/:slug" element={<ResourceDetail />} />
-          <Route path="/events/:slug" element={<EventDetail />} />
-          <Route path="/events/:slug/register" element={<EventRegistration />} />
-          <Route path="/event-registration" element={<EventRegistrationPage />} />
-          <Route path="/quote-request" element={<QuoteRequestNew />} />
-          <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/careers/:slug/apply" element={<JobApplication />} />
-          <Route path="/partners/:slug" element={<PartnerDetail />} />
-        </Route>
-
-        {/* UI3: Storyteller Layout — Case studies & team profiles */}
-        <Route element={<StorytellerLayout />}>
-          <Route path="/work/:slug" element={<CaseStudy />} />
-          <Route path="/about/team/:slug" element={<TeamProfile />} />
-        </Route>
-
-        {/* UI4: Minimal Layout — Utility pages */}
-        <Route element={<MinimalLayout />}>
-          <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/thank-you-quote" element={<ThankYouQuote />} />
-          <Route path="/events/:slug/registered" element={<EventRegistrationSuccess />} />
-          <Route path="/careers/:slug/applied" element={<JobApplicationSuccess />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-
-        {/* UI5: Dashboard Layout — Portal pages */}
-        <Route element={<DashboardLayout />}>
-          <Route path="/portal" element={<Portal />} />
-          <Route path="/portal/projects" element={<PortalProjects />} />
-          <Route path="/portal/invoices" element={<PortalInvoices />} />
-          <Route path="/portal/messages" element={<PortalMessages />} />
-          <Route path="/portal/settings" element={<PortalSettings />} />
-        </Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/quote-request" element={<QuoteRequest />} />
+        <Route path="/newsletter" element={<Newsletter />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
+  );
+}
+
+function HomePage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+      <div className="max-w-2xl w-full text-center">
+        <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          Welcome to Our Platform
+        </h1>
+        <p className="text-xl text-gray-600 mb-12">
+          Get started by requesting a quote or subscribing to our newsletter
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/quote-request"
+            className="px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+          >
+            Request a Quote
+          </Link>
+          <Link
+            to="/newsletter"
+            className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-900 hover:bg-gray-50 transition-colors"
+          >
+            Subscribe to Newsletter
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
