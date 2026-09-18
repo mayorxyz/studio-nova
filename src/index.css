@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Studio Nova design system — tokens, semantic classes, reveal animation.
+   Must stay after the Tailwind import so its `@layer` blocks register
+   against Tailwind's layer order. */
+@import "./styles/design-system.css";
