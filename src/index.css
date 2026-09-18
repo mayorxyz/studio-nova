@@ -49,6 +49,7 @@
   
   /* Pop-up hover shadow (brutalist hard shadow) */
   --shadow-pop: 8px 8px 0px var(--ink);
+  --shadow-pop-sm: 4px 4px 0px var(--ink); /* For smaller elements like tags */
 
   /* Layout & Type scale */
   --header-h: 64px;
@@ -83,6 +84,7 @@ html.dark {
   --term-green: #00FF66;
   --term-amber: #FFAA00;
   --shadow-pop: 8px 8px 0px var(--ink);
+  --shadow-pop-sm: 4px 4px 0px var(--ink);
   --header-h: 64px;
   --container-sm: 800px;
   --container-md: 1000px;
@@ -424,22 +426,37 @@ html.dark {
 }
 
 /* --------------------------------------------------------------------------
-   6. Cards & cells
+   6. Cards & cells (Unified Pop-Out Hover)
    -------------------------------------------------------------------------- */
 @layer components {
+  /* Base transition for all pop-out cards */
+  .bento-card,
+  .stat-card,
+  .feat-card,
+  .spec-cell,
+  .stack__card {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 0.25s ease;
+  }
+
+  /* Hover state: thick black/white outline + smooth pop-out */
+  .bento-card:hover,
+  .stat-card:hover,
+  .feat-card:hover,
+  .spec-cell:hover,
+  .stack__card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-pop);
+    border-color: var(--ink);
+  }
+
   .bento-card {
     position: relative;
     padding: 1.75rem;
     background: var(--base);
     color: var(--ink);
     border: 2px solid var(--line);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.25s ease;
-  }
-
-  /* Pop-up hover effect (no orange highlight) */
-  .bento-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: var(--shadow-pop);
   }
 
   .bento-card--dark {
@@ -558,7 +575,7 @@ html.dark {
     padding: 1.25rem;
     background: var(--base);
     color: var(--ink);
-    border: 1px solid var(--line);
+    border: 2px solid var(--line); /* Upgraded to 2px for consistent hover */
   }
 
   .spec-cell--dark {
@@ -664,7 +681,8 @@ html.dark {
     text-decoration: none;
     border: 2px solid transparent;
     transition: background 0.18s ease, color 0.18s ease,
-      border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      border-color 0.18s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
+      box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Brand primary */
@@ -690,12 +708,13 @@ html.dark {
     color: currentColor;
   }
 
+  /* Ghost button gets the pop-out effect */
   .btn--ghost:hover {
-    background: var(--ink);
+    background: var(--base);
     border-color: var(--ink);
-    color: var(--base);
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px var(--ink);
+    color: var(--ink);
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-pop-sm);
   }
 
   .btn--primary:disabled,
@@ -703,6 +722,7 @@ html.dark {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
   }
 
   .tag {
@@ -718,6 +738,16 @@ html.dark {
     border: 1px solid var(--line);
     background: transparent;
     color: inherit;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 0.2s ease;
+  }
+
+  /* Small pop-out for tags */
+  .tag:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-pop-sm);
+    border-color: var(--ink);
   }
 
   .tag--filled {
@@ -746,14 +776,17 @@ html.dark {
     border: 2px solid var(--line);
   }
 
-  /* Pop-up hover effect (orange highlight removed) */
+  /* Generic utility for any element to get the pop-out effect */
   .hover-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 0.25s ease;
   }
 
   .hover-lift:hover {
     transform: translate(-4px, -4px);
     box-shadow: var(--shadow-pop);
+    border-color: var(--ink);
   }
 
   .corner-marks {
