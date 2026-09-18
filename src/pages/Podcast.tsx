@@ -99,7 +99,7 @@ export default function Podcast() {
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
                 <div className="bento-card hover-lift h-full">
-                  <div className="flex justify-between items-start mb-3">
+                  <div className="flex justify-between items-center mb-3">
                     <Tag variant="safety">
                       {episode.type === 'podcast' ? 'Podcast' : 'Video'}
                     </Tag>

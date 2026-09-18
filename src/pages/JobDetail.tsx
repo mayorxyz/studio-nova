@@ -57,7 +57,7 @@ export default function JobDetail() {
             {job.title}
           </h1>
           
-          <div className="flex flex-wrap gap-3 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
+          <div className="flex flex-wrap gap-4 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
             <Tag variant="safety">{job.department}</Tag>
             <Tag variant="ghost">{job.location}</Tag>
             <Tag variant="ghost">{job.type}</Tag>

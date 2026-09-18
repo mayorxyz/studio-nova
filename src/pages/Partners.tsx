@@ -102,7 +102,7 @@ export default function Partners() {
                     </div>
                   </div>
                   <p className="text-data text-[var(--muted)] mb-4">{partner.description}</p>
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {partner.benefits.slice(0, 3).map((benefit) => (
                       <Tag key={benefit} variant="ghost">
                         {benefit}

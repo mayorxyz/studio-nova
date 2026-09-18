@@ -84,7 +84,7 @@ export default function CookieConsent() {
                         Required for the website to function properly. Cannot be disabled.
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                       <span className="text-micro text-[var(--term-green)]">✓ Always Active</span>
                     </div>
                   </div>

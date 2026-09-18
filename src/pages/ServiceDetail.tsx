@@ -280,7 +280,7 @@ export default function ServiceDetail() {
                   <div className="bento-card hover-lift h-full">
                     <h3 className="text-h3">{sub.title}</h3>
                     <p className="text-data text-[var(--muted)] mt-2">{sub.description}</p>
-                    <div className="flex flex-wrap gap-1 mt-4">
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {sub.features.slice(0, 3).map((f) => (
                         <Tag key={f} variant="ghost">{f}</Tag>
                       ))}

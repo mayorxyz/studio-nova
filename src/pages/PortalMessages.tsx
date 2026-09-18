@@ -87,7 +87,7 @@ export default function PortalMessages() {
       </div>
 
       {/* Messages Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Conversations List */}
         <div className="lg:col-span-1">
           <div className="space-y-2">
@@ -101,7 +101,7 @@ export default function PortalMessages() {
                     : 'border-[var(--ink)]/10 hover:border-[var(--safety)]/50'
                 }`}
               >
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex justify-between items-center mb-2">
                   <h3 className="text-data font-semibold">{conv.name}</h3>
                   {conv.unread > 0 && (
                     <Tag variant="safety">{conv.unread}</Tag>
@@ -160,7 +160,7 @@ export default function PortalMessages() {
 
             {/* Message Input */}
             <form onSubmit={handleSendMessage} className="border-t border-[var(--ink)]/10 pt-4">
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <input
                   type="text"
                   value={newMessage}

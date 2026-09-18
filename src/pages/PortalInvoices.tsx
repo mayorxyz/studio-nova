@@ -82,7 +82,7 @@ export default function PortalInvoices() {
       <div className="space-y-4">
         {invoices.map((invoice, i) => (
           <BentoCard key={invoice.id} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-center">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <h2 className="text-h3 font-mono">{invoice.id}</h2>

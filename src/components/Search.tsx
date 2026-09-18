@@ -260,7 +260,7 @@ export default function Search() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">{getTypeIcon(result.type)}</span>
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-3 mb-1">
                         <h3 className="font-semibold">{result.title}</h3>
                         <span className={`text-xs px-2 py-0.5 rounded ${
                           selectedIndex === index

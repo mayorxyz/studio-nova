@@ -44,7 +44,7 @@ export default function PodcastEpisode() {
             Season {episode.season}, Episode {episode.episode}
           </SectionEyebrow>
           <h1 className="text-h1 mt-4 reveal">{episode.title}</h1>
-          <div className="flex flex-wrap gap-2 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
+          <div className="flex flex-wrap gap-3 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
             <Tag variant="safety">{episode.type === 'podcast' ? 'Podcast' : 'Video'}</Tag>
             <Tag variant="ghost">{episode.duration}</Tag>
             {episode.guests?.map((guest) => (
@@ -214,7 +214,7 @@ export default function PodcastEpisode() {
               {relatedEpisodes.map((ep, i) => (
                 <Link key={ep.id} to={`/podcast/${ep.slug}`} className="block reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                   <div className="bento-card hover-lift h-full">
-                    <div className="flex justify-between items-start mb-3">
+                    <div className="flex justify-between items-center mb-3">
                       <Tag variant="safety">{ep.type === 'podcast' ? 'Podcast' : 'Video'}</Tag>
                       <span className="text-micro text-[var(--muted)]">
                         S{ep.season}E{ep.episode}

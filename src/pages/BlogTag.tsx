@@ -114,7 +114,7 @@ export default function BlogTag() {
                   style={{ transitionDelay: `${i * 0.05}s` }}
                 >
                   <div className="bento-card hover-lift h-full">
-                    <div className="flex justify-between items-start mb-3">
+                    <div className="flex justify-between items-center mb-3">
                       <Tag variant="safety">{post.category}</Tag>
                       <span className="text-micro text-[var(--muted)]">{post.date}</span>
                     </div>

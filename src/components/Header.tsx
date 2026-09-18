@@ -490,7 +490,7 @@ export default function Header() {
 
         {/* Mobile Menu Overlay */}
         {menuOpen && (
-          <div className="fixed inset-0 top-[64px] bg-[var(--term-bg)] z-50 flex flex-col p-6 md:hidden overflow-y-auto">
+          <div className="fixed inset-0 top-[64px] bg-[var(--term-bg)] z-50 flex flex-col p-4 sm:p-6 md:hidden overflow-y-auto">
             {navItems.map((item) => {
               const key = item.label.toLowerCase();
               const isActive = isNavItemActive(item);

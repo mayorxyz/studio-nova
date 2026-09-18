@@ -110,7 +110,7 @@ export default function Blog() {
             <div className="section__label">Browse by Tag</div>
             <h2 className="text-h2">Explore <span className="text-[var(--safety)]">topics</span></h2>
           </div>
-          <div className="flex flex-wrap gap-2 reveal">
+          <div className="flex flex-wrap gap-3 reveal">
             {Array.from(new Set(blogPosts.flatMap(post => post.tags))).map((tag) => {
               const tagSlug = tag.toLowerCase().replace(/\s+/g, '-');
               const count = blogPosts.filter(p => p.tags.includes(tag)).length;

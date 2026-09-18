@@ -60,7 +60,7 @@ export default function Calculator() {
       {/* Calculator */}
       <section className="section">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {/* Inputs */}
             <div className="space-y-6 reveal">
               <div className="bento-card">

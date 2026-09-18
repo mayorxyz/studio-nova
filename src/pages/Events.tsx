@@ -56,7 +56,7 @@ export default function Events() {
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className="bento-card bento-card--dark hover-lift h-full">
-                  <div className="flex justify-between items-start mb-3">
+                  <div className="flex justify-between items-center mb-3">
                     <Tag variant="safety">
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </Tag>
@@ -112,7 +112,7 @@ export default function Events() {
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
                 <div className="bento-card hover-lift h-full">
-                  <div className="flex justify-between items-start mb-3">
+                  <div className="flex justify-between items-center mb-3">
                     <Tag variant="safety">
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </Tag>
