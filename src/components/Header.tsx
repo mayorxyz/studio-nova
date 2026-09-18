@@ -271,7 +271,7 @@ const headerStyles = `
       transform: none;
       box-shadow: none;
       border: none;
-      border-left: 1px solid rgba(255,255,255,0.12);
+      border-left: 1px solid rgba(var(--base-rgb), 0.12);
       margin: 0 0 0 1.25rem;
       background: transparent;
       display: none;
@@ -498,7 +498,7 @@ export default function Header() {
 
               if (item.dropdown) {
                 return (
-                  <div key={key} className="border-b border-[#333]">
+                  <div key={key} className="border-b border-[var(--muted)]">
                     <button
                       className={`w-full flex items-center justify-between py-4 text-left font-display text-lg ${
                         isActive ? 'text-[var(--safety)]' : 'text-white'
@@ -561,7 +561,7 @@ export default function Header() {
                 <Link
                   key={item.path || key}
                   to={item.path || '/'}
-                  className={`block py-4 text-lg font-display border-b border-[#333] ${
+                  className={`block py-4 text-lg font-display border-b border-[var(--muted)] ${
                     isActive ? 'text-[var(--safety)]' : 'text-white'
                   }`}
                   onClick={closeDropdown}
@@ -574,7 +574,7 @@ export default function Header() {
             {/* Mobile Portal Link */}
             <Link
               to="/portal"
-              className="text-[var(--safety)] text-lg font-display py-4 mt-4 border-b border-[#333] flex items-center gap-2"
+              className="text-[var(--safety)] text-lg font-display py-4 mt-4 border-b border-[var(--muted)] flex items-center gap-2"
               onClick={closeDropdown}
             >
               Client Portal <ExternalLinkIcon size={16} />
