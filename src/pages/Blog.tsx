@@ -140,7 +140,7 @@ export default function Blog() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 px-4 py-3 bg-[var(--term-bg)] border border-[#333] text-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+              className="flex-1 px-4 py-3 bg-[var(--term-bg)] border border-[var(--muted)] text-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
             />
             <button className="btn--primary btn--primary--safety">Subscribe</button>
           </div>
