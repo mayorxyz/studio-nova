@@ -1,0 +1,15 @@
+# Phase 2 Visual Assets Manifest
+
+## Case Study Images
+- neon-coffee: https://image.qwenlm.ai/generated-images/54b89a26-81ee-4e73-b8aa-d6e523389f1d/_result.png
+- fintech-app: https://image.qwenlm.ai/generated-images/5db6d12c-5ae5-46a5-9c48-f9180419bf2f/_result.png
+- sustainable-fashion: https://image.qwenlm.ai/generated-images/52176d00-0978-41a4-9a47-a9e35631689e/_result.png
+- music-streaming: https://image.qwenlm.ai/generated-images/b7f42b08-cd23-49cb-a329-4efe16ca8df8/_result.png
+
+## Team Member Photos
+- jane-doe: https://image.qwenlm.ai/generated-images/10809a42-072c-40d8-abe0-1e3359ef14f3/_result.png
+- john-smith: https://image.qwenlm.ai/generated-images/ea61e782-2267-4795-b632-17abadfb1c85/_result.png
+- alex-chen: https://image.qwenlm.ai/generated-images/acdaa9ce-81e3-43d1-bea7-988f145f4946/_result.png
+- sarah-kim: https://image.qwenlm.ai/generated-images/70d617ad-d29f-4d33-a32e-a153a1342974/_result.png
+- mike-johnson: https://image.qwenlm.ai/generated-images/bfc60fed-41dc-438e-8fa8-ad72eabe1943/_result.png
+- emma-wilson: https://image.qwenlm.ai/generated-images/a1b8d21e-5ea5-40eb-b951-d59692fdaa3e/_result.png
