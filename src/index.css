@@ -27,6 +27,29 @@
   --fs-micro: 0.62rem;
 }
 
+html.dark {
+  --base: #1a1a1a;
+  --ink: #ffffff;
+  --safety: #FF3E00;
+  --muted: #999999;
+  --surface: #252525;
+  --term-bg: #0a0a0a;
+  --term-green: #00FF66;
+  --term-amber: #FFAA00;
+  --border: 4px solid var(--ink);
+  --border-thin: 1px solid var(--ink);
+  --shadow: 8px 8px 0px rgba(255, 255, 255, 0.1);
+  --shadow-safety: 8px 8px 0px var(--safety);
+  --header-h: 64px;
+  --fs-hero: clamp(4rem, 14vw, 14rem);
+  --fs-h1: clamp(2.4rem, 5vw, 5rem);
+  --fs-h2: clamp(1.6rem, 3vw, 3rem);
+  --fs-h3: clamp(1.1rem, 1.6vw, 1.5rem);
+  --fs-body: clamp(0.9rem, 1.1vw, 1.1rem);
+  --fs-data: clamp(0.78rem, 0.9vw, 0.95rem);
+  --fs-micro: 0.62rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
