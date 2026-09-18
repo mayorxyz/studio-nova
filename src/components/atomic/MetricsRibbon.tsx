@@ -16,6 +16,11 @@ export const MetricsRibbon: React.FC<MetricsRibbonProps> = ({
   variant = 'default',
   className = '',
 }) => {
+  // Guard against empty items array
+  if (!items || items.length === 0) {
+    return null;
+  }
+
   const variantClass = {
     default: '',
     safety: 'ribbon--safety',
