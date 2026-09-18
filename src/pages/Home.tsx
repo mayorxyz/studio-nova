@@ -237,7 +237,7 @@ export default function Home() {
               <div key={i} className="bento-card bento-card--dark reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="text-[var(--safety)] text-4xl mb-4">"</div>
                 <p className="text-data text-[var(--base)] mb-6">{t.quote}</p>
-                <div className="border-t border-[#333] pt-4">
+                <div className="border-t border-[var(--muted)] pt-4">
                   <div className="font-display font-semibold text-[var(--base)]">{t.author}</div>
                   <div className="text-micro text-[var(--muted)]">{t.role}</div>
                 </div>

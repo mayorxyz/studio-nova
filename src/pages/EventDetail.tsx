@@ -43,7 +43,7 @@ export default function EventDetail() {
             {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
           </SectionEyebrow>
           <h1 className="text-h1 mt-4 reveal">{event.title}</h1>
-          <div className="flex flex-wrap gap-2 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
+          <div className="flex flex-wrap gap-3 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
             <Tag variant="safety">
               {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
             </Tag>

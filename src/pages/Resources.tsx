@@ -119,7 +119,7 @@ export default function Resources() {
                   </div>
                   <h3 className="text-h3 mb-2">{resource.title}</h3>
                   <p className="text-data text-[var(--muted)] mb-4">{resource.description}</p>
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {resource.tags.slice(0, 3).map((tag) => (
                       <Tag key={tag} variant="ghost">
                         {tag}

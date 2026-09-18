@@ -65,7 +65,7 @@ export default function TeamGrid() {
                   <Tag variant="safety" className="mt-2 mb-3">{member.role}</Tag>
                   <p className="text-data text-[var(--muted)]">{member.bio}</p>
                   
-                  <div className="mt-4 pt-4 border-t border-[#333]">
+                  <div className="mt-4 pt-4 border-t border-[var(--muted)]">
                     <span className="text-micro text-[var(--safety)]">View Profile →</span>
                   </div>
                 </div>

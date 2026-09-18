@@ -44,7 +44,7 @@ export default function JobDetail() {
     <article className="pb-20">
       {/* Hero */}
       <section className="hero" style={{ minHeight: '50vh' }}>
-        <div className="max-w-[1400px] mx-auto w-full">
+        <div className="max-w-lg mx-auto w-full">
           <SectionEyebrow>
             <Link to="/careers" className="hover:text-[var(--safety)] transition-colors">
               Careers
@@ -57,7 +57,7 @@ export default function JobDetail() {
             {job.title}
           </h1>
           
-          <div className="flex flex-wrap gap-3 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
+          <div className="flex flex-wrap gap-4 mt-6 reveal" style={{ transitionDelay: '0.1s' }}>
             <Tag variant="safety">{job.department}</Tag>
             <Tag variant="ghost">{job.location}</Tag>
             <Tag variant="ghost">{job.type}</Tag>
@@ -74,7 +74,7 @@ export default function JobDetail() {
 
       {/* Job Description */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
             {/* Main Content */}
             <div className="reveal">
@@ -149,7 +149,7 @@ export default function JobDetail() {
 
       {/* Benefits */}
       <section className="section--surface">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Benefits & Perks</SectionEyebrow>
             <h2 className="text-h2 mt-2">What we <span className="text-[var(--safety)]">offer</span></h2>
@@ -168,7 +168,7 @@ export default function JobDetail() {
 
       {/* Application Process */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Next Steps</SectionEyebrow>
             <h2 className="text-h2 mt-2">How to <span className="text-[var(--safety)]">apply</span></h2>
@@ -222,7 +222,7 @@ export default function JobDetail() {
 
       {/* CTA */}
       <section className="section--dark">
-        <div className="max-w-[1000px] mx-auto text-center reveal">
+        <div className="max-w-[var(--container-md)] mx-auto text-center reveal">
           <h2 className="text-h2 mb-4 text-[var(--base)]">Ready to join our team?</h2>
           <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
             Take the next step in your career. Apply now and help us create exceptional digital experiences.

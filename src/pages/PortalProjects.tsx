@@ -49,7 +49,7 @@ export default function PortalProjects() {
       <div className="space-y-6">
         {projects.map((project, i) => (
           <BentoCard key={project.id} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-            <div className="flex justify-between items-start mb-4">
+            <div className="flex justify-between items-center mb-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <h2 className="text-h3">{project.name}</h2>

@@ -97,7 +97,7 @@ export default function Awards() {
                 className="bento-card reveal"
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex justify-between items-center mb-3">
                   <div className="text-[var(--safety)] font-display font-bold text-4xl">01</div>
                   <span className="text-micro text-[var(--muted)]">{award.year}</span>
                 </div>

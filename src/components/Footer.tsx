@@ -40,7 +40,7 @@ const footerStyles = `
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 1.5rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--muted);
     display: flex;
     justify-content: space-between;
     align-items: center;

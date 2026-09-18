@@ -60,7 +60,7 @@ export default function TermsOfService() {
     <div className="pb-20">
       {/* Header */}
       <section className="bg-[var(--surface)] py-12 border-b border-[var(--ink)]">
-        <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-[var(--container-lg)] mx-auto px-8">
           <SectionEyebrow>Legal Document</SectionEyebrow>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-4">
             <div>
@@ -87,7 +87,7 @@ export default function TermsOfService() {
 
       {/* 2-Column Layout */}
       <section className="section">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[var(--container-lg)] mx-auto">
           <div className="grid grid-cols-12 gap-8">
             {/* Left Column - Sticky TOC */}
             <div className="col-span-12 lg:col-span-3">
@@ -367,7 +367,7 @@ export default function TermsOfService() {
 
       {/* Related Links */}
       <section className="section--surface">
-        <div className="max-w-[800px] mx-auto text-center">
+        <div className="max-w-[var(--container-sm)] mx-auto text-center">
           <h2 className="text-h2 mb-6">Related Policies</h2>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/privacy-policy" className="btn--ghost">

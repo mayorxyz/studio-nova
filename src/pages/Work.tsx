@@ -83,7 +83,7 @@ export default function Work() {
                     style={{ width: 'calc(100% + 1rem)' }}
                   />
                 )}
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex justify-between items-center mb-3">
                   <span className="tag tag--safety">{project.category}</span>
                   <span className="text-micro text-[var(--muted)]">{project.year}</span>
                 </div>
