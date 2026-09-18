@@ -44,7 +44,7 @@ export default function JobDetail() {
     <article className="pb-20">
       {/* Hero */}
       <section className="hero" style={{ minHeight: '50vh' }}>
-        <div className="max-w-[1400px] mx-auto w-full">
+        <div className="max-w-lg mx-auto w-full">
           <SectionEyebrow>
             <Link to="/careers" className="hover:text-[var(--safety)] transition-colors">
               Careers
@@ -74,7 +74,7 @@ export default function JobDetail() {
 
       {/* Job Description */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
             {/* Main Content */}
             <div className="reveal">
@@ -149,7 +149,7 @@ export default function JobDetail() {
 
       {/* Benefits */}
       <section className="section--surface">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Benefits & Perks</SectionEyebrow>
             <h2 className="text-h2 mt-2">What we <span className="text-[var(--safety)]">offer</span></h2>
@@ -168,7 +168,7 @@ export default function JobDetail() {
 
       {/* Application Process */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="section__header reveal">
             <SectionEyebrow>Next Steps</SectionEyebrow>
             <h2 className="text-h2 mt-2">How to <span className="text-[var(--safety)]">apply</span></h2>

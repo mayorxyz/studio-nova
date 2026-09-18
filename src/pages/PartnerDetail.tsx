@@ -34,7 +34,7 @@ export default function PartnerDetail() {
     <div>
       {/* Hero */}
       <section className="hero" style={{ minHeight: '40vh' }}>
-        <div className="max-w-[1400px] mx-auto w-full">
+        <div className="max-w-lg mx-auto w-full">
           <SectionEyebrow>
             <Link to="/partners" className="hover:text-[var(--safety)] transition-colors">
               Partners
@@ -60,7 +60,7 @@ export default function PartnerDetail() {
 
       {/* Content */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
             <div className="reveal">
               <h2 className="text-h2 mb-4">About {partner.name}</h2>
@@ -126,7 +126,7 @@ export default function PartnerDetail() {
       {/* Related Partners */}
       {relatedPartners.length > 0 && (
         <section className="section--surface">
-          <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-lg mx-auto">
             <div className="section__header reveal">
               <SectionEyebrow>More Partners</SectionEyebrow>
               <h2 className="text-h2 mt-2">
@@ -159,7 +159,7 @@ export default function PartnerDetail() {
 
       {/* CTA */}
       <section className="section">
-        <div className="max-w-[1400px] mx-auto text-center reveal">
+        <div className="max-w-lg mx-auto text-center reveal">
           <h2 className="text-h2 mb-4">Want to work with {partner.name}?</h2>
           <p className="text-data text-[var(--muted)] mb-8 max-w-lg mx-auto">
             As a certified {partner.name} partner, we can help you implement and optimize their platform for your needs.

@@ -91,7 +91,7 @@ export default function Mission() {
         </div>
 
         {/* Glassmorphism Content */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-8 text-center">
+        <div className="relative z-10 max-w-md mx-auto px-8 text-center">
           <SectionEyebrow className="text-[var(--safety)]">Our Mission</SectionEyebrow>
           <h1 className="text-h1 text-[var(--base)] mt-6 mb-8 leading-tight">
             Building the Future of <span className="text-[var(--safety)]">Digital Design</span>
@@ -127,7 +127,7 @@ export default function Mission() {
 
       {/* Core Mission Statement */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto text-center">
+        <div className="max-w-sm mx-auto text-center">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-6">
               Our mission is to <span className="text-[var(--safety)]">democratize software development</span> for the next billion creators.
@@ -141,7 +141,7 @@ export default function Mission() {
 
       {/* Company Values Grid */}
       <section className="section--surface">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-lg mx-auto">
           <div className="section__header text-center mb-12">
             <SectionEyebrow>Our Values</SectionEyebrow>
             <h2 className="text-h2 mt-2">
@@ -165,7 +165,7 @@ export default function Mission() {
 
       {/* Interactive Timeline */}
       <section className="section">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-md mx-auto">
           <div className="section__header text-center mb-12">
             <SectionEyebrow>Our Journey</SectionEyebrow>
             <h2 className="text-h2 mt-2">
@@ -210,7 +210,7 @@ export default function Mission() {
 
       {/* Dual CTA Section */}
       <section className="section--dark">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-md mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Careers CTA */}
             <div className="bento-card bento-card--dark hover-lift">

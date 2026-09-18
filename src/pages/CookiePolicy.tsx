@@ -94,7 +94,7 @@ export default function CookiePolicy() {
     <div className="pb-20">
       {/* Header */}
       <section className="bg-[var(--surface)] py-12 border-b border-[var(--ink)]">
-        <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-lg mx-auto px-8">
           <SectionEyebrow>Legal Document</SectionEyebrow>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-4">
             <div>
@@ -114,7 +114,7 @@ export default function CookiePolicy() {
 
       {/* Overview Section */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <div className="prose prose-slate lg:prose-lg max-w-none">
             <h2 className="text-h2 mb-4">What Are Cookies?</h2>
             <p className="text-data text-[var(--muted)] leading-[1.7] mb-4">
@@ -136,7 +136,7 @@ export default function CookiePolicy() {
 
       {/* Cookie Categories */}
       <section className="section pt-0">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-md mx-auto">
           <h2 className="text-h2 mb-6">Cookie Categories</h2>
           
           {/* Tabs */}
@@ -210,7 +210,7 @@ export default function CookiePolicy() {
 
       {/* Browser Control Instructions */}
       <section className="section--surface">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-md mx-auto">
           <h2 className="text-h2 mb-6">How to Control Cookies in Your Browser</h2>
           <p className="text-data text-[var(--muted)] mb-8">
             You can control and manage cookies through your browser settings. Here's how to do it in popular browsers:
@@ -251,7 +251,7 @@ export default function CookiePolicy() {
 
       {/* Additional Information */}
       <section className="section">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-sm mx-auto">
           <h2 className="text-h2 mb-6">Additional Information</h2>
           
           <div className="space-y-6">
@@ -284,7 +284,7 @@ export default function CookiePolicy() {
 
       {/* Contact */}
       <section className="section--dark">
-        <div className="max-w-[1000px] mx-auto text-center">
+        <div className="max-w-sm mx-auto text-center">
           <h2 className="text-h2 mb-4 text-[var(--base)]">Questions About Cookies?</h2>
           <p className="text-data text-[var(--muted)] mb-6">
             If you have any questions about our use of cookies or this policy, please contact us.
@@ -299,7 +299,7 @@ export default function CookiePolicy() {
 
       {/* Related Links */}
       <section className="section">
-        <div className="max-w-[800px] mx-auto text-center">
+        <div className="max-w-xs mx-auto text-center">
           <h2 className="text-h2 mb-6">Related Policies</h2>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/privacy-policy" className="btn--ghost">
