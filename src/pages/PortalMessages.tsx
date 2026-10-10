@@ -68,7 +68,6 @@ export default function PortalMessages() {
     e.preventDefault();
     if (newMessage.trim()) {
       // In a real app, this would send the message
-      console.log('Sending message:', newMessage);
       setNewMessage('');
     }
   };
@@ -76,12 +75,12 @@ export default function PortalMessages() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-h2">Messages</h1>
           <p className="text-data text-[var(--muted)]">Communicate with your project team</p>
         </div>
-        <Link to="/portal" className="btn--ghost">
+        <Link to="/portal" className="btn--ghost py-2 px-4 self-start sm:self-auto">
           ← Back to Dashboard
         </Link>
       </div>
@@ -140,13 +139,13 @@ export default function PortalMessages() {
                   className={`flex ${msg.isOwn ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[70%] p-4 ${
+                    className={`max-w-[85%] sm:max-w-[70%] p-4 ${
                       msg.isOwn
                         ? 'bg-[var(--safety)] text-[var(--ink)]'
                         : 'bg-[var(--surface)]'
                     }`}
                   >
-                    <div className="flex justify-between items-center mb-2">
+                    <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
                       <span className="text-micro font-semibold">
                         {msg.sender}
                       </span>
@@ -160,17 +159,17 @@ export default function PortalMessages() {
 
             {/* Message Input */}
             <form onSubmit={handleSendMessage} className="border-t border-[var(--ink)]/10 pt-4">
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="text"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-3 border-2 border-[var(--ink)]/10 bg-transparent focus:border-[var(--safety)] outline-none transition-colors"
+                  className="w-full flex-1 px-4 py-3 border-2 border-[var(--ink)]/10 bg-transparent focus:border-[var(--safety)] outline-none transition-colors"
                 />
                 <button
                   type="submit"
-                  className="btn--primary"
+                  className="btn--primary w-full sm:w-auto"
                   disabled={!newMessage.trim()}
                 >
                   Send →

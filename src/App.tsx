@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
-import ScrollProgress from './components/ScrollProgress';
 import RevealObserver from './components/RevealObserver';
 import Search from './components/Search';
 import CookieConsent from './components/CookieConsent';
@@ -28,7 +27,6 @@ import NotFound from './pages/NotFound';
 import ComponentShowcase from './pages/ComponentShowcase';
 import CaseStudy from './pages/CaseStudy';
 import ServiceDetail from './pages/ServiceDetail';
-import QuoteRequest from './pages/QuoteRequest';
 import ThankYou from './pages/ThankYou';
 import ThankYouQuote from './pages/ThankYouQuote';
 import TeamGrid from './pages/TeamGrid';
@@ -70,7 +68,6 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <RevealObserver />
-      <ScrollProgress />
       <Search />
       <CookieConsent />
       <Routes>
@@ -91,6 +88,7 @@ export default function App() {
           <Route path="/resources" element={<Resources />} />
           <Route path="/events" element={<Events />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* UI2: Explainer Layout — Content-heavy pages */}
@@ -133,7 +131,6 @@ export default function App() {
           <Route path="/thank-you-quote" element={<ThankYouQuote />} />
           <Route path="/events/:slug/registered" element={<EventRegistrationSuccess />} />
           <Route path="/careers/:slug/applied" element={<JobApplicationSuccess />} />
-          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

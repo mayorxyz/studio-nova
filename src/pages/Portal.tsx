@@ -19,6 +19,11 @@ const recentActivity = [
 export default function Portal() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  /** Leave the client portal and return to the public Studio Nova site. */
+  const exitPortal = () => {
+    window.location.href = '/';
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,7 +40,7 @@ export default function Portal() {
   // Login screen — rendered inside MinimalLayout-style centered view
   if (!loggedIn) {
     return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-128px)]">
+      <div className="flex items-center justify-center py-8 md:py-16">
         <div className="max-w-md w-full reveal">
           <div className="section__label justify-center">Client Portal</div>
           <h1 className="text-h2 mb-8 text-center">Sign <span className="text-[var(--safety)]">In</span></h1>
@@ -79,21 +84,31 @@ export default function Portal() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-h2">Dashboard</h1>
           <p className="text-data text-[var(--muted)]">Welcome back, Client</p>
         </div>
-        <button
-          onClick={() => setLoggedIn(false)}
-          className="text-micro text-[var(--muted)] hover:text-[var(--safety)] transition-colors"
-        >
-          ← Sign Out
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={exitPortal}
+            className="btn--ghost py-2 px-4 text-micro"
+          >
+            ← Exit Portal
+          </button>
+          <button
+            type="button"
+            onClick={() => setLoggedIn(false)}
+            className="btn--ghost py-2 px-4 text-micro"
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
         {[
           { label: 'Active Projects', value: '3', change: '+1' },
           { label: 'Pending Reviews', value: '2', change: '-1' },
@@ -114,12 +129,12 @@ export default function Portal() {
         <div className="space-y-4">
           {activeProjects.map((project, i) => (
             <div key={i} className="border-thin p-4">
-              <div className="flex justify-between items-center mb-2">
+              <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
                 <h3 className="font-display font-semibold">{project.name}</h3>
                 <Tag variant="safety">{project.status}</Tag>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="flex-1 h-2 bg-[var(--surface)] border-thin">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <div className="flex-1 min-w-[120px] h-2 bg-[var(--surface)] border-thin">
                   <div
                     className="h-full bg-[var(--safety)]"
                     style={{ width: `${project.progress}%` }}

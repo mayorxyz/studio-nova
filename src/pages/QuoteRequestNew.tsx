@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SectionEyebrow, Tag, Button } from '../components/atomic';
+import { Tag, Button } from '../components/atomic';
 import { 
   CodeIcon, 
   PaletteIcon, 
@@ -23,7 +23,7 @@ export default function QuoteRequestNew() {
     budget: '',
     scope: '',
     launchDate: '',
-    files: [] as File[],
+    files: [] as { id: string; file: File }[],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -53,14 +53,21 @@ export default function QuoteRequestNew() {
 
   const handleFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const files = Array.from(e.dataTransfer.files);
-    setFormData(prev => ({ ...prev, files: [...prev.files, ...files] }));
+    const newFiles = Array.from(e.dataTransfer.files).map(file => ({
+      id: Math.random().toString(36).substring(7),
+      file
+    }));
+    setFormData(prev => ({ ...prev, files: [...prev.files, ...newFiles] }));
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const files = Array.from(e.target.files);
-      setFormData(prev => ({ ...prev, files: [...prev.files, ...files] }));
+      const newFiles = Array.from(e.target.files).map(file => ({
+        id: Math.random().toString(36).substring(7),
+        file
+      }));
+      setFormData(prev => ({ ...prev, files: [...prev.files, ...newFiles] }));
+      e.target.value = ''; // Reset input to allow selecting the same file again
     }
   };
 
@@ -75,24 +82,32 @@ export default function QuoteRequestNew() {
   return (
     <div className="pb-20">
       {/* Hero Banner */}
-      <section className="hero" style={{ minHeight: '40vh' }}>
-        <div className="max-w-[1400px] mx-auto w-full text-center">
+      <section className="hero relative overflow-hidden" style={{ minHeight: '40vh' }}>
+        <div className="max-w-[1400px] mx-auto w-full text-center px-4">
           <h1 className="text-h1 mb-6 reveal">
             Get a Custom <span className="text-[var(--safety)]">Quote</span> for Your Project
           </h1>
           <div className="flex flex-wrap gap-4 justify-center mb-8 reveal" style={{ transitionDelay: '0.1s' }}>
-            <Tag variant="safety"><LightningIcon size={14} className="inline mr-1" /> Average Response Time: &lt; 4 Hours</Tag>
-            <Tag variant="ghost"><ClockIcon size={14} className="inline mr-1" /> Takes ~2 mins to complete</Tag>
+            <Tag variant="safety">
+              <LightningIcon size={14} className="inline mr-1" /> 
+              Average Response Time: &lt; 4 Hours
+            </Tag>
+            <Tag variant="ghost">
+              <ClockIcon size={14} className="inline mr-1" /> 
+              Takes ~2 mins to complete
+            </Tag>
           </div>
         </div>
       </section>
 
       {/* Form Section */}
       <section className="section">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12">
+            
             {/* Left Column - Form */}
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-10">
+              
               {/* Contact Info */}
               <div className="reveal">
                 <h2 className="text-h3 mb-6">Contact Information</h2>
@@ -104,7 +119,7 @@ export default function QuoteRequestNew() {
                       required
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] rounded-md transition-colors"
                       placeholder="Your name"
                     />
                   </div>
@@ -115,7 +130,7 @@ export default function QuoteRequestNew() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] rounded-md transition-colors"
                       placeholder="your@company.com"
                     />
                   </div>
@@ -125,7 +140,7 @@ export default function QuoteRequestNew() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] rounded-md transition-colors"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -135,7 +150,7 @@ export default function QuoteRequestNew() {
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] rounded-md transition-colors"
                       placeholder="Your company or website"
                     />
                   </div>
@@ -149,7 +164,7 @@ export default function QuoteRequestNew() {
                   {serviceOptions.map((service) => (
                     <label
                       key={service.id}
-                      className={`bento-card cursor-pointer transition-all hover-lift ${
+                      className={`bento-card cursor-pointer transition-all hover-lift flex flex-col items-center text-center p-6 ${
                         formData.services.includes(service.id) ? 'bento-card--safety' : ''
                       }`}
                     >
@@ -159,7 +174,7 @@ export default function QuoteRequestNew() {
                         onChange={() => handleServiceToggle(service.id)}
                         className="sr-only"
                       />
-                      <div className="text-4xl mb-2">{service.icon}</div>
+                      <div className="mb-3 text-[var(--safety)]">{service.icon}</div>
                       <div className="text-data font-semibold">{service.label}</div>
                     </label>
                   ))}
@@ -175,10 +190,10 @@ export default function QuoteRequestNew() {
                       key={range.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, budget: range.value })}
-                      className={`px-6 py-3 border-hard transition-all ${
+                      className={`px-6 py-3 border-hard rounded-md transition-all font-mono text-sm ${
                         formData.budget === range.value
                           ? 'bg-[var(--safety)] text-[var(--ink)] border-[var(--safety)]'
-                          : 'bg-[var(--base)] hover:border-[var(--safety)]'
+                          : 'bg-[var(--base)] text-[var(--muted)] hover:border-[var(--safety)] hover:text-[var(--ink)]'
                       }`}
                     >
                       {range.label}
@@ -198,7 +213,7 @@ export default function QuoteRequestNew() {
                       value={formData.scope}
                       onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
                       rows={6}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] resize-none"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] resize-none rounded-md transition-colors"
                       placeholder="Describe your project goals, target audience, and key features..."
                     />
                     <div className="text-micro text-[var(--muted)] mt-1 text-right">
@@ -210,7 +225,7 @@ export default function QuoteRequestNew() {
                     <select
                       value={formData.launchDate}
                       onChange={(e) => setFormData({ ...formData, launchDate: e.target.value })}
-                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)]"
+                      className="w-full px-4 py-3 border-hard bg-[var(--base)] font-mono text-sm focus:outline-none focus:border-[var(--safety)] rounded-md transition-colors"
                     >
                       <option value="">Select timeline</option>
                       <option value="asap">ASAP</option>
@@ -228,7 +243,7 @@ export default function QuoteRequestNew() {
                 <div
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleFileDrop}
-                  className="border-hard border-dashed p-8 text-center hover:border-[var(--safety)] transition-colors cursor-pointer"
+                  className="border-hard border-dashed border-2 p-8 text-center hover:border-[var(--safety)] hover:bg-[var(--safety)]/5 transition-all cursor-pointer rounded-md"
                 >
                   <input
                     type="file"
@@ -238,33 +253,37 @@ export default function QuoteRequestNew() {
                     className="hidden"
                     id="file-upload"
                   />
-                  <label htmlFor="file-upload" className="cursor-pointer">
+                  <label htmlFor="file-upload" className="cursor-pointer block">
                     <div className="mb-3 flex justify-center">
                       <PaperclipIcon size={48} className="text-[var(--muted)]" />
                     </div>
-                    <p className="text-data mb-2">Drag & drop files here or click to browse</p>
+                    <p className="text-data mb-2 font-semibold">Drag & drop files here or click to browse</p>
                     <p className="text-micro text-[var(--muted)]">
                       Supports: PDF, DOC, PNG, JPG, FIG (max 25MB per file)
                     </p>
                   </label>
                 </div>
+                
                 {formData.files.length > 0 && (
                   <div className="mt-4 space-y-2">
-                    {formData.files.map((file, i) => (
-                      <div key={i} className="bento-card flex items-center justify-between">
-                        <div>
-                          <div className="text-data font-semibold">{file.name}</div>
-                          <div className="text-micro text-[var(--muted)]">
-                            {(file.size / 1024).toFixed(2)} KB
+                    {formData.files.map((fileObj) => (
+                      <div key={fileObj.id} className="bento-card flex items-center justify-between p-4">
+                        <div className="flex items-center gap-3 overflow-hidden">
+                          <PaperclipIcon size={20} className="text-[var(--safety)] shrink-0" />
+                          <div className="min-w-0">
+                            <div className="text-data font-semibold truncate">{fileObj.file.name}</div>
+                            <div className="text-micro text-[var(--muted)]">
+                              {(fileObj.file.size / 1024).toFixed(2)} KB
+                            </div>
                           </div>
                         </div>
                         <button
                           type="button"
                           onClick={() => setFormData(prev => ({
                             ...prev,
-                            files: prev.files.filter((_, idx) => idx !== i)
+                            files: prev.files.filter(f => f.id !== fileObj.id)
                           }))}
-                          className="text-[var(--safety)] hover:underline"
+                          className="text-[var(--safety)] hover:underline text-sm shrink-0 ml-2"
                         >
                           Remove
                         </button>
@@ -283,15 +302,17 @@ export default function QuoteRequestNew() {
                   disabled={isSubmitting}
                   className="w-full justify-center text-lg py-4"
                 >
-                {isSubmitting ? (
-                  <>
-                    <GearIcon size={16} className="animate-spin mr-2 inline" />
-                    Submitting...
-                  </>
-                ) : (
-                  'Submit Quote Request →'
-                )}                </Button>
-                <p className="text-micro text-[var(--muted)] text-center mt-4">
+                  {isSubmitting ? (
+                    <>
+                      <GearIcon size={16} className="animate-spin mr-2 inline" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Submit Quote Request →'
+                  )}
+                </Button>
+                <p className="text-micro text-[var(--muted)] text-center mt-4 flex items-center justify-center gap-2">
+                  <LockIcon size={12} />
                   We'll respond within 4 hours during business days
                 </p>
               </div>
@@ -299,12 +320,13 @@ export default function QuoteRequestNew() {
 
             {/* Right Column - Sticky Sidebar */}
             <div className="lg:sticky lg:top-24 lg:self-start space-y-6">
+              
               {/* Social Proof */}
               <div className="reveal">
                 <h3 className="text-h3 mb-4">Trusted by Industry Leaders</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {['Neon Coffee', 'FinFlow', 'EcoThread', 'SoundWave'].map((client, i) => (
-                    <div key={i} className="bento-card text-center py-4">
+                    <div key={i} className="bento-card text-center py-4 px-2">
                       <div className="text-data font-semibold">{client}</div>
                     </div>
                   ))}
@@ -312,42 +334,41 @@ export default function QuoteRequestNew() {
               </div>
 
               {/* Testimonial */}
-              <div className="bento-card bento-card--dark reveal" style={{ transitionDelay: '0.1s' }}>
+              <div className="bento-card bento-card--dark reveal p-6" style={{ transitionDelay: '0.1s' }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[var(--safety)] rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">SC</span>
+                  <div className="w-12 h-12 bg-[var(--safety)] rounded-full flex items-center justify-center shrink-0">
+                    <span className="text-[var(--ink)] font-bold">SC</span>
                   </div>
                   <div>
                     <div className="text-data font-semibold text-[var(--base)]">Sarah Chen</div>
                     <div className="text-micro text-[var(--muted)]">CEO, Neon Coffee</div>
                   </div>
                 </div>
-                <p className="text-data text-[var(--muted)] mb-3 italic">
+                <p className="text-data text-[var(--muted)] mb-3 italic leading-relaxed">
                   "Studio Nova delivered our rebrand 2 weeks ahead of schedule. The ROI has been incredible - 340% increase in online sales."
                 </p>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-[var(--safety)]">★</span>
+                    <span key={i} className="text-[var(--safety)] text-lg">★</span>
                   ))}
                 </div>
               </div>
 
               {/* Security Badge */}
-              <div className="bento-card reveal" style={{ transitionDelay: '0.2s' }}>
-                <div className="text-center">
-                  <div className="mb-3 flex justify-center">
-                    <LockIcon size={48} className="text-[var(--safety)]" />
-                  </div>
-                  <h3 className="text-h3 mb-2">100% Confidential</h3>
-                  <p className="text-data text-[var(--muted)] mb-4">
-                    We sign NDAs upon request. Your project details are secure with us.
-                  </p>
-                  <div className="flex justify-center gap-4">
-                    <Tag variant="ghost">SSL Secured</Tag>
-                    <Tag variant="ghost">GDPR Compliant</Tag>
-                  </div>
+              <div className="bento-card reveal p-6 text-center" style={{ transitionDelay: '0.2s' }}>
+                <div className="mb-3 flex justify-center">
+                  <LockIcon size={48} className="text-[var(--safety)]" />
+                </div>
+                <h3 className="text-h3 mb-2">100% Confidential</h3>
+                <p className="text-data text-[var(--muted)] mb-4 leading-relaxed">
+                  We sign NDAs upon request. Your project details are secure with us.
+                </p>
+                <div className="flex justify-center gap-2 flex-wrap">
+                  <Tag variant="ghost">SSL Secured</Tag>
+                  <Tag variant="ghost">GDPR Compliant</Tag>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

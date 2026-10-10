@@ -25,12 +25,12 @@ export default function PortalSettings() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-h2">Settings</h1>
           <p className="text-data text-[var(--muted)]">Manage your account and preferences</p>
         </div>
-        <Link to="/portal" className="btn--ghost">
+        <Link to="/portal" className="btn--ghost py-2 px-4 self-start sm:self-auto">
           ← Back to Dashboard
         </Link>
       </div>
@@ -88,7 +88,7 @@ export default function PortalSettings() {
         <h2 className="text-h3 mb-6">Notification Preferences</h2>
         <div className="space-y-4">
           {Object.entries(notifications).map(([key, value]) => (
-            <div key={key} className="flex items-center justify-between p-4 border-thin">
+            <div key={key} className="setting-row p-4 border-thin">
               <div>
                 <div className="text-data font-semibold capitalize">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -122,7 +122,7 @@ export default function PortalSettings() {
       <BentoCard className="mb-6">
         <h2 className="text-h3 mb-6">Security</h2>
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Password</div>
               <div className="text-micro text-[var(--muted)]">Last changed 30 days ago</div>
@@ -131,14 +131,14 @@ export default function PortalSettings() {
               Change Password
             </Button>
           </div>
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Two-Factor Authentication</div>
               <div className="text-micro text-[var(--muted)]">Add an extra layer of security</div>
             </div>
             <Tag variant="safety">Enabled</Tag>
           </div>
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Active Sessions</div>
               <div className="text-micro text-[var(--muted)]">2 devices currently logged in</div>
@@ -154,14 +154,14 @@ export default function PortalSettings() {
       <BentoCard className="mb-6">
         <h2 className="text-h3 mb-6">Billing & Subscription</h2>
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Current Plan</div>
               <div className="text-micro text-[var(--muted)]">Enterprise - $50,000/year</div>
             </div>
             <Tag variant="safety">Active</Tag>
           </div>
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Payment Method</div>
               <div className="text-micro text-[var(--muted)]">Visa ending in 4242</div>
@@ -170,7 +170,7 @@ export default function PortalSettings() {
               Update
             </Button>
           </div>
-          <div className="flex items-center justify-between p-4 border-thin">
+          <div className="setting-row p-4 border-thin">
             <div>
               <div className="text-data font-semibold">Next Invoice</div>
               <div className="text-micro text-[var(--muted)]">Due on March 1, 2024</div>
@@ -186,7 +186,7 @@ export default function PortalSettings() {
       <BentoCard variant="dark">
         <h2 className="text-h3 mb-6 text-[var(--safety)]">Danger Zone</h2>
         <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 border border-[var(--safety)]/30">
+          <div className="setting-row p-4 border border-[var(--safety)]/30">
             <div>
               <div className="text-data font-semibold text-[var(--base)]">Export Data</div>
               <div className="text-micro text-[var(--muted)]">Download all your data in JSON format</div>
@@ -195,7 +195,7 @@ export default function PortalSettings() {
               Export
             </Button>
           </div>
-          <div className="flex items-center justify-between p-4 border border-red-500/30">
+          <div className="setting-row p-4 border border-red-500/30">
             <div>
               <div className="text-data font-semibold text-[var(--base)]">Delete Account</div>
               <div className="text-micro text-[var(--muted)]">Permanently delete your account and all data</div>

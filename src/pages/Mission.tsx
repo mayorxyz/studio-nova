@@ -15,47 +15,47 @@ export default function Mission() {
 
   const values = [
     {
-      icon: '🎯',
+      icon: '01',
       title: 'Radical Transparency',
       description: 'We believe in complete openness with our clients, team, and community. Every decision, challenge, and success is shared honestly. No hidden agendas, no corporate speak—just real conversations that build trust and drive better outcomes.'
     },
     {
-      icon: '❤️',
+      icon: '02',
       title: 'Customer-Obsessed',
       description: 'Every pixel, every line of code, every strategy session starts with one question: "How does this help our customer?" We don\'t just meet expectations—we anticipate needs and exceed them consistently. Your success is our obsession.'
     },
     {
-      icon: '⚡',
+      icon: '03',
       title: 'Bias for Action',
       description: 'In a world of endless planning and analysis paralysis, we choose to move. We believe that done is better than perfect, and that momentum creates opportunities. We ship fast, learn quickly, and iterate relentlessly.'
     },
     {
-      icon: '🤝',
+      icon: '04',
       title: 'Collaborative Spirit',
       description: 'Great work happens when diverse minds come together. We foster an environment where every voice is heard, every idea is considered, and every team member feels empowered to contribute their unique perspective to our collective success.'
     },
     {
-      icon: '🌱',
+      icon: '05',
       title: 'Continuous Growth',
       description: 'We\'re never satisfied with "good enough." We invest in learning, experimentation, and personal development. Every project is an opportunity to push boundaries, every challenge is a chance to evolve, and every day is a step forward.'
     },
     {
-      icon: '🎨',
+      icon: '06',
       title: 'Craft & Quality',
       description: 'We take pride in our work. From the smallest interaction to the grandest strategy, we obsess over details and refuse to compromise on quality. We believe that excellence is not an act, but a habit woven into everything we do.'
     },
   ];
 
   const timeline = [
-    { year: '2016', title: 'Founded', description: 'Studio Nova started as a two-person design studio in San Francisco with a mission to democratize great design.', icon: '🚀' },
-    { year: '2017', title: 'First Major Client', description: 'Landed our first Fortune 500 client, proving that small teams can deliver enterprise-quality work.', icon: '🏆' },
-    { year: '2018', title: 'Series A Funding', description: 'Raised $5M in Series A funding to expand our team and invest in cutting-edge design tools.', icon: '💰' },
-    { year: '2019', title: 'V1 Platform Launch', description: 'Launched our proprietary design platform, enabling faster collaboration and better client experiences.', icon: '💻' },
-    { year: '2020', title: 'Global Expansion', description: 'Opened offices in London and Tokyo, serving clients across 50+ countries worldwide.', icon: '🌍' },
-    { year: '2021', title: '100 Team Members', description: 'Grew to 100 talented designers, developers, and strategists united by our core values.', icon: '👥' },
-    { year: '2022', title: 'Industry Recognition', description: 'Won multiple Awwwards, CSS Design Awards, and Webby Awards for outstanding design work.', icon: '🏅' },
-    { year: '2023', title: 'AI Integration', description: 'Pioneered AI-assisted design workflows, reducing project timelines by 40% while maintaining quality.', icon: '🤖' },
-    { year: '2024', title: 'Present Day', description: 'Serving 500K+ users across 150+ countries, continuing to push the boundaries of digital design.', icon: '✨' },
+    { year: '2016', title: 'Founded', description: 'Studio Nova started as a two-person design studio in San Francisco with a mission to democratize great design.' },
+    { year: '2017', title: 'First Major Client', description: 'Landed our first Fortune 500 client, proving that small teams can deliver enterprise-quality work.' },
+    { year: '2018', title: 'Series A Funding', description: 'Raised $5M in Series A funding to expand our team and invest in cutting-edge design tools.' },
+    { year: '2019', title: 'V1 Platform Launch', description: 'Launched our proprietary design platform, enabling faster collaboration and better client experiences.' },
+    { year: '2020', title: 'Global Expansion', description: 'Opened offices in London and Tokyo, serving clients across 50+ countries worldwide.' },
+    { year: '2021', title: '100 Team Members', description: 'Grew to 100 talented designers, developers, and strategists united by our core values.' },
+    { year: '2022', title: 'Industry Recognition', description: 'Won multiple Awwwards, CSS Design Awards, and Webby Awards for outstanding design work.' },
+    { year: '2023', title: 'AI Integration', description: 'Pioneered AI-assisted design workflows, reducing project timelines by 40% while maintaining quality.' },
+    { year: '2024', title: 'Present Day', description: 'Serving 500K+ users across 150+ countries, continuing to push the boundaries of digital design.' },
   ];
 
   useEffect(() => {
@@ -149,10 +149,12 @@ export default function Mission() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {values.map((value, i) => (
-              <div key={i} className="bento-card hover-lift">
-                <div className="text-5xl mb-4">{value.icon}</div>
+              <div key={i} className="bento-card hover-lift flex h-full flex-col items-start">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--safety)] text-xs font-bold tracking-[0.2em]">
+                  {value.icon}
+                </div>
                 <h3 className="text-h3 mb-3">{value.title}</h3>
                 <p className="text-data text-[var(--muted)] leading-relaxed">
                   {value.description}
@@ -174,33 +176,40 @@ export default function Mission() {
           </div>
 
           <div className="relative">
-            {/* Central Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--safety)]" />
+            {/* Line — desktop only, trimmed to sit between first and last dot */}
+            <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-[var(--safety)] opacity-30 top-8 bottom-8" />
 
-            {/* Timeline Items */}
-            <div className="space-y-12">
+            {/* Mobile left-rail line */}
+            <div className="block md:hidden absolute left-5 top-0 bottom-0 w-px bg-[var(--safety)] opacity-30" />
+
+            <div className="space-y-8 md:space-y-12">
               {timeline.map((item, i) => (
-                <div key={i} className={`flex items-center ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  {/* Content */}
-                  <div className={`w-5/12 ${i % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                <div
+                  key={i}
+                  className={`relative flex flex-col md:flex-row md:items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                >
+                  {/* Mobile dot */}
+                  <div className="md:hidden absolute left-0 top-4 z-10 w-10 h-10 rounded-full bg-[var(--safety)] border-2 border-[var(--base)] flex items-center justify-center text-[0.6rem] font-bold text-[var(--ink)] flex-shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+
+                  {/* Card */}
+                  <div className={`w-full md:w-5/12 pl-14 md:pl-0 ${i % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
                     <div className="bento-card hover-lift">
                       <div className="text-h3 text-[var(--safety)] mb-2">{item.year}</div>
                       <h3 className="text-h3 mb-3">{item.title}</h3>
-                      <p className="text-data text-[var(--muted)] leading-relaxed">
-                        {item.description}
-                      </p>
+                      <p className="text-data text-[var(--muted)] leading-relaxed">{item.description}</p>
                     </div>
                   </div>
 
-                  {/* Center Icon */}
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-16 h-16 bg-[var(--safety)] rounded-full flex items-center justify-center text-3xl border-4 border-[var(--base)] shadow-lg">
-                      {item.icon}
+                  {/* Desktop center dot */}
+                  <div className="hidden md:flex w-2/12 justify-center relative z-10">
+                    <div className="w-16 h-16 bg-[var(--safety)] rounded-full flex items-center justify-center text-xs font-bold tracking-[0.2em] text-[var(--ink)] border-4 border-[var(--base)] shadow-lg">
+                      {String(i + 1).padStart(2, '0')}
                     </div>
                   </div>
 
-                  {/* Empty Space */}
-                  <div className="w-5/12" />
+                  <div className="hidden md:block md:w-5/12" />
                 </div>
               ))}
             </div>
@@ -213,8 +222,8 @@ export default function Mission() {
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Careers CTA */}
-            <div className="bento-card bento-card--dark hover-lift">
-              <div className="text-5xl mb-4">💼</div>
+            <div className="bento-card bento-card--dark hover-lift flex h-full flex-col items-start">
+              
               <h3 className="text-h2 text-[var(--base)] mb-4">Want to build with us?</h3>
               <p className="text-data text-[var(--muted)] mb-6 leading-relaxed">
                 Join our team of passionate designers, developers, and strategists. We're always looking for talented people who share our values and vision.
@@ -225,8 +234,8 @@ export default function Mission() {
             </div>
 
             {/* Partnerships CTA */}
-            <div className="bento-card bento-card--dark hover-lift">
-              <div className="text-5xl mb-4">🤝</div>
+            <div className="bento-card bento-card--dark hover-lift flex h-full flex-col items-start">
+            
               <h3 className="text-h2 text-[var(--base)] mb-4">Interested in partnering?</h3>
               <p className="text-data text-[var(--muted)] mb-6 leading-relaxed">
                 We collaborate with forward-thinking companies to create exceptional digital experiences. Let's explore how we can work together.

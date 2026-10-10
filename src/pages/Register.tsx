@@ -54,7 +54,6 @@ export default function Register() {
     e.preventDefault();
     if (isFormValid()) {
       // Simulate registration
-      console.log('Registration:', formData);
       // Redirect to dashboard or login
       window.location.href = '/portal';
     }

@@ -220,32 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="section--dark">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="section__header reveal">
-            <div className="section__label text-[var(--muted)]">Client Voices</div>
-            <h2 className="text-h1">What they<br /><span className="text-[var(--safety)]">say.</span></h2>
-          </div>
-
-          <div className="grid-3">
-            {[
-              { quote: "Studio Nova transformed our brand from the ground up. The results speak for themselves — 340% increase in online revenue.", author: 'Sarah Chen', role: 'CEO, Neon Coffee' },
-              { quote: "Their process is meticulous. Every decision backed by data, every pixel placed with purpose. Best agency we've worked with.", author: 'Marcus Rivera', role: 'CTO, FinFlow' },
-              { quote: "They don't just design — they solve business problems through design. Our conversion rate doubled within 3 months.", author: 'Emma Larsson', role: 'Founder, EcoThread' },
-            ].map((t, i) => (
-              <div key={i} className="bento-card bento-card--dark reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <div className="text-[var(--safety)] text-4xl mb-4">"</div>
-                <p className="text-data text-[var(--base)] mb-6">{t.quote}</p>
-                <div className="border-t border-[#333] pt-4">
-                  <div className="font-display font-semibold text-[var(--base)]">{t.author}</div>
-                  <div className="text-micro text-[var(--muted)]">{t.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  
 
       {/* Clients */}
       <section className="section">

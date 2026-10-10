@@ -37,7 +37,12 @@ export function DashboardLayout({
   className = '',
 }: DashboardLayoutProps) {
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
-  
+
+  /** Leave the client portal and go back to the public Studio Nova site. */
+  const exitPortal = () => {
+    window.location.href = '/';
+  };
+
   // Default sidebar items with navigation
   const defaultSidebarItems: SidebarItem[] = [
     { icon: '◈', label: 'Dashboard', active: false, onClick: () => window.location.href = '/portal' },
@@ -45,6 +50,7 @@ export function DashboardLayout({
     { icon: '△', label: 'Invoices', active: false, onClick: () => window.location.href = '/portal/invoices' },
     { icon: '○', label: 'Messages', active: false, onClick: () => window.location.href = '/portal/messages' },
     { icon: '□', label: 'Settings', active: false, onClick: () => window.location.href = '/portal/settings' },
+    { icon: '←', label: 'Exit Portal', variant: 'exit', onClick: exitPortal },
   ];
 
   // Determine active item based on current path
@@ -60,12 +66,27 @@ export function DashboardLayout({
   }));
 
   return (
-    <div className="flex min-h-[calc(100vh-64px)]">
+    <div className="flex flex-col md:flex-row min-h-screen md:min-h-[calc(100vh-64px)]">
       {/* Atomic Sidebar with terminal footer */}
       <Sidebar
         items={itemsWithActiveState}
         collapsed={collapsed}
         onToggle={() => setCollapsed(!collapsed)}
+        id="portal-nav"
+        mobileTitle={
+          <Link to="/" aria-label="Studio Nova home">
+            STUDIO<span className="text-[var(--safety)]">NOVA</span>
+          </Link>
+        }
+        mobileAction={
+          <Link
+            to="/"
+            className="sidebar__mobile-exit"
+            aria-label="Exit portal and return to the Studio Nova website"
+          >
+            ← Exit
+          </Link>
+        }
         header={
           <div className="flex items-center justify-between w-full">
             {!collapsed && (
@@ -113,22 +134,26 @@ export function DashboardLayout({
 
       {/* Main dashboard content */}
       <main
-        className={`flex-1 p-6 md:p-8 bg-[var(--surface)] overflow-auto ${className}`.trim()}
+        className={`flex-1 min-w-0 p-4 sm:p-6 md:p-8 bg-[var(--surface)] overflow-auto ${className}`.trim()}
       >
         <div className="max-w-6xl mx-auto">
-          {/* Dashboard header bar */}
-          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[var(--ink)]">
-            <div>
-              <Link
-                to="/portal"
-                className="md:hidden text-[var(--safety)] text-sm font-mono uppercase tracking-wider"
-              >
-                ← Back
-              </Link>
-            </div>
-            <div className="flex items-center gap-2">
+          {/* Dashboard header bar — wraps on narrow phones so the status
+              readout never gets pushed off-screen. */}
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 mb-6 md:mb-8 pb-4 border-b border-[var(--ink)]">
+            <Link
+              to="/portal"
+              className={`${
+                currentPath === '/portal' ? 'hidden' : ''
+              } md:hidden text-[var(--safety)] text-sm font-mono uppercase tracking-wider`}
+            >
+              ← Dashboard
+            </Link>
+            <span className="hidden md:inline text-micro text-[var(--muted)] uppercase tracking-wider">
+              Client Workspace
+            </span>
+            <div className="flex items-center gap-2 ml-auto">
               <div className="header__status-dot" />
-              <span className="text-micro text-[var(--muted)]">
+              <span className="text-micro text-[var(--muted)] whitespace-nowrap">
                 All systems operational
               </span>
             </div>

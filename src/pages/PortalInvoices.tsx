@@ -48,18 +48,18 @@ export default function PortalInvoices() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-h2">Invoices</h1>
           <p className="text-data text-[var(--muted)]">View and manage your invoices</p>
         </div>
-        <Link to="/portal" className="btn--ghost">
+        <Link to="/portal" className="btn--ghost py-2 px-4 self-start sm:self-auto">
           ← Back to Dashboard
         </Link>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <BentoCard variant="dark">
           <div className="text-micro text-[var(--muted)] mb-2">Total Paid</div>
           <div className="text-h2 text-[var(--term-green)]">
@@ -82,16 +82,16 @@ export default function PortalInvoices() {
       <div className="space-y-4">
         {invoices.map((invoice, i) => (
           <BentoCard key={invoice.id} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-            <div className="flex justify-between items-start">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h2 className="text-h3 font-mono">{invoice.id}</h2>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <h2 className="text-h3 font-mono break-all">{invoice.id}</h2>
                   <Tag variant={invoice.status === 'Paid' ? 'safety' : 'ghost'}>
                     {invoice.status}
                   </Tag>
                 </div>
                 <p className="text-data text-[var(--muted)] mb-3">{invoice.project}</p>
-                <div className="flex gap-6 text-micro text-[var(--muted)]">
+                <div className="flex flex-wrap gap-x-6 gap-y-1 text-micro text-[var(--muted)]">
                   <div>
                     <span className="font-semibold">Issued:</span> {invoice.date}
                   </div>
@@ -100,16 +100,16 @@ export default function PortalInvoices() {
                   </div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-h2 text-[var(--safety)] mb-2">
+              <div className="sm:text-right shrink-0">
+                <div className="text-h3 sm:text-h2 text-[var(--safety)] mb-2">
                   ${invoice.amount.toLocaleString()}
                 </div>
-                <div className="flex gap-2">
-                  <button className="btn--ghost !py-2 !px-4 !text-xs">
+                <div className="flex flex-wrap gap-2 sm:justify-end">
+                  <button className="btn--ghost py-2 px-4 text-micro flex-1 sm:flex-none whitespace-nowrap">
                     Download PDF
                   </button>
                   {invoice.status === 'Pending' && (
-                    <button className="btn--primary !py-2 !px-4 !text-xs">
+                    <button className="btn--primary py-2 px-4 text-micro flex-1 sm:flex-none whitespace-nowrap">
                       Pay Now
                     </button>
                   )}
@@ -127,8 +127,8 @@ export default function PortalInvoices() {
           All payments are processed securely. Invoices are due within 15 days of issuance.
           Late payments may incur additional fees as outlined in our Terms of Service.
         </p>
-        <div className="flex gap-4">
-          <a href="mailto:billing@studionova.com" className="text-data text-[var(--safety)] hover:underline">
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <a href="mailto:billing@studionova.com" className="text-data text-[var(--safety)] hover:underline break-all">
             billing@studionova.com
           </a>
           <Link to="/terms-of-service" className="text-data text-[var(--safety)] hover:underline">

@@ -84,8 +84,6 @@ export default function EventRegistration() {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    console.log('Registration submitted:', formData);
-
     // Navigate to success page
     navigate(`/events/${slug}/registered`);
   };

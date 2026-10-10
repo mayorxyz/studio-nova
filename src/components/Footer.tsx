@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 
 // ─── Scoped Styles ───────────────────────────────────────────────────────────
 const footerStyles = `
+  /* Force footer to always be dark, regardless of global theme */
+  .footer {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+  }
+
   /* ── Footer 12-Column Grid ── */
   .footer__top {
     display: grid;
@@ -18,11 +24,12 @@ const footerStyles = `
   .footer__col--insights { grid-column: span 2; }
   .footer__col--connect { grid-column: span 3; }
 
+  /* Brand */
   .footer__brand-title {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--base);
+    color: #ffffff;
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
   }
@@ -31,16 +38,44 @@ const footerStyles = `
   .footer__brand-tagline {
     font-family: 'JetBrains Mono', monospace;
     font-size: var(--fs-data);
-    color: var(--muted);
+    color: #ffffff;
+    opacity: 0.65;
     line-height: 1.6;
     max-width: 320px;
   }
 
+  /* Columns */
+  .footer__col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--safety);
+    margin-bottom: 1rem;
+  }
+
+  .footer__col a {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-data);
+    color: #ffffff;
+    opacity: 0.65;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: opacity 0.15s ease, color 0.15s ease;
+  }
+
+  .footer__col a:hover {
+    color: var(--safety);
+    opacity: 1;
+  }
+
+  /* Bottom Bar */
   .footer__bottom {
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 1.5rem;
-    border-top: 1px solid #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,26 +83,55 @@ const footerStyles = `
     gap: 1rem;
   }
 
+  /* Theme-agnostic subtle border using pseudo-element */
+  .footer__bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ffffff;
+    opacity: 0.15;
+  }
+
+  .footer__copyright {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
   .footer__bottom-center {
     display: flex;
     gap: 1.5rem;
     align-items: center;
   }
+  
   .footer__bottom-center a {
     font-family: 'JetBrains Mono', monospace;
     font-size: var(--fs-micro);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--muted);
+    color: #ffffff;
+    opacity: 0.65;
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: opacity 0.15s ease, color 0.15s ease;
   }
-  .footer__bottom-center a:hover { color: var(--safety); }
+  
+  .footer__bottom-center a:hover { 
+    color: var(--safety); 
+    opacity: 1;
+  }
 
-  .footer__back-to-top {
+  /* Unified Buttons */
+  .footer__btn {
     background: transparent;
-    border: 1px solid var(--muted);
-    color: var(--muted);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    opacity: 0.8;
     font-family: 'JetBrains Mono', monospace;
     font-size: var(--fs-micro);
     text-transform: uppercase;
@@ -75,12 +139,23 @@ const footerStyles = `
     padding: 0.4rem 0.8rem;
     cursor: pointer;
     transition: all 0.15s ease;
-  }
-  .footer__back-to-top:hover {
-    border-color: var(--safety);
-    color: var(--safety);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
+  .footer__btn:hover {
+    border-color: var(--safety);
+    color: var(--safety);
+    opacity: 1;
+  }
+
+  .footer__theme-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
     .footer__top {
       grid-template-columns: repeat(2, 1fr);
@@ -209,8 +284,8 @@ export default function Footer() {
 
         {/* Bottom Utility Bar */}
         <div className="footer__bottom">
-          <span className="text-[var(--fs-micro)] uppercase tracking-widest text-[var(--muted)]">
-            © 2024 Studio Nova. All rights reserved.
+          <span className="footer__copyright">
+            © {new Date().getFullYear()} Studio Nova. All rights reserved.
           </span>
 
           <div className="footer__bottom-center">
@@ -219,9 +294,11 @@ export default function Footer() {
             <Link to="/cookie-policy">Cookie Policy</Link>
           </div>
 
-          <button className="footer__back-to-top" onClick={scrollToTop}>
-            Back to Top
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button className="footer__btn" onClick={scrollToTop}>
+              Back to Top
+            </button>
+          </div>
         </div>
       </footer>
     </>

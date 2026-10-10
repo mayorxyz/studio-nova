@@ -102,8 +102,6 @@ export default function JobApplication() {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    console.log('Application submitted:', formData);
-
     // Navigate to success page
     navigate(`/careers/${slug}/applied`);
   };
